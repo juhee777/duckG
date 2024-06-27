@@ -25,6 +25,7 @@ public class FrontController extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
+		//홈페이지
 		map.put("/main.do", new MainControl());
 		
 		//로그인
