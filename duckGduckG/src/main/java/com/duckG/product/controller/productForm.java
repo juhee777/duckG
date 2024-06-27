@@ -1,4 +1,4 @@
-package com.duckG.product.web;
+package com.duckG.product.controller;
 
 import java.io.IOException;
 
