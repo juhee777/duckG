@@ -16,8 +16,8 @@
 				<property name="driver" value="oracle.jdbc.OracleDriver" />
 				<property name="url"
 					value="jdbc:oracle:thin:@localhost:1521:xe" />
-				<property name="username" value="jsp" />
-				<property name="password" value="jsp" />
+				<property name="username" value="duckG" />
+				<property name="password" value="duckG" />
 			</dataSource>
 		</environment>
 	</environments>

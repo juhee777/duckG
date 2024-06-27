@@ -110,11 +110,11 @@
 						<div class="header__top__right">
 							<div class="header__top__right__auth">
 								<c:choose>
-									<c:when test="${logId == nulll }">
-										<a href="loginForm.do"><i class="fa fa-user"></i> Login</a>
+									<c:when test="${logId != nulll }">
+										<a href="logout.do"><i class="fa fa-user"></i> Logout</a>
 									</c:when>
 									<c:otherwise>
-										<a href="logout.do"><i class="fa fa-user"></i> Logout</a>
+										<a href="loginForm.do"><i class="fa fa-user"></i> Login</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
