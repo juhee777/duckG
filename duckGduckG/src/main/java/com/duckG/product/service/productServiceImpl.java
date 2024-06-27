@@ -4,10 +4,10 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.duckG.product.mapper.productMapper;
 
-import co.yedam.common.DetaSource;
+import com.duckG.DataSource;
 
 public class productServiceImpl implements productService{
-	SqlSession sqlSession = DetaSource.getInstance().openSession(true);
+	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	productMapper mapper = sqlSession.getMapper(productMapper.class);
 
 }
