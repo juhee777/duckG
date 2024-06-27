@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="mainapp" template="/WEB-INF/layouts/baseTemp.jsp">
+    <put-attribute name="title" value="DuckG_DuckG" />
+    <put-attribute name="body" value="/WEB-INF/layouts/body.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:main/*" extends="mainapp">
+  	<put-attribute name="search" value="/WEB-INF/layouts/search.jsp" />
+  	<put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:search/*" extends="mainapp">
+  	<put-attribute name="search" value="/WEB-INF/layouts/search.jsp" />
+  	<put-attribute name="body" value="/WEB-INF/view/search/{2}.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="mainapp">
+  	<put-attribute name="search" value="/WEB-INF/layouts/search_dump.jsp" />
+  	<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp" />
+  </definition>
+  
+</tiles-definitions>
