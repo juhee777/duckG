@@ -90,6 +90,11 @@
 			<version>2.16.1</version>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>co.yedam</groupId>
+			<artifactId>BordWeb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+  </dependencies>
   
 </project>
