@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.duckG.main.MainControl;
 import com.duckG.member.controller.LoginForm;
-import com.duckG.product.web.productForm;
+import com.duckG.product.controller.productForm;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
 // main.do -> FrontController -> /WEB-INF/public/main.jsp
