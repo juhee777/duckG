@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.duckG.Control;
 
-public class productForm implements Control {
+public class ProductDetailForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		req.getRequestDispatcher("product/productForm.tiles").forward(req, resp);
+		req.getRequestDispatcher("product/productDetailForm.tiles").forward(req, resp);
 	}
 
 }
