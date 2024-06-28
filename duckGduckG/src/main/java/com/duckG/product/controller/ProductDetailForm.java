@@ -12,7 +12,11 @@ public class ProductDetailForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
+		int productNo = Integer.parseInt(req.getParameter("productNo"));
+		
+		req.setAttribute("productNo", productNo);
+
 		req.getRequestDispatcher("product/productDetailForm.tiles").forward(req, resp);
 	}
 
