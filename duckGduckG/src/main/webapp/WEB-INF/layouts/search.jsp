@@ -64,4 +64,3 @@
 <table class="table">
 
 </table>
->>>>>>> branch 'master' of https://github.com/MiAnHaeRa/duckG.git
