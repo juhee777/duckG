@@ -21,7 +21,9 @@ import com.duckG.jjim.controller.SelectJjim;
 import com.duckG.jjim.controller.UpdateJjim;
 import com.duckG.main.MainControl;
 import com.duckG.member.controller.AddMember;
+import com.duckG.member.controller.ChangePw;
 import com.duckG.member.controller.DeleteMember;
+import com.duckG.member.controller.Inquire;
 import com.duckG.member.controller.LoginControl;
 import com.duckG.member.controller.LoginForm;
 import com.duckG.member.controller.LogoutControl;
@@ -66,7 +68,7 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());	//로그인창
 		map.put("/login.do", new LoginControl());	//로그인
 		map.put("/logout.do", new LogoutControl());	//로그아웃
-		map.put("registForm.do", new RegistForm());	//회원가입창
+		map.put("/registForm.do", new RegistForm());	//회원가입창
 		
 		//회원관리
 		map.put("/memberList.do", new MemberList());		//모든 회원조회
@@ -74,6 +76,8 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteMember.do", new DeleteMember());	//회원 제거 or 탈퇴
 		map.put("/updateMember.do", new UpdateMember());	//회원정보 갱신
 		map.put("/myInfo.do", new MyInfo());				//내정보
+		map.put("/changePw.do", new ChangePw());			//비밀번호 변경
+		map.put("/inquire.do", new Inquire());				//1:1 문의
 		
 		//제품관리
 		map.put("/productForm.do", new ProductForm());		//제품상세정보 페이지
