@@ -11,15 +11,15 @@
 		from product
 		where product_no = #{productNo}
 	</select>
-	
-	
 
 
-<select id="selectProduct">
-select *
-from product
-where product_name like '%'||#{keyword}||'%'
-</select>
+
+
+	<select id="selectProduct">
+		select *
+		from product
+		where product_name like '%'||#{keyword}||'%'
+	</select>
 
 
 
