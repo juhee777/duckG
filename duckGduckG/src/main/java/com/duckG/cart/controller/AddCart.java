@@ -13,7 +13,7 @@ public class AddCart implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String cartno = req.getParameter(null);
+		
 		
 
 	}
