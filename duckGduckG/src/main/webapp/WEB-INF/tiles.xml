@@ -16,7 +16,7 @@
   
   <definition name="WILDCARD:search/*" extends="mainapp">
   	<put-attribute name="search" value="/WEB-INF/layouts/search.jsp" />
-  	<put-attribute name="body" value="/WEB-INF/view/search/{2}.jsp" />
+  	<put-attribute name="body" value="/WEB-INF/view/search/{1}.jsp" />
   </definition>
   
   <definition name="WILDCARD:*/*" extends="mainapp">
