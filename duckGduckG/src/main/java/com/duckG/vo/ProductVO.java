@@ -15,6 +15,6 @@ public class ProductVO {
 	private int stock;
 	private String mainInfo;
 	private String semiInfo;
-	private int discount;
+	private double discount;
 	private int sales;
 }
