@@ -7,6 +7,9 @@
 
 
 	<select id="cartList" resultType="com.duckG.vo.CartVO">
+		select *
+		from cart
+		where member_id = #{memberId}
 	</select>
 
 
