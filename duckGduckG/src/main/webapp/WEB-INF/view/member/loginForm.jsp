@@ -61,7 +61,7 @@
 							계정이 없습니까?
 						</span>
 
-						<a class="txt2" href="#">
+						<a class="txt2" href="registForm.do">
 							회원가입
 						</a>
 					</div>
