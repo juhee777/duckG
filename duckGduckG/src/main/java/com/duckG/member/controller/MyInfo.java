@@ -12,7 +12,7 @@ public class MyInfo implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		req.getRequestDispatcher("MyInfo/MyInfo.tiles").forward(req, resp);
 
 	}
 
