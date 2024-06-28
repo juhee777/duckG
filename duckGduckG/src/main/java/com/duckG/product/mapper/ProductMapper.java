@@ -7,4 +7,5 @@ import com.duckG.vo.ProductVO;
 public interface ProductMapper {
 	List<ProductVO> productList();
 	ProductVO selectProduct(int productNo); //조회
+	List<ProductVO> productDetail(int pno);
 }
