@@ -1,5 +1,8 @@
 package com.duckG.member.service;
 
-public interface MemberService {
+import com.duckG.vo.MemberVO;
 
+public interface MemberService {
+	//로그인
+	MemberVO Login(MemberVO mvo);
 }

@@ -1,5 +1,8 @@
 package com.duckG.member.mapper;
 
-public interface MemberMapper {
+import com.duckG.vo.MemberVO;
 
+public interface MemberMapper {
+	//로그인
+	MemberVO LoginCheck(MemberVO mvo);
 }
