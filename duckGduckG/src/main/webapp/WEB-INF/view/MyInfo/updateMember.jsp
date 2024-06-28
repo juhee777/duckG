@@ -4,6 +4,9 @@
 .row{
     flex-wrap:nowrap;
 }
+#row2{
+	margin-left: 50%;
+}
 
 </style>
 
@@ -21,7 +24,6 @@
                         		    <ul>
 		                            	<h4>나의 현황</h4>
 		                                <li><a href="#">주문 내역</a></li>
-		                                <li><a href="#">찜 리스트</a></li>
 		                                <hr>
 		                                <h4>개인 정보</h4>
 		                                <li><a href="#">개인 정보 수정</a></li>
@@ -34,8 +36,8 @@
                         	</div>
                     	</div>
                 	</div>
-                         <div class="col-lg-12 col-md-6">
-                            <div class="row" >
+                         <div class="col-lg-12 col-md-6" id="row2">
+                            <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>성<span>*</span></p>
@@ -64,17 +66,22 @@
                                 </div>
                             </div>
                             <div class="checkout__input">
+                                <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
                                 <p>우편 번호<span>*</span></p>
-                                <input type="text" id="sample2_postcode">
-                                <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
+                                <input type="text" id="sample4_postcode" placeholder="우편 번호">
                             </div>
                             <div class="checkout__input">
                                 <p>도로명 주소<span>*</span></p>
-                                <input type="text" id="sample2_address" placeholder="주소" class="checkout__input__add">
+                                <input type="text" id="sample4_roadAddress" placeholder="도로명 주소" class="checkout__input__add">
                             </div>
                             <div class="checkout__input">
+                                <p>지번 주소<span>*</span></p>
+                                <input id="sample4_jibunAddress" placeholder="지번 주소">
+                            </div>
+                            <span id="guide" style="color:#999;display:none"></span>
+                            <div class="checkout__input">
                                 <p>상세 주소<span>*</span></p>
-                                <input id="sample2_detailAddress" type="text">
+                                <input id="sample4_detailAddress" placeholder="상세 주소">
                             </div>
                             <div style="text-align: center;">
                                 <button type="submit" class="site-btn">수정</button>
@@ -89,5 +96,5 @@
     </section>
     
     
-    <script src="js/updateMember.js"></script>
-   
+   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <script src="js/updateMember.js"></script>
