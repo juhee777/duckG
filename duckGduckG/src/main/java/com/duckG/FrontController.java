@@ -36,6 +36,7 @@ import com.duckG.order.controller.SelectOrder;
 import com.duckG.order.controller.UpdateOrder;
 import com.duckG.product.controller.AddProduct;
 import com.duckG.product.controller.DeleteProduct;
+import com.duckG.product.controller.ProductDetailForm;
 import com.duckG.product.controller.ProductForm;
 import com.duckG.product.controller.SelectProdcut;
 import com.duckG.product.controller.UpdateProdcut;
@@ -44,26 +45,21 @@ import com.duckG.qna.controller.DeleteQnA;
 import com.duckG.qna.controller.QnAForm;
 import com.duckG.qna.controller.SelectQnA;
 import com.duckG.qna.controller.UpdateQnA;
-import com.duckG.review.controller.AddReview;
-import com.duckG.review.controller.DeleteReview;
-import com.duckG.review.controller.ReviewForm;
-import com.duckG.review.controller.SelectReview;
-import com.duckG.review.controller.UpdateReview;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
 // main.do -> FrontController -> /WEB-INF/public/main.jsp
 // 객체생성 -> init -> service -> destroy
 public class FrontController extends HttpServlet {
-	
-	private Map<String, Control> map;	//key : url, value : control
-	
+
+	private Map<String, Control> map; // key : url, value : control
+
 	public FrontController() {
 		map = new HashMap<String, Control>();
 	}
-	
+
 	@Override
 	public void init() throws ServletException {
-		//홈페이지
+		// 홈페이지
 		map.put("/main.do", new MainControl());
 		
 		//로그인
@@ -85,6 +81,9 @@ public class FrontController extends HttpServlet {
 		map.put("/addProduct.do", new AddProduct());		//제품 추가
 		map.put("/deleteProdcut", new DeleteProduct());		//제품 제거
 		map.put("/updateProdcut", new UpdateProdcut());		//제품 정보 업데이트
+
+		// 제품상세
+		map.put("/productDetailForm.do", new ProductDetailForm()); // 제품상세정보 페이지
 		
 		//찜관리
 		map.put("/jjimForm.do", new JjimForm());			//찜상세정보 페이지
@@ -106,22 +105,8 @@ public class FrontController extends HttpServlet {
 		map.put("/addQnA.do", new AddQnA());			//QnA 추가
 		map.put("/deleteQnA.do", new DeleteQnA());		//QnA 제거
 		map.put("/updateQnA.do", new UpdateQnA());		//QnA 정보 업데이트
-
-		//주문관리
-		map.put("/orderForm.do", new OrderForm());			//Order상세정보 페이지
-		map.put("/selectOrder.do", new SelectOrder());		//Order 선택
-		map.put("/addOrder.do", new AddOrder());			//Order 추가
-		map.put("/deleteOrder.do", new DeleteOrder());		//Order 제거
-		map.put("/updateOrder.do", new UpdateOrder());		//Order 정보 업데이트
-
-		//리뷰관리
-		map.put("/reviewForm.do", new ReviewForm());			//Review상세정보 페이지
-		map.put("/selectReview.do", new SelectReview());		//Review 선택
-		map.put("/addReview.do", new AddReview());				//Review 추가
-		map.put("/deleteReview.do", new DeleteReview());		//Review 제거
-		map.put("/updateReview.do", new UpdateReview());		//Review 정보 업데이트
 	}
-	
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();

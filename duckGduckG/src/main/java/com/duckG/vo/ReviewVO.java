@@ -5,10 +5,11 @@ import oracle.sql.DATE;
 
 @Data
 public class ReviewVO {
-	private int orderNo;
-	private String memberId;
+	private int reviewNo;
 	private int productNo;
-	private int count;
-	private int howMuch;
-	private DATE boughtDate;
+	private String memberId;
+	private String reviewContent;
+	private int reviewScore;
+	private String reviewImage;
+	private Data createDate;	
 }
