@@ -27,13 +27,13 @@
 			<div class="col-lg-9">
 				<div class="hero__search">
 					<div class="hero__search__form">
-						<form action="#">
+						<form action="productForm.do">
                                 <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
                                 <input type="text" name="keyword" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <button type="submit" class="site-btn" onclick="search()">SEARCH</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -64,5 +64,4 @@
 <table class="table">
 
 </table>
-
 >>>>>>> branch 'master' of https://github.com/MiAnHaeRa/duckG.git
