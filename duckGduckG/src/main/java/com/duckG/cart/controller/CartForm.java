@@ -12,7 +12,7 @@ public class CartForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		req.getRequestDispatcher("cart/cartForm.tiles").forward(req, resp);
 
 	}
 
