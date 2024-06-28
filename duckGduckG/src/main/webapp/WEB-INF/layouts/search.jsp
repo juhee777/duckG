@@ -10,17 +10,13 @@
 						<i class="fa fa-bars"></i> <span>All departments</span>
 					</div>
 					<ul>
-						<li><a href="#">Fresh Meat</a></li>
-						<li><a href="#">Vegetables</a></li>
-						<li><a href="#">Fruit & Nut Gifts</a></li>
-						<li><a href="#">Fresh Berries</a></li>
-						<li><a href="#">Ocean Foods</a></li>
-						<li><a href="#">Butter & Eggs</a></li>
-						<li><a href="#">Fastfood</a></li>
-						<li><a href="#">Fresh Onion</a></li>
-						<li><a href="#">Papayaya & Crisps</a></li>
-						<li><a href="#">Oatmeal</a></li>
-						<li><a href="#">Fresh Bananas</a></li>
+						<li><a href="#">스킨케어</a></li>
+						<li><a href="#">마스크팩</a></li>
+						<li><a href="#">클랜징</a></li>
+						<li><a href="#">선케어</a></li>
+						<li><a href="#">메이크업</a></li>
+						<li><a href="#">헤어케어</a></li>
+						<li><a href="#">바디케어</a></li>
 					</ul>
 				</div>
 			</div>
