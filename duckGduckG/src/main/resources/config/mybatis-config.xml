@@ -24,7 +24,12 @@
 
 
 	<mappers>
-		<!-- <mapper resource="co/yedam/mapper/StudentMapper.xml" /> -->
-		<mapper resource="com/duckG/product/mapper/productMapper.xml" />
+		<mapper resource="com/duckG/cart/mapper/CartMapper.xml" />
+		<mapper resource="com/duckG/jjim/mapper/JjimMapper.xml" />
+		<mapper resource="com/duckG/member/mapper/MemberMapper.xml" />
+		<mapper resource="com/duckG/order/mapper/OrderMapper.xml" />
+		<mapper resource="com/duckG/product/mapper/ProductMapper.xml" />
+		<mapper resource="com/duckG/qna/mapper/QnAServiceImpl.xml" />
+		<mapper resource="com/duckG/review/mapper/ReviewMapper.xml" />
 	</mappers>
 </configuration>
