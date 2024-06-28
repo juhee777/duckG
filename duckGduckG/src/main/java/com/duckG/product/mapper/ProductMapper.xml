@@ -5,6 +5,13 @@
 
 <mapper namespace="com.duckG.product.mapper.productMapper">
 
+	<!-- 제품상세 -->
+	<select id="productDetail" resultType="com.duckG.vo.ProductVO">
+		select *
+		from product
+		where product_no = #{productNo}
+	</select>
+
 
 
 

@@ -5,5 +5,5 @@ import java.util.List;
 import com.duckG.vo.ProductVO;
 
 public interface ProductMapper {
-	List<ProductVO> productList();
+	List<ProductVO> productDetail(int pno);
 }
