@@ -15,6 +15,12 @@
 	
 
 
+<select id="selectProduct">
+select *
+from product
+where product_name like '%'||#{keyword}||'%'
+</select>
+
 
 
 </mapper>
