@@ -4,7 +4,7 @@ import lombok.Data;
 import oracle.sql.DATE;
 
 @Data
-public class reviewVO {
+public class ReviewVO {
 	private int orderNo;
 	private String memberId;
 	private int productNo;

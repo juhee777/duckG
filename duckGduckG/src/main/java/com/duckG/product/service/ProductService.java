@@ -1,5 +1,5 @@
 package com.duckG.product.service;
 
-public interface productService {
+public interface ProductService {
 
 }
