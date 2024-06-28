@@ -27,6 +27,7 @@ import com.duckG.member.controller.LoginForm;
 import com.duckG.member.controller.LogoutControl;
 import com.duckG.member.controller.MemberList;
 import com.duckG.member.controller.MyInfo;
+import com.duckG.member.controller.RegistForm;
 import com.duckG.member.controller.UpdateMember;
 import com.duckG.order.controller.AddOrder;
 import com.duckG.order.controller.DeleteOrder;
@@ -69,6 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());	//로그인창
 		map.put("/login.do", new LoginControl());	//로그인
 		map.put("/logout.do", new LogoutControl());	//로그아웃
+		map.put("registForm.do", new RegistForm());	//회원가입창
 		
 		//회원관리
 		map.put("/memberList.do", new MemberList());		//모든 회원조회

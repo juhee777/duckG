@@ -25,6 +25,7 @@
 
 	<mappers>
 		<!-- <mapper resource="co/yedam/mapper/StudentMapper.xml" /> -->
-		<mapper resource="com/duckG/product/mapper/productMapper.xml" />
+		<mapper resource="com/duckG/product/mapper/ProductMapper.xml" />
+		<mapper resource="com/duckG/member/mapper/MemberMapper.xml" />
 	</mappers>
 </configuration>

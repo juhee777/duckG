@@ -47,6 +47,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 
                     <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
                         <div class="hero__text">
                             <span>FRUIT FRESH</span>
@@ -55,6 +56,7 @@
                             <a href="#" class="primary-btn">SHOP NOW</a>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
