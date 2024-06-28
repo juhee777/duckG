@@ -166,13 +166,13 @@
 	<!-- Hero Section Begin -->
 	<tiles:insertAttribute name="search" />
 
-	<section class="mainContent">
+				<tiles:insertAttribute name="body" />
+	<!-- <section class="mainContent">
 		<div class="container">
 			<div class="row">
-				<tiles:insertAttribute name="body" />
 			</div>
 		</div>
-	</section>
+	</section>--!>
 
 	<!-- Footer Section Begin -->
 	<footer class="footer spad">
