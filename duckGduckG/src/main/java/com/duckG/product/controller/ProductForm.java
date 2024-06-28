@@ -13,7 +13,7 @@ public class ProductForm implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		req.getRequestDispatcher("product/productForm.tiles").forward(req, resp);
+		//req.getRequestDispatcher("product/productForm.tiles").forward(req, resp);
 	}
 
 }
