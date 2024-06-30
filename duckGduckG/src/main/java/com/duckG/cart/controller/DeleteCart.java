@@ -20,17 +20,25 @@ public class DeleteCart implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String cno = req.getParameter("cno");
-		
+
 		CartService cso = new CartServiceImpl();
-		
+
 		Map<String, String> map = new HashMap<>();
-		
+
 		Gson gson = new GsonBuilder().create();
-		
-		
-		
-	
 
+		try {
+			if (cso.deleteCart(Integer.parseInt(cno))) {
+				map.put("retCode", "OK");
+				map.put("retMsg", "상품이 성공적으로 삭제되었습니다.");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			map.put("retCode", "NG");
+			map.put("retMsg", "상품 삭제중 오류가 발생했습니다.");
+		} finally {
+			String json = gson.toJson(map);
+			resp.getWriter().print(json);
+		}
 	}
-
 }

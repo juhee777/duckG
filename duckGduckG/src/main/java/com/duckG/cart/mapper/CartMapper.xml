@@ -7,9 +7,34 @@
 
 
 	<select id="cartList" resultType="com.duckG.vo.CartVO">
+		select
+			p.image,
+			p.product_name,
+			p.price,
+			c.count
+		from cart c left outer JOIN product p
+		ON c.product_no = p.product_no
+		where c.member_id = #{memberId}
+	</select>
+
+	<delete id="deleteCart">
+		delete cart
+		where cart_no = #{cartNo}
+		and member_id = #{memberId}
+	</delete>
+
+	<update id="modifyCart">
+		update cart
+		set count = #{count}
+		where cart_no =	#{cartNo}
+		and member_id = #{memberId}
+	</update>
+
+	<select id="checkCart" resultType="com.duckG.vo.CartVO">
 		select *
 		from cart
 		where member_id = #{memberId}
+		and product_no = #{productNo} 
 	</select>
 
 
