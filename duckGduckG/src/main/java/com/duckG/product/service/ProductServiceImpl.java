@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.duckG.product.mapper.ProductMapper;
 import com.duckG.vo.ProductVO;
+import com.duckG.vo.SearchVO;
 import com.duckG.DataSource;
 
 public class ProductServiceImpl implements ProductService{
@@ -16,6 +17,24 @@ public class ProductServiceImpl implements ProductService{
 	public List<ProductVO> productDetail(int pno) {
 		// TODO Auto-generated method stub
 		return mapper.productDetail(pno);
+	}
+	
+	@Override
+	public List<ProductVO> selectProduct(SearchVO svo) {
+		// TODO Auto-generated method stub
+		return mapper.selectProduct(svo);
+	}
+	
+	@Override
+	public List<ProductVO> productList() {
+		// TODO Auto-generated method stub
+		return mapper.productList();
+	}
+	
+	@Override
+	public List<ProductVO> selectCategory(String sname) {
+		// TODO Auto-generated method stub
+		return mapper.selectCategory(sname);
 	}
 
 }
