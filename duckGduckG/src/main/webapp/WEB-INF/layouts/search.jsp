@@ -10,13 +10,13 @@
 						<i class="fa fa-bars"></i> <span>All departments</span>
 					</div>
 					<ul>
-						<li><a href="#">스킨케어</a></li>
-						<li><a href="#">마스크팩</a></li>
-						<li><a href="#">클랜징</a></li>
-						<li><a href="#">선케어</a></li>
-						<li><a href="#">메이크업</a></li>
-						<li><a href="#">헤어케어</a></li>
-						<li><a href="#">바디케어</a></li>
+						<li><a href="productForm.do?category=스킨케어">스킨케어</a></li>
+						<li><a href="productForm.do?category=마스크팩">마스크팩</a></li>
+						<li><a href="productForm.do?category=클랜징">클랜징</a></li>
+						<li><a href="productForm.do?category=선케어">선케어</a></li>
+						<li><a href="productForm.do?category=메이크업">메이크업</a></li>
+						<li><a href="productForm.do?category=헤어케어">헤어케어</a></li>
+						<li><a href="productForm.do?category=바디케어">바디케어</a></li>
 					</ul>
 				</div>
 			</div>
