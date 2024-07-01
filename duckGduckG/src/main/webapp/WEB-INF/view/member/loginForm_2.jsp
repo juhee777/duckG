@@ -1,93 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!--===============================================================================================-->
-<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/login/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="fonts/login/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="fonts/login/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/login/animate/animate.css">
-<!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="vendor/login/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/login/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/login/select2/select2.min.css">
-<!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="vendor/login/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="css/login/loginUtil.css">
-<link rel="stylesheet" type="text/css" href="css/login/loginMain.css">
-<!--===============================================================================================-->
-<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-26">
-						Welcome
-					</span>
-					<span class="login100-form-title p-b-48">
-						<img src="img/login/icons/logo.png" alt="로고이미지">
-					</span>
+<link rel="stylesheet" href="css/login/loginForm.css">
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="id">
-						<span class="focus-input100" data-placeholder="Email"></span>
-					</div>
+<div class="login_wrapper">
+  <div class="login_container">
+    <div class="sign-up-container">
+      <form action="addMember.do" method="post">
+        <h2>회원가입</h2>
+        <div class="social-links">
+          <div>
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          </div>
+          <div>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          </div>
+          <div>
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <input type="text" name="name" placeholder="이름">
+        <input type="text" name="id" placeholder="아이디">
+        <input type="password" name="pw" placeholder="비밀번호">
+        <button type="submit" class="form_btn">회원가입</button>
+      </form>
+    </div>
+    <div class="sign-in-container">
+      <form action="login.do" method="post">
+        <h2>로그인</h2>
+        <div class="social-links">
+          <div>
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          </div>
+          <div>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          </div>
+          <div>
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <input type="text" name="id" placeholder="아이디">
+        <input type="password" name="pw" placeholder="비밀번호">
+        <button type="submit" class="form_btn">로그인</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay-left">
+        <h2>환영합니다</h2>
+        <p>저희와 연결을 유지하려면 개인 정보로 로그인하세요</p>
+        <button id="signIn" class="overlay_btn">로그인</button>
+      </div>
+      <div class="overlay-right">
+        <h2>어서오세요</h2>
+        <p>개인 정보를 입력하고 저희와 함께 여행을 시작하세요</p>
+        <button id="signUp" class="overlay_btn">회원가입</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="pass">
-						<span class="focus-input100" data-placeholder="Password" onkeyup="enterkey()"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button type="button" id="loginBtn" class="login100-form-btn">
-								Login
-							</button>
-						</div>
-					</div>
-
-					<div class="text-center p-t-115">
-						<span class="txt1">
-							계정이 없습니까?
-						</span>
-
-						<a class="txt2" href="registForm.do">
-							회원가입
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-
-	<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
-<script src="js/login/loginForm.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/login/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/login/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/login/bootstrap/js/popper.js"></script>
-	<script src="vendor/login/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/login/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/login/daterangepicker/moment.min.js"></script>
-	<script src="vendor/login/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/login/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/login/loginMain.js"></script>
+<script src="js/login/login.js"></script>

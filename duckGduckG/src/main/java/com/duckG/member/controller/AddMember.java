@@ -16,9 +16,10 @@ public class AddMember implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String name = req.getParameter("name");
-		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
+		resp.setContentType("text/json;charset=utf-8");
+		String name = req.getParameter("registName");
+		String id = req.getParameter("registId");
+		String pw = req.getParameter("registPass");
 		
 		MemberVO mvo = new MemberVO();
 		
@@ -30,14 +31,11 @@ public class AddMember implements Control {
 		
 		try {
 			if(svc.Regist(mvo)) {
-				resp.setContentType("text/html; charset=utf-8");
-		        PrintWriter w = resp.getWriter();
-		        w.write("<script>alert('회원가입 성공!!');location.href='loginForm.do';</script>");
-		        w.flush();
-		        w.close();
+				resp.getWriter().print("{\"retCode\":\"OK\"}");
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			resp.getWriter().print("{\"retCode\":\"NO\"}");
 		}
 
 	}
