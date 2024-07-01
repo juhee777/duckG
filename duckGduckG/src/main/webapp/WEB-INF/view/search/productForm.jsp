@@ -29,6 +29,33 @@
     color: #dd2222;
 }
 
+/* 페이지 */
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
 </style>
 <body>
     <form action="productForm.do">
@@ -81,6 +108,22 @@
                         </div>
                     </div>
                 </c:forEach>
+            </div>
+        </div>
+        <!--page-->
+        <div class="center">
+            <div class="pagination">
+                <c:if test="${paging.prev}">
+                    <a href="productForm.do?page${paging.startPage-1}&reyword=${keyword}">&laquo;</a>
+                </c:if>
+                <c:forEach var="p" begin="${paging.startPage}" end="${paging.endPage}">
+                    <a href="productForm.do?page=${p }&keyword=${keyword}" class=${p == paging.page ? 'active' : '' }>
+                       <c:out value="${p }" />
+                    </a>
+                </c:forEach>
+                <c:if test="${paging.next}">
+                    <a href="productForm.do?page${paging.endPage+1}&keyword=${keyword}">&raquo;</a>
+                </c:if>
             </div>
         </div>
     </form>
