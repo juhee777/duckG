@@ -11,6 +11,8 @@ public interface ProductService {
 	List<ProductVO> productDetail(int pno);
 	List<ProductVO> selectProduct(SearchVO svo);
 	List<ProductVO> productList();
+	
+	int productTotal(SearchVO svo);
 	List<ProductVO> selectCategory(String sname);
 
 }

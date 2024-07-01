@@ -6,7 +6,7 @@ import lombok.Data;
 public class QnAVO {
 	private int qnaNo;
 	private int productNo;
-	private String member_id;
+	private String memberId;
 	private String qnaContent;
 	private String qnaTitle;
 	private String qnaAnswer;

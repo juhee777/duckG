@@ -6,5 +6,5 @@ import com.duckG.vo.OrderVO;
 
 public interface OrderMapper {
 
-	List<OrderVO> OrderList();
+	List<OrderVO> OrderList(String id);
 }

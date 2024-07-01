@@ -20,7 +20,7 @@
 		values(member_seq.nextval, #{memberId}, #{memberPw}, #{memberName})
 	</insert>
 	
-	<select id="updateMemberfind" parameterType="com.duckG.vo.MemberVO" resultType="com.duckG.vo.MemberVO">
+	<select id="updateMemberfind" resultType="com.duckG.vo.MemberVO">
 		select *
 		from member
 		where member_id = #{memberId}
@@ -30,8 +30,7 @@
 		update member
 		set    member_name = #{memberName},
 		       phone = #{phone},
-		       email = #{email},
-		       address  = #{address}
+		       email = #{email}
 		where  member_id = #{memberId}
 	</update>
 	

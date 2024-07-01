@@ -5,9 +5,7 @@
 	flex-wrap: nowrap;
 }
 </style>
-<%
 
-%>
 
 <!-- Blog Section Begin -->
 <section class="breadcrumb-section set-bg"
@@ -48,11 +46,11 @@
 			<div id = "list">
 			
 				<div>
-				<ul style="width: 100%">
+				<ul style="width: 100%" id="listli">
 					<h3>구매내역</h3>
 					<li><hr /></li>
 <!-- 					<li style="display: none"> -->
-					<li>
+					<li  class="clonelist">
 					    <img src="img/001.jpg" alt="모코코" style="width: 120px; float: left;">
 						<div style="font-size: large; font-weight: bold;">
 							<span class="col-sm-2">주문 번호: </span> <span class="col-sm-2">123-456789</span>
@@ -64,8 +62,8 @@
 							<span class="col-sm-2">상품이름예정</span> <span class="col-sm-2"></span>
 						</div>
 						<div style="text-align: center; float: left;">
-							<span class="col-sm-2"><button class="btn btn-danger" onclick="deleteRow(event)">구매 완료</button></span> 
-							<span class="col-sm-2"><button class="btn btn-danger" onclick="deleteRow(event)">반품 신청</button></span>
+							<span class="col-sm-2"><button class="site-btn" onclick="deleteRow(event)">구매 완료</button></span> 
+							<span class="col-sm-2"><button class="site-btn" onclick="deleteRow(event)">반품 신청</button></span>
 						</div>
 					</li>
 				</ul>
@@ -81,8 +79,6 @@
 			
 
 
-<script src="js/myinfo/review.js"></script>
-<!-- 
-<script src="js/reviewService.js"></script>
-<script src="js/review.js"></script>
- -->
+
+<script src="js/myinfo/orderlist.js"></script>
+

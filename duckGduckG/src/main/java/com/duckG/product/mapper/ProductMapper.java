@@ -7,7 +7,13 @@ import com.duckG.vo.SearchVO;
 
 public interface ProductMapper {
 	List<ProductVO> productList();
+	
+	List<ProductVO> productListPaging(SearchVO svo);
+	int productTotal(SearchVO svo);
+	List<ProductVO> productPage(SearchVO svo);
+	
 	List<ProductVO> selectProduct(SearchVO svo); //조회
 	List<ProductVO> productDetail(int pno);
 	List<ProductVO> selectCategory(String cname);
+
 }

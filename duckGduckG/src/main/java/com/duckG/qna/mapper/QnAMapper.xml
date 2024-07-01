@@ -5,4 +5,27 @@
 
 <mapper namespace="com.duckG.qna.mapper.QnAMapper">
 
+	<!-- QNA상세 -->
+	<select id="selectQnA" resultType="com.duckG.vo.QnAVO">
+		select qna_no, product_no, member_id, qna_content, qna_title, NVL(qna_answer,' ') qna_answer
+		from qna
+		where product_no = #{productNo}
+	</select>
+
+	<insert id="addQnA" parameterType="com.duckG.vo.QnAVO">
+		INSERT INTO qna (qna_no, product_no, member_id, qna_content, qna_title)
+		VALUES (QNA_SEQ.nextval, #{productNo}, #{memberId}, #{qnaContent}, #{qnaTitle})
+	</insert>
+	
+	<delete id="delQnA" parameterType="int">
+		DELETE from qna
+		where qna_no = #{productNo}
+	</delete>
+	
+	<update id="updateQnA" parameterType="com.duckG.vo.QnAVO">
+		UPDATE qna
+		SET qna_answer = #{qnaAnswer}
+		WHERE qna_no = #{productNo}
+	</update>
+
 </mapper>

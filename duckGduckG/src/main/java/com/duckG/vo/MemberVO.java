@@ -15,4 +15,8 @@ public class MemberVO {
 	private String address;
 	private Date createdDate;
 	private String management;
+	private String addrNo;
+	private String addrLocal;
+	private String addrRoad;
+	private String addrDet;
 }
