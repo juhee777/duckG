@@ -9,4 +9,8 @@ public class CartVO {
 	private int productNo;
 	private String memberId;
 	private int count;
+	private String image;
+	private String productName;
+	private int price;
+	private String mainInfo;
 }
