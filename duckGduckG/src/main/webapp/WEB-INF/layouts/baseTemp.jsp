@@ -168,10 +168,7 @@
 
 				<tiles:insertAttribute name="body" />
 	<!-- <section class="mainContent">
-		<div class="container">
-			<div class="row">
-			</div>
-		</div>
+		
 	</section>--!>
 
 	<!-- Footer Section Begin -->
