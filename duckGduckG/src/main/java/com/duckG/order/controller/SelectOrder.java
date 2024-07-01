@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.duckG.Control;
 import com.duckG.order.service.OrderService;
 import com.duckG.order.service.OrderServiceImpl;
@@ -18,14 +19,17 @@ public class SelectOrder implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		resp.setContentType("text/json;charset=utf-8");
-
+		
+		String id = req.getParameter("userid");
+		
 		OrderService osv = new OrderServiceImpl();
-		List<OrderVO> list = osv.OrderList();
-		Gson gson = new GsonBuilder().create();
+		List<OrderVO> list = osv.OrderList(id);
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
-
+		
 		resp.getWriter().print(json);
 	
 	}

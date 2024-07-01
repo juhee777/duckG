@@ -12,8 +12,8 @@ public class OrderServiceImpl implements OrderService{
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
 	@Override
-	public List<OrderVO> OrderList() {
+	public List<OrderVO> OrderList(String id) {
 		// TODO Auto-generated method stub
-		return mapper.OrderList();
+		return mapper.OrderList(id);
 	}
 }
