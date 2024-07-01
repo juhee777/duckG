@@ -20,7 +20,10 @@ public class UpdateMember implements Control {
 		//임시 로그인
 		HttpSession session = req.getSession();
 		session.setAttribute("logId", "user01");	
+		MemberService msv = new MemberServiceImpl();
+		MemberVO mvo = msv.updateMemberfind("user01");
 		
+		req.setAttribute("mvo", mvo);
 		req.getRequestDispatcher("MyInfo/updateMember.tiles").forward(req, resp);
 
 	}

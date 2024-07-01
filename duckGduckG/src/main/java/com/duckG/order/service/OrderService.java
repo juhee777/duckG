@@ -6,5 +6,6 @@ import com.duckG.vo.OrderVO;
 
 
 public interface OrderService {
-	List<OrderVO> OrderList();
+	
+	List<OrderVO> OrderList(String id);
 }

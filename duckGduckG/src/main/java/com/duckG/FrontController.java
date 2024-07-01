@@ -88,8 +88,8 @@ public class FrontController extends HttpServlet {
 		//1:1 문의
 		map.put("/Inquire.do", new Inquire());				//1:1 문의
 				
-		//리뷰
-		map.put("/MyInfo.do", new MyInfo());				//내정보
+		//마이페이지, 리뷰
+		map.put("/MyInfo.do", new MyInfo());
 		map.put("/SelectOrder.do" ,new SelectOrder());
 		
 		

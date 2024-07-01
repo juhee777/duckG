@@ -11,9 +11,7 @@
 </style>
 <%
 String loginId = (String) session.getAttribute("logId");
-
-MemberService msv = new MemberServiceImpl();
-MemberVO mvo = msv.updateMemberfind(loginId);
+MemberVO mvo = (MemberVO)request.getAttribute("mvo");
 %>
 <section class="breadcrumb-section set-bg"
 	data-setbg="img/breadcrumb.jpg" style="width: 100%">
@@ -67,7 +65,7 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 								<p>
 									이름<span>*</span>
 								</p>
-								<input type="text" name="name" value="<%=mvo.getMemberName()%>">
+								<input type="text" name="name" value="<%=mvo.getMemberName()%>" readonly>
 							</div>
 						</div>
 					</div>
@@ -77,7 +75,7 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 								<p>
 									휴대폰<span>*</span>
 								</p>
-								<input type="text" name="Phone" value="<%=mvo.getPhone()%>">
+								<input type="text" name="Phone" value="<%=mvo.getPhone()%>"> 
 							</div>
 						</div>
 						<div class="col-lg-6">
@@ -90,31 +88,31 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 						</div>
 					</div>
 					<div class="checkout__input">
-						<input type="button" onclick="sample4_execDaumPostcode()"
-							value="우편번호 찾기"><br>
+						<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+						<br>
 						<p>
 							우편 번호<span>*</span>
 						</p>
-						<input type="text" name="sample4_postcode" placeholder="우편 번호" >
+						<input type="text" name="sample4_postcode" placeholder="우편 번호" value="<%=mvo.getAddrNo()%>">
 					</div>
 					<div class="checkout__input">
 						<p>
 							도로명 주소<span>*</span>
 						</p>
 						<input type="text" name="add" id="sample4_roadAddress"
-							placeholder="도로명 주소" class="checkout_input__add">
+							placeholder="도로명 주소" class="checkout_input__add" value="<%=mvo.getAddrRoad()%>">
 					</div>
 					<div class="checkout__input">
 						<p>
 							지번 주소<span>*</span>
 						</p>
-						<input id="sample4_jibunAddress" placeholder="지번 주소">
+						<input id="sample4_jibunAddress" placeholder="지번 주소" value="<%=mvo.getAddrLocal()%>">
 					</div>
 					<div class="checkout__input">
 						<p>
 							상세 주소<span>*</span>
 						</p>
-						<input id="sample4_detailAddress" placeholder="상세 주소">
+						<input id="sample4_detailAddress" placeholder="상세 주소" value="<%=mvo.getAddrDet()%>">
 					</div>
 					<div style="text-align: center;">
 						<button type="submit" class="site-btn">수정</button>
@@ -131,6 +129,5 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 
 
 
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="js/myinfo/updateMember.js"></script>
