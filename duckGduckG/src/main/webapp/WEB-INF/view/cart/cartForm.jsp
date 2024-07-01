@@ -74,16 +74,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- <form action="deleteCart.do" method="post" class="shoping__cart__item__close">
-		<input type="hidden" name="delicon" class="deleteCartNo"> 
-		<input type="hidden" name="memberId" value="${cart.memberId }">
-	</form> -->
-
-
-
-
-
 </section>
 <!-- Shoping Cart Section End -->
 

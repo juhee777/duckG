@@ -4,7 +4,7 @@
 //장바구니 목록 가져오기
 
 const xthp = new XMLHttpRequest();
-xthp.open('get', 'cartForm.do?memberId=?');
+xthp.open('get', 'cartForm.do');
 xthp.send();
 xthp.onload = function () {
 	console.log(xthp);
@@ -17,7 +17,7 @@ xthp.onload = function () {
 const fields = ['image', 'productName', 'mainInfo', 'memberId', 'count'];
 
 function makeRow(cart = {}) {
-	let tr = document.createElement('tr');
+	let tr = cartList(cart);
 	tr.setAttribute('memberId', cart.memberId);
 
 	fields.forEach(field => {
@@ -25,19 +25,44 @@ function makeRow(cart = {}) {
 		td.innerHTML = cart[field];
 		tr.appendChild(td);
 	})
-	let delicon = document.getElementById('#delicon');
-	delicon.setAttribute('data-delicon', cart.productName);
-	delicon.addEventListener('click', removeCartFnc);
+	return tr;
+};
+
+function cartList(cart) {
+	let temp = document.querySelector('#cart_temp').cloneNode(true); //true: 깊은복제(자식노드까지 복사!)
+	temp.style.display = ""; //원본 노드의 style : none ==> 초기화!!
+	temp.querySelector('.shoping__cart__item img').src = cart.image;
+	temp.querySelector('#cart_P_Name').innerHTML = cart.productName;
+	temp.querySelector('.shoping__cart__price').innerHTML = cart.price;
+	temp.querySelector('.shoping__cart__total').innerHTML = cart.price * temp.querySelector('.pro-qty input').value;
+	//상품의 개당 가격 * 현재 수량inputbox의 값
+	temp.querySelector('.icon_close').setAttribute("data-id", cart.cartNo);
+	//삭제 아이콘class에 cartNo 속성을 부여 ==> onclick 이벤트 발생했을 때 해당 cartNo만 삭제가능
+	return temp;
 }
 
+
+//장바구니 삭제
+
+// let delicon = document.getElementById('#delicon');
+// delicon.setAttribute('data-delicon', cart.productName);
+// delicon.addEventListener('click', removeCartFnc);
+
 function removeCartFnc(e) {
-	let dicon = this.dataset.delicon;
-	let tr = document.getElementById(dicon);
+	let id = this.dataset.id; 
+	//let tr = document.getElementById(delicon);
+	
+	// ==> temp.querySelector('.icon_close').setAttribute("data-id", cart.cartNo);에서 삭제이벤트가 발생할 cartNo를 알려줬으니까 필요없지 않을까....
+	
 	const delCart = new XMLHttpRequest();
-	delCart.open('get', 'deleteCart.do?productName=' + dicon);
+	delCart.open('get', 'deleteCart.do?cartNo=' + cartNo);
 	delCart.send();
 	delCart.onload = function () {
-		let result = "";
+		let result = JSON.parse(delCart.responseText);
+		if(result.retCode == 'OK') {
+			alert('정상적으로 삭제되었습니다!');
+			e.target.closest.remove();
+		}
 	}
 
 }
@@ -46,25 +71,9 @@ function removeCartFnc(e) {
 
 //장바구니 수량조절
 
-//let qtBox = document.getElementById('#quantityBox').value();
-let decBtn = document.getElementById('#decqtybtn');
-let incBtn = document.getElementById('#incqtybtn');
-
-//수량증가
-// qtBox.addEventListener("change", function(){
-// 	document.getElementById('#quantityBox').value(++qtBox);
-// });
-
-//수량감소
-// decBtn.addEventListener("click", function(){
-// 	document.getElementById('#decqtybtn').value(--qtBox);
-// });
-
-
-//장바구니 삭제
-
-
 document.querySelector('input[name=cnt]').addEventListener('change', totalPrice(event));
+//==>수량inputbox의 값이 변동되면(change이벤트) totalPrice함수 실행
+
 function totalPrice() {
 	console.log(e);
 	// let total = "${cart.price}" * e.value;
@@ -73,6 +82,8 @@ function totalPrice() {
 }
 
 let cnt = document.querySelector('input[name=cnt]');
+//==> value가 아니어도 되는지 여쭤보기!
+
 document.querySelector('.dec').addEventListener('click', function () {
 	if (cnt.value > 0) {
 		cnt.value--;
@@ -86,15 +97,3 @@ document.querySelector('.inc').addEventListener('click', function () {
 		totalPrice(event);
 	}
 })
-
-function cartList(cart) {
-	let temp = document.querySelector('#cart_temp').cloneNode(true);
-	temp.style.display = "";
-	temp.querySelector('.shoping__cart__item img').src = cart.image;
-	temp.querySelector('#cart_P_Name').innerHTML = cart.prodcutName;
-	temp.querySelector('.shoping__cart__price').innerHTML = cart.price;
-	temp.querySelector('.shoping__cart__total').innerHTML = cart.price * temp.querySelector('.pro-qty input').value;
-	temp.querySelector('.icon_close').setAttribute("data-id", cart.cartNo);
-	
-	return temp;
-}
