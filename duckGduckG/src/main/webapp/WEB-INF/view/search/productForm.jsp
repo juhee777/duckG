@@ -122,7 +122,7 @@
                     </a>
                 </c:forEach>
                 <c:if test="${paging.next}">
-                    <a href="productForm.do?page${paging.endPage+1}&keyword=${keyword}">&raquo;</a>
+                    <a href="productForm.do?page=${paging.endPage+1}&keyword=${keyword}">&raquo;</a>
                 </c:if>
             </div>
         </div>
