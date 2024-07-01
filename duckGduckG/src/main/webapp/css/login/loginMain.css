@@ -66,6 +66,7 @@ a:hover {
   color: -o-linear-gradient(left, #21d4fd, #b721ff);
   color: -moz-linear-gradient(left, #21d4fd, #b721ff);
   color: linear-gradient(left, #21d4fd, #b721ff);
+  
 }
 
 /*---------------------------------------------*/
@@ -489,5 +490,7 @@ iframe {
   }
 }
 
-
+form a {
+	cursor : pointer;
+}
 

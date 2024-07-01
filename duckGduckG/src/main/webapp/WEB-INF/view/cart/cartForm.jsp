@@ -21,28 +21,24 @@
 							</tr>
 						</thead>
 						<tbody id="cartTbody">
-							<c:forEach var="cart" items="${cartList }">
-								<tr>
-								<td class="shoping__cart__item">
-								<img src="img/cart/cart-1.jpg" alt="">
-									<h5>${cart.productName }</h5></td>
-								 <td class="shoping__cart__price">
-                                        <p id="Price">
-                                    </td>
-								<td class="shoping__cart__quantity">
-									<div class="quantity">
-										<div class="pro-qty">
-										<span class="dec qtybtn" id="decqtybtn"></span>-
-											<input type="text" value="1" id="quantityBox">
-										<span class="inc qtybtn" id="incqtybtn"></span>+
+								<tr id="cart_temp" style="display: none;">
+									<td class="shoping__cart__item"><img src=""
+										alt="이미지">
+										<h5 id="cart_P_Name"></h5></td>
+									<td class="shoping__cart__price"></td>
+									<td class="shoping__cart__quantity">
+										<div class="quantity">
+											<div class="pro-qty">
+												<span class="dec qtybtn">-</span>
+												<input type="text" value="1" name="cnt">
+												<span class="inc qtybtn">+</span>
+											</div>
 										</div>
-									</div>
-								</td>
-								<td class="shoping__cart__total">$110.00</td>
-								<td class="shoping__cart__item__close"><span
-									class="icon_close"></span></td>
-							</tr>
-							</c:forEach>
+									</td>
+									<td class="shoping__cart__total"></td>
+									<td class="shoping__cart__item__close">
+									<span class="icon_close" onclick="removeCartFnc(event)"></span></td>
+								</tr>
 						</tbody>
 					</table>
 				</div>
@@ -78,6 +74,16 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- <form action="deleteCart.do" method="post" class="shoping__cart__item__close">
+		<input type="hidden" name="delicon" class="deleteCartNo"> 
+		<input type="hidden" name="memberId" value="${cart.memberId }">
+	</form> -->
+
+
+
+
+
 </section>
 <!-- Shoping Cart Section End -->
 

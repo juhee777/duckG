@@ -8,10 +8,10 @@
 
 	<select id="cartList" resultType="com.duckG.vo.CartVO">
 		select
-			p.image,
-			p.product_name,
-			p.price,
-			c.count
+			p.image as image,
+			p.product_name as productName,
+			p.price as price,
+			c.count as count
 		from cart c left outer JOIN product p
 		ON c.product_no = p.product_no
 		where c.member_id = #{memberId}
@@ -20,7 +20,6 @@
 	<delete id="deleteCart">
 		delete cart
 		where cart_no = #{cartNo}
-		and member_id = #{memberId}
 	</delete>
 
 	<update id="modifyCart">
