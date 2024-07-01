@@ -95,7 +95,7 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 						<p>
 							우편 번호<span>*</span>
 						</p>
-						<input type="text" name="sample4_postcode" placeholder="우편 번호">
+						<input type="text" name="sample4_postcode" placeholder="우편 번호" >
 					</div>
 					<div class="checkout__input">
 						<p>
@@ -133,4 +133,4 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="js/updateMember.js"></script>
+<script src="js/myinfo/updateMember.js"></script>
