@@ -15,6 +15,12 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return mapper.LoginCheck(mvo);
 	}
+
+	@Override
+	public boolean Regist(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return mapper.addMember(mvo) == 1;
+	}
 	
 	@Override
 	public MemberVO updateMemberfind(String id) {
@@ -39,4 +45,5 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return mapper.updatpw(mvo) == 1;
 	}
+
 }

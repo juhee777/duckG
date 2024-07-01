@@ -6,13 +6,19 @@
 
 <mapper namespace="com.duckG.member.mapper.MemberMapper">
 
-	<!-- 로그인관련 -->
+	<!-- 로그인 -->
 	<select id="LoginCheck" parameterType="com.duckG.vo.MemberVO" resultType="com.duckG.vo.MemberVO">
 		select member_id, member_pw 
 		from member 
 		where member_id = #{memberId} 
 		and member_pw = #{memberPw}
 	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="addMember" parameterType="com.duckG.vo.MemberVO">
+		insert into member(member_no, member_id, member_pw, member_name) 
+		values(member_seq.nextval, #{memberId}, #{memberPw}, #{memberName})
+	</insert>
 	
 	<select id="updateMemberfind" parameterType="com.duckG.vo.MemberVO" resultType="com.duckG.vo.MemberVO">
 		select *
