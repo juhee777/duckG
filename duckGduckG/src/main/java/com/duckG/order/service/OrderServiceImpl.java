@@ -1,13 +1,19 @@
 package com.duckG.order.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
-
-import com.duckG.product.mapper.ProductMapper;
-
+import com.duckG.vo.OrderVO;
 import com.duckG.DataSource;
+import com.duckG.order.mapper.OrderMapper;
 
 public class OrderServiceImpl implements OrderService{
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
-	ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
+	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
+	@Override
+	public List<OrderVO> OrderList() {
+		// TODO Auto-generated method stub
+		return mapper.OrderList();
+	}
 }

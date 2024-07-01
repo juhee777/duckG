@@ -15,5 +15,28 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return mapper.LoginCheck(mvo);
 	}
+	
+	@Override
+	public MemberVO updateMemberfind(String id) {
+		// TODO Auto-generated method stub
+		return mapper.updateMemberfind(id);
+	}
+	
+	@Override
+	public boolean updateMemberFin(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return mapper.updateMemberFin(mvo) == 1;
+	}
 
+	@Override
+	public MemberVO pwdb(String id) {
+		// TODO Auto-generated method stub
+		return mapper.pwdb(id);
+	}
+	
+	@Override
+	public boolean updatpw(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return mapper.updatpw(mvo) == 1;
+	}
 }
