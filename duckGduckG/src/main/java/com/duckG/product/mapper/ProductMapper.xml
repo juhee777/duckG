@@ -38,7 +38,7 @@
     	from product
     </select>
     
-    <select id="productPage" resultType="com.duckG.vo.ProductVO">
+    <select id="productListPaging" resultType="com.duckG.vo.ProductVO">
     	   select b.*
 		from(select rownum rn, a.*
      		 from (select *

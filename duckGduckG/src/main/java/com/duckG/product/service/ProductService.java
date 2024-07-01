@@ -1,5 +1,7 @@
 package com.duckG.product.service;
 
+
+
 import java.util.List;
 
 import com.duckG.vo.ProductVO;
@@ -11,7 +13,7 @@ public interface ProductService {
 	List<ProductVO> productDetail(int pno);
 	List<ProductVO> selectProduct(SearchVO svo);
 	List<ProductVO> productList();
-	
+	List<ProductVO> productListPaging(SearchVO search);
 	int productTotal(SearchVO svo);
 	List<ProductVO> selectCategory(String sname);
 

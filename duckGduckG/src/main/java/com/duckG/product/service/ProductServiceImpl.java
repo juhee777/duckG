@@ -44,6 +44,12 @@ public class ProductServiceImpl implements ProductService{
 		return mapper.productTotal(svo);
 	}
 	
+	@Override
+	public List<ProductVO> productListPaging(SearchVO search) {
+		// TODO Auto-generated method stub
+		return mapper.productListPaging(search);
+	}
+	
 	
 	
 	

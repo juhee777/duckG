@@ -29,16 +29,16 @@ public class ProductForm implements Control {
 		ProductService svc = new ProductServiceImpl();
 		List<ProductVO> products = svc.productList();
 		
-		SearchVO search = new SearchVO(Integer.parseInt(page), kw);
+		SearchVO search = new SearchVO(Integer.parseInt(page), category, kw);
 		
 		if (kw != null && !kw.trim().isEmpty()) {
-            SearchVO searchVO = new SearchVO(Integer.parseInt(page), kw);
+            SearchVO searchVO = new SearchVO(Integer.parseInt(page), category, kw);
             searchVO.setKeyword(kw);
-            products = svc.selectProduct(searchVO);
+            products = svc.selectProduct(search);
         } else if (category != null && !category.trim().isEmpty()) {
             products = svc.selectCategory(category);
         } else {
-            products = svc.productList();
+            products = svc.productListPaging(search);
         }
 		
 		req.setAttribute("products", products);
@@ -50,7 +50,6 @@ public class ProductForm implements Control {
 		pageDTO dto = new pageDTO(Integer.parseInt(page), total);
 		req.setAttribute("paging", dto);
 		
-	
 		
 		
 		req.getRequestDispatcher("search/productForm.tiles").forward(req, resp);
