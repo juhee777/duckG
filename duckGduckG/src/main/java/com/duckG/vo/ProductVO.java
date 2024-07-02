@@ -1,7 +1,6 @@
 package com.duckG.vo;
 
 import lombok.Data;
-import oracle.sql.DATE;
 
 @Data
 public class ProductVO {
@@ -11,7 +10,7 @@ public class ProductVO {
 	private String image;
 	private int price;
 	private String categoryName;
-	private DATE createDate;
+	private String createDate;
 	private int stock;
 	private String mainInfo;
 	private String semiInfo;

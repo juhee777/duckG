@@ -35,6 +35,11 @@
 		where member_id = #{memberId}
 		and product_no = #{productNo} 
 	</select>
+	
+	<insert id="addCart">
+		INSERT INTO cart 
+		VALUES (CART_SEQ.nextval, #{productNo}, #{memberId}, #{count});
+	</insert>
 
 
 </mapper>
