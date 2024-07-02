@@ -5,5 +5,10 @@
 
 <mapper namespace="com.duckG.review.mapper.ReviewMapper">
 
+	<select id="selectReview" resultType="com.duckG.vo.ReviewVO">
+		select *
+		from review
+		where product_no = #{productNo}
+	</select>
 
 </mapper>
