@@ -31,11 +31,14 @@ public class LoginControl implements Control {
 				HttpSession session = req.getSession();
 				session.setAttribute("logId", mvo.getMemberId());
 				session.setAttribute("manage", mvo.getManagement());
-				req.getRequestDispatcher("main.do").forward(req, resp);
+				resp.getWriter().print("{\"retCode\":\"OK\"}");
+			} else {
+				resp.getWriter().print("{\"retCode\":\"NG\"}");	
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp.sendRedirect("loginForm.do");
+			resp.getWriter().print("{\"retCode\":\"SQL\"}");	
 		}
 		
 
