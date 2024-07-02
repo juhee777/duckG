@@ -6,8 +6,7 @@ let query = window.location.search;
 let param = new URLSearchParams(query);
 let productNo = param.get('productNo');
 
-let logId = sessionStorage.getItem('logId');
-
+let logId = sessionStorage.getItem("logId")
 // 제품상세
 
 fetch(`selectProduct.do?productNo=${productNo}`)
@@ -19,8 +18,8 @@ fetch(`selectProduct.do?productNo=${productNo}`)
             document.getElementById(ele).innerHTML = (element[ele]);
         })
         document.getElementById("image").setAttribute("src", `img/productDetail/${element["image"]}`);
+        console.log(logId);
     });
-    console.log(logId);
 })
 
 
