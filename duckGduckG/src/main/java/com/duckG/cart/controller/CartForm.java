@@ -12,40 +12,38 @@ import javax.servlet.http.HttpSession;
 import com.duckG.Control;
 import com.duckG.cart.service.CartService;
 import com.duckG.cart.service.CartServiceImpl;
+import com.duckG.product.service.ProductService;
+import com.duckG.product.service.ProductServiceImpl;
 import com.duckG.vo.CartVO;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class CartForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-
-		//String id = req.getParameter("memberId");
+		resp.setContentType("text/json;charset=utf-8");
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("logId");
-
-		if (id != null) {
-			CartService cso = new CartServiceImpl();
-
-			List<CartVO> list = cso.cartList(id);
-
-			req.setAttribute("cartList", list);
-			req.getRequestDispatcher("cart/cartForm.tiles").forward(req, resp);
-			
-		} else {
-			try {
-				resp.setContentType("text/html; charset=utf-8");
-		        PrintWriter w = resp.getWriter();
-		        w.write("<script>alert('로그인좀');location.href='loginForm.do';</script>");
-		        w.flush();
-		        w.close();
-			} catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-		}
 		
-
+		try {
+			if(id != null){
+				CartService cso = new CartServiceImpl();
+				
+				List<CartVO> cartTbody = cso.cartList(id);
+				req.setAttribute("cartList", cartTbody);
+				req.getRequestDispatcher("cart/cartForm.tiles").forward(req, resp);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			resp.setContentType("text/html; charset=utf-8");
+			PrintWriter w = resp.getWriter();
+			w.write("<script>alert('아 똑바로좀 ㅋ');</script>");
+			w.flush();
+			w.close();
+			resp.sendRedirect("main.do");
+		}
 	}
 
 }

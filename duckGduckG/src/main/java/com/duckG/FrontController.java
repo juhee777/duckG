@@ -92,6 +92,8 @@ public class FrontController extends HttpServlet {
 		//마이페이지, 리뷰
 		map.put("/MyInfo.do", new MyInfo());
 		map.put("/SelectOrder.do" ,new SelectOrder());
+		map.put("/UpdateOrder.do", new UpdateOrder());
+		
 		
 		
 		// 리뷰

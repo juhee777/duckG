@@ -11,6 +11,7 @@
 			p.image as image,
 			p.product_name as productName,
 			p.price as price,
+    		p.product_no as product_no,
 			c.count as count
 		from cart c left outer JOIN product p
 		ON c.product_no = p.product_no
