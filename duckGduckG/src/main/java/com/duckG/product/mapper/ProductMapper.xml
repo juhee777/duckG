@@ -13,42 +13,63 @@
 	</select>
 
 
-<!--  -->
-    <select id="productList" resultType="com.duckG.vo.ProductVO">
-        select *
-        from product
-    </select>
-
+	<!-- -->
+	<select id="productList" resultType="com.duckG.vo.ProductVO">
+		select *
+		from product
+	</select>
+	<!-- 검색. -->
 	<select id="selectProduct" resultType="com.duckG.vo.ProductVO">
 		select *
 		from product
 		where product_name like '%'||#{keyword}||'%'
 	</select>
 
-<!-- 카테고리별 조회 -->
- 	<select id="selectCategory" resultType="com.duckG.vo.ProductVO">
-        select *
-        from product
-        where category_name = #{categoryName}
-    </select>
-    
-<!-- page -->
-    <select id="productTotal" resultType="int">
-    	select count(1) 
-    	from product
-    </select>
-    
-    <select id="productListPaging" resultType="com.duckG.vo.ProductVO">
-    	   select b.*
+	<!-- 카테고리별 조회 -->
+	<select id="selectCategory" resultType="com.duckG.vo.ProductVO">
+		select *
+		from product
+		where category_name = #{category}
+	</select>
+
+	<!-- page -->
+	<select id="productTotal" resultType="int" parameterType="com.duckG.vo.SearchVO">
+		select count(1)
+		from product
+        <where>
+          <choose>
+	        <when test="keyword != null">
+		    product_name like '%'||#{keyword}||'%'
+		    </when>
+		    <when test="category != null">
+		    category_name like '%'||#{category}||'%'
+		    </when>
+	      </choose>
+		</where>
+	</select>
+
+	<select id="productListPaging" resultType="com.duckG.vo.ProductVO"
+		parameterType="com.duckG.vo.SearchVO">
+		select b.*
 		from(select rownum rn, a.*
-     		 from (select *
-           		   from product
-           		   order by product_no) a
+		     from (select *
+		           from product
+		           <where>
+			         <choose>
+				       <when test="keyword != null">
+					   product_name like '%'||#{keyword}||'%'
+				       </when>
+				       <when test="category != null">
+					   category_name like '%'||#{category}||'%'
+				       </when>
+			         </choose>
+		           </where>
+		           order by product_no) a
              <![CDATA[
-           	 where rownum <= (#{page} * 20))b
+           	 where rownum <= (#{page} * 12) ) b
            	 ]]>
-    	where b.rn > (#{page} - 1) * 20  
-    </select>
+		where b.rn > (#{page} - 1) * 12
+	</select>
 
 
 
