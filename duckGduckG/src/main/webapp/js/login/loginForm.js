@@ -5,9 +5,9 @@
 //키입력받기
 function enterkey() {
 	if (window.event.keyCode == 13) {
-       // 엔터키가 눌렸을 때 실행할 내용
-       registControl();
-  }
+		// 엔터키가 눌렸을 때 실행할 내용
+		registControl();
+	}
 }
 
 //로그인창 가기
@@ -21,11 +21,11 @@ document.querySelector('#loginBtn').addEventListener('click', loginControl);
 //로그인기능
 function loginControl() {
 	let id = document.querySelector('input[name="loginId"]');
-    let pw = document.querySelector('input[name="loginPass"]');
-    fetch('login.do', {
+	let pw = document.querySelector('input[name="loginPass"]');
+	fetch('login.do', {
 		method: "POST"
 	})
-    location.href="login.do?id="+id.value+"&pw="+pw.value;
+	location.href = "login.do?id=" + id.value + "&pw=" + pw.value;
 }
 //회원가입창 가기
 document.querySelector('#turnRegist').addEventListener('click', function() {
@@ -40,21 +40,25 @@ document.querySelector('#registBtn').addEventListener('click', registControl);
 function registControl() {
 	let name = document.querySelector('input[name="registName"]');
 	let id = document.querySelector('input[name="registId"]');
-    let pw = document.querySelector('input[name="registPass"]');
-	
-	fetch('addMember.do', {
-		method:"POST",
-		body: {
+	let pw = document.querySelector('input[name="registPass"]');
+
+	fetch("addMember.do", {
+		method: "POST",
+		headers: {
+			'Content-Type': 'application/json;charset=utf-8',
+		},
+		body: JSON.stringify({
 			name: name.value,
 			id: id.value,
 			pw: pw.value,
-		},
+		}),
 	})
 		.then(result => result.json())
 		.then(result => {
-			if(result.retCode == "OK") {
+			console.log(result);
+			if (result.retCode == "OK") {
 				alert("회원가입성공!!");
-				location.href="loginForm.do";
+				location.href = "loginForm.do";
 			} else {
 				alert("회원가입 실패...");
 			}
