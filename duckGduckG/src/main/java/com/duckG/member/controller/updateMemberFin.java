@@ -36,7 +36,6 @@ public class updateMemberFin implements Control {
 		mvo.setAddress(add1);
 
 		
-		System.out.println(mvo);
 		if(msv.updateMemberFin(mvo)) {
 			System.out.println("변경성공");
 			resp.sendRedirect("updateMember.do");

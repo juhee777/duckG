@@ -11,7 +11,10 @@ public class OrderVO {
 	private int productNo;
 	private int count;
 	private int howMuch;
-	private Date createdDate;
+	private Date boughtDate;
 	private int orderSta;
 	private String orderPak;
+	private String image;
+	private String productName;
+	
 }

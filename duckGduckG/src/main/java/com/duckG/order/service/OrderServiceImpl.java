@@ -16,4 +16,10 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return mapper.OrderList(id);
 	}
+	
+	@Override
+	public boolean UpdateOrder(OrderVO ovo) {
+		// TODO Auto-generated method stub
+		return mapper.UpdateOrder(ovo) == 1;
+	}
 }
