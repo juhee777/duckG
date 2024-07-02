@@ -6,19 +6,24 @@ let query = window.location.search;
 let param = new URLSearchParams(query);
 let productNo = param.get('productNo');
 
+let logId = sessionStorage.getItem("logId")
+// 제품상세
+
 fetch(`selectProduct.do?productNo=${productNo}`)
 .then(result => result.json())
 .then(result => {
     result.forEach(element => {   
-        let products = ['productName','price','createDate','stock','mainInfo','semiInfo','sales'];    
+        let products = ['productName','price','createDate','stock','mainInfo','semiInfo','sales','memberId'];    
         products.forEach(ele => {
             document.getElementById(ele).innerHTML = (element[ele]);
         })
         document.getElementById("image").setAttribute("src", `img/productDetail/${element["image"]}`);
+        console.log(logId);
     });
 })
 
 
+// QnA
 fetch(`selectQnA.do?productNo=${productNo}`)
 .then(result => result.json())
 .then(function(result){
@@ -28,7 +33,7 @@ fetch(`selectQnA.do?productNo=${productNo}`)
     makeRow(result)
     })
     let tfooter = document.createElement('tfoot')
-    let products = ['qnaContent','qnaTitle','qnaAnswer'];
+    let products = ['qnaContent','qnaTitle'];
     let tr = document.createElement('tr')
     let td = document.createElement('td')   
     tr.appendChild(td);
@@ -40,7 +45,10 @@ fetch(`selectQnA.do?productNo=${productNo}`)
         tr.appendChild(td);        
     })
     tfooter.appendChild(tr);
-    
+
+
+    td = document.createElement('td')
+    tr.appendChild(td);
     td = document.createElement('td')
     btn = document.createElement('button')
     btn.innerHTML = '작성'
@@ -62,13 +70,15 @@ fetch(`selectQnA.do?productNo=${productNo}`)
     td.appendChild(btn)
     tr.appendChild(td);
     tfooter.appendChild(tr)   
+
+
     document.getElementById('qnaTbl').appendChild(tfooter);
 })
 
 function makeRow(result){
     document.getElementById('qna').innerHTML ="";
     result.forEach(element => {
-        let products = ['qnaNo','qnaTitle','qnaContent','qnaAnswer'];
+        let products = ['memberId','qnaTitle','qnaContent','qnaAnswer'];
         let tr = document.createElement('tr')
         products.forEach(ele => {
             let td = document.createElement('td')
@@ -90,4 +100,31 @@ function makeRow(result){
         tr.setAttribute('id',element['qnaNo']);
         document.getElementById('qna').appendChild(tr);
     })
+}
+
+
+// 리뷰페이지
+
+fetch(`selectReview.do?productNo=${productNo}`)
+.then(result => result.json())
+.then(result => {
+    let cnt = 0;
+    result.forEach(ele =>{
+        document.querySelector("tbody#reviews").appendChild(cloneRow(ele));
+        cnt++;
+    })
+    document.getElementById("reviewCnt").innerHTML = "(" + cnt + ")";
+})
+
+function cloneRow(reply = {}){
+	let template = document.querySelector("tbody#reviews > tr").cloneNode(true);
+	template.style.display = "table-row";
+	template.querySelector("#reviewImage").setAttribute('src', `img/productDetail/${reply.reviewImage}`);
+    template.querySelector("#reviewImage").style = 'width: 100px;';
+    template.querySelector("#reviewImage").style.display = 'inline-block';
+	template.querySelector("#reviewContent").innerHTML = reply.reviewContent;
+	template.querySelector("#memberId").innerHTML = reply.memberId;
+	template.querySelector("#reviewScore").innerHTML = reply.reviewScore;
+    template.querySelector("#createDate").innerHTML = reply.createDate;	
+	return template;
 }

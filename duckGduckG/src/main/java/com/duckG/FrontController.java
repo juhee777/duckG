@@ -49,6 +49,7 @@ import com.duckG.qna.controller.DeleteQnA;
 import com.duckG.qna.controller.QnAForm;
 import com.duckG.qna.controller.SelectQnA;
 import com.duckG.qna.controller.UpdateQnA;
+import com.duckG.review.controller.SelectReview;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
 // main.do -> FrontController -> /WEB-INF/public/main.jsp
@@ -93,6 +94,10 @@ public class FrontController extends HttpServlet {
 		map.put("/SelectOrder.do" ,new SelectOrder());
 		map.put("/UpdateOrder.do", new UpdateOrder());
 		
+		
+		
+		// 리뷰
+		map.put("/selectReview.do" ,new SelectReview());      //제품 선택
 		
 		
 		//제품관리

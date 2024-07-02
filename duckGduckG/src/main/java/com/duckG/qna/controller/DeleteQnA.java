@@ -26,7 +26,7 @@ public class DeleteQnA implements Control {
 		int qnaNo = Integer.parseInt(req.getParameter("qnaNo"));
 		
 		HttpSession session = req.getSession();
-		String uid = (String)session.getAttribute("");
+		String uid = (String)session.getAttribute("logId");
 		
 		resp.getWriter().print(svc.delQnA(qnaNo));
 	}
