@@ -22,7 +22,7 @@ public class UpdateCart implements Control {
 
 		CartVO cvo = new CartVO();
 		cvo.setCartNo(Integer.parseInt(cno));
-		cvo.setCount(Integer.parseInt(count));
+		//cvo.setCount(Integer.parseInt(count));
 
 		cso.updateCart((cvo));
 
