@@ -43,14 +43,14 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="loginPass">
+						<input class="input100" type="password" name="loginPass" onkeyup="enterkey()">
 						<span class="focus-input100" data-placeholder="비밀번호"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="submit" id="loginBtn" class="login100-form-btn">
+							<button type="button" id="loginBtn" class="login100-form-btn">
 								로그인
 							</button>
 						</div>
