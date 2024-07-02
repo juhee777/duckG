@@ -11,5 +11,5 @@ public class SearchVO {
 	private int page;
 	private String keyword;
 	private String category;
-	
+
 }

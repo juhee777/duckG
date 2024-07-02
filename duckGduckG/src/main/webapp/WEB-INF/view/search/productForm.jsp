@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <style>
 .product__item__text h6 a {
     color: #333;
@@ -60,18 +61,7 @@
 <body>
     <form action="productForm.do">
         <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="breadcrumb__text">
-                            <h2>${search}</h2>
-                            <div class="breadcrumb__option">
-                                <a href="./main.do">Home</a> <span>Shop</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </section>
         <!-- Breadcrumb Section End -->
         
@@ -80,7 +70,7 @@
                 <c:forEach var="product" items="${products}">
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="${product.image}">
+                            <div class="product__item__pic set-bg" data-setbg="img/productDetail/${product.image}">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -92,15 +82,17 @@
                                 <h5>
                                   <c:choose>
                                     <c:when test="${product.discount > 0}">
-                                        <span class="original-price">${product.price}원</span>
-                                        <span class="sale-price">
-                                           <script>
-                                                document.write(parseInt(${product.price - (product.price * product.discount / 100)})+"원");
+                                        <span class="original-price"><fmt:formatNumber value="${product.price}" pattern="#,###" />원</span>
+                                        <span class="sale-price product_${product.productNo}">
+                                           <script type="text/javascript">
+                                                let cou = ${product.price - (product.price * product.discount / 100)};
+                                                let result = cou.toLocaleString('ko-KR');
+                                                document.querySelector('.product_${product.productNo}').innerHTML = result + "원";
                                             </script>
                                         </span>
                                     </c:when>
                                     <c:otherwise>
-                                        ${product.price}원
+                                        <span><fmt:formatNumber value="${product.price}" pattern="#,###" />원</span>
                                     </c:otherwise>
                                 </c:choose>
                             </h5>
@@ -114,17 +106,19 @@
         <div class="center">
             <div class="pagination">
                 <c:if test="${paging.prev}">
-                    <a href="productForm.do?page${paging.startPage-1}&reyword=${keyword}">&laquo;</a>
+                    <a href="productForm.do?page${paging.startPage-1}&keyword=${search}&category=${category}">&laquo;</a>
                 </c:if>
                 <c:forEach var="p" begin="${paging.startPage}" end="${paging.endPage}">
-                    <a href="productForm.do?page=${p }&keyword=${keyword}" class=${p == paging.page ? 'active' : '' }>
+                    <a href="productForm.do?page=${p }&keyword=${search}&category=${category}" class=${p == paging.page ? 'active' : '' }>
                        <c:out value="${p }" />
                     </a>
                 </c:forEach>
                 <c:if test="${paging.next}">
-                    <a href="productForm.do?page=${paging.endPage+1}&keyword=${keyword}">&raquo;</a>
+                    <a href="productForm.do?page=${paging.endPage+1}&keyword=${search}&category=${category}">&raquo;</a>
                 </c:if>
             </div>
         </div>
     </form>
 </body>
+
+<script src=""></script>
