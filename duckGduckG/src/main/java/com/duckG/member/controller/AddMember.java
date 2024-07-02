@@ -1,11 +1,11 @@
 package com.duckG.member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import com.duckG.Control;
 import com.duckG.member.service.MemberService;
@@ -16,10 +16,10 @@ public class AddMember implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/json;charset=utf-8");
-		String name = req.getParameter("registName");
-		String id = req.getParameter("registId");
-		String pw = req.getParameter("registPass");
+		
+		String name = req.getParameter("name");
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
 		
 		MemberVO mvo = new MemberVO();
 		

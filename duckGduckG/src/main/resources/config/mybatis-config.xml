@@ -3,7 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="config/db.properties"/>
+
+	<properties resource="config/db.properties" />
+
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 		<setting name="jdbcTypeForNull" value="NULL"/>
@@ -21,7 +23,6 @@
 		</environment>
 	</environments>
 
-
 	<mappers>
 		<mapper resource="com/duckG/cart/mapper/CartMapper.xml" />
 		<mapper resource="com/duckG/jjim/mapper/JjimMapper.xml" />
@@ -31,4 +32,5 @@
 		<mapper resource="com/duckG/qna/mapper/QnAMapper.xml" />
 		<mapper resource="com/duckG/review/mapper/ReviewMapper.xml" />
 	</mappers>
+
 </configuration>

@@ -36,5 +36,22 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.selectCategory(sname);
 	}
+	
+	
+	@Override
+	public int productTotal(SearchVO svo) {
+		// TODO Auto-generated method stub
+		return mapper.productTotal(svo);
+	}
+	
+	@Override
+	public List<ProductVO> productListPaging(SearchVO search) {
+		// TODO Auto-generated method stub
+		return mapper.productListPaging(search);
+	}
+	
+	
+	
+	
 
 }
