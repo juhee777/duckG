@@ -2,17 +2,21 @@
  * 
  */
 //장바구니 목록 가져오기
+showList();
 
-const xthp = new XMLHttpRequest();
-xthp.open('get', 'cartForm.do');
-xthp.send();
-xthp.onload = function () {
-	console.log(xthp);
-	let data = JSON.parse(xthp.responseText);
-	data.forEach(cart => {
-		document.getElementById('cartTbody').appendChild(makeRow(cart));
-	});
-};
+function showList() {
+	const xthp = new XMLHttpRequest();
+	xthp.open('get', 'cartForm.do');
+	xthp.send();
+	xthp.onload = function() {
+		console.log(xthp);
+		let data = JSON.parse(xthp.responseText);
+		data.forEach(cart => {
+			document.getElementById('cartTbody').appendChild(makeRow(cart));
+		});
+	};
+
+}
 
 const fields = ['image', 'productName', 'mainInfo', 'memberId', 'count'];
 
@@ -49,19 +53,18 @@ function cartList(cart) {
 // delicon.addEventListener('click', removeCartFnc);
 
 function removeCartFnc(e) {
-	let id = this.dataset.id; 
+	let id = this.dataset.id;
 	//let tr = document.getElementById(delicon);
-	
 	// ==> temp.querySelector('.icon_close').setAttribute("data-id", cart.cartNo);에서 삭제이벤트가 발생할 cartNo를 알려줬으니까 필요없지 않을까....
-	
+
 	const delCart = new XMLHttpRequest();
 	delCart.open('get', 'deleteCart.do?cartNo=' + cartNo);
 	delCart.send();
-	delCart.onload = function () {
+	delCart.onload = function() {
 		let result = JSON.parse(delCart.responseText);
-		if(result.retCode == 'OK') {
+		if (result.retCode == 'OK') {
 			alert('정상적으로 삭제되었습니다!');
-			e.target.closest.remove();
+			showList();
 		}
 	}
 
@@ -81,17 +84,16 @@ function totalPrice() {
 	// document.querySelector('.shoping__cart__total').innerHTML = total;
 }
 
-let cnt = document.querySelector('input[name=cnt]');
-//==> value가 아니어도 되는지 여쭤보기!
+let cnt = document.querySelector('input[name=cnt]').value;
 
-document.querySelector('.dec').addEventListener('click', function () {
+document.querySelector('.dec').addEventListener('click', function() {
 	if (cnt.value > 0) {
 		cnt.value--;
 		totalPrice(event);
 	}
 })
 
-document.querySelector('.inc').addEventListener('click', function () {
+document.querySelector('.inc').addEventListener('click', function() {
 	if (cnt.value < 99999) {
 		cnt.value++;
 		totalPrice(event);

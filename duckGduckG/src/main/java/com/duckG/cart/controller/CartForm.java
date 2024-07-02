@@ -23,7 +23,7 @@ public class CartForm implements Control {
 		//String id = req.getParameter("memberId");
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("logId");
-
+		
 		if (id != null) {
 			CartService cso = new CartServiceImpl();
 
