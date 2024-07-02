@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<h3>장바구니 폼</h3>
 
 <!-- Shoping Cart Section Begin -->
 <section class="shoping-cart spad">
@@ -21,27 +20,35 @@
 							</tr>
 						</thead>
 						<tbody id="cartTbody">
-							<c:forEach var="cart" items="${cartList }">
-								<tr>
-									<td class=""${cart.productNo}>
-									<img src="img/productDetail/${cart.image}" alt="이미지">
-										<h5>${cart.productName}</h5></td>
-										<td class="">${cart.price}</td>
-										<td class="">
-											<div class="quantity">
-												<div class="pro-qty">
-													<span class="dec qtybtn">-</span>
-													<input type="text" value="${cart.count }">
-													<span class="inc qtybtn">+</span>
+							<c:choose>
+								<c:when test="${empty cartList}">
+									<tr>
+										<td>장바구니가 비어있습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="cart" items="${cartList}">
+										<tr>
+											<td class="shoping__cart__item" ${cart.productNo}>
+											<img src="img/productDetail/mungBean.jpg" width=100, height=100 alt="${cart.productName}">
+											<!-- <img src="img/productDetail/${cart.image}.jpg" width=100, height=100 alt="${cart.productName}"> -->
+												<h7>${cart.productName}</h7></td>
+											<td class="shoping__cart__price">${cart.price}</td>
+											<td class="shoping__cart__quantity">
+												<div class="quantity">
+													<div class="pro-qty">
+														<input type="text" name="cnt" value="${cart.count}">
+													</div>
 												</div>
-											</div>
-										</td>
-										<td class="shoping__cart__total"></td>
-										<td class="shoping__cart__item__close">
+											</td>
+											<td class="shoping__cart__total">${cart.price * cart.count}</td>
+											<td class="shoping__cart__item__close">
 											<span class="icon_close" id="delicon" onclick="removeCartFnc(event)"></span></td>
 										</tr>
 									</c:forEach>
-									</tbody>
+								</c:otherwise>
+							</c:choose>
+						</tbody>
 					</table>
 				</div>
 			</div>
@@ -49,8 +56,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="shoping__cart__btns">
-					<a href="productForm.do" class="primary-btn cart-btn">쇼핑 계속하기</a> <a href="#"
-						class="primary-btn cart-btn cart-btn-right"><span
+					<a href="productForm.do" class="primary-btn cart-btn">쇼핑 계속하기</a> <a
+						href="cartForm.do" class="primary-btn cart-btn cart-btn-right"><span
 						class="icon_loading"></span> 장바구니 갱신</a>
 				</div>
 			</div>
