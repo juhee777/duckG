@@ -22,10 +22,7 @@ document.querySelector('#loginBtn').addEventListener('click', loginControl);
 function loginControl() {
 	let id = document.querySelector('input[name="loginId"]');
 	let pw = document.querySelector('input[name="loginPass"]');
-	fetch('login.do', {
-		method: "POST"
-	})
-	location.href = "login.do?id=" + id.value + "&pw=" + pw.value;
+	location.href="login.do?loginId=" + id.value + "&loginPass=" + pw.value;
 }
 //회원가입창 가기
 document.querySelector('#turnRegist').addEventListener('click', function() {
