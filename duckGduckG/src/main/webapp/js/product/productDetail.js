@@ -6,7 +6,7 @@ let query = window.location.search;
 let param = new URLSearchParams(query);
 let productNo = param.get('productNo');
 
-let logId = sessionStorage.getItem("logId")
+
 // 제품상세
 
 fetch(`selectProduct.do?productNo=${productNo}`)
@@ -18,7 +18,6 @@ fetch(`selectProduct.do?productNo=${productNo}`)
             document.getElementById(ele).innerHTML = (element[ele]);
         })
         document.getElementById("image").setAttribute("src", `img/productDetail/${element["image"]}`);
-        console.log(logId);
     });
 })
 
@@ -27,77 +26,105 @@ fetch(`selectProduct.do?productNo=${productNo}`)
 fetch(`selectQnA.do?productNo=${productNo}`)
 .then(result => result.json())
 .then(function(result){
+
+    
     fetch(`selectQnA.do?productNo=${productNo}`)
     .then(result => result.json())
     .then(function(result){
-    makeRow(result)
+        makeRow(result)
     })
-    let tfooter = document.createElement('tfoot')
-    let products = ['qnaContent','qnaTitle'];
-    let tr = document.createElement('tr')
-    let td = document.createElement('td')   
-    tr.appendChild(td);
-    products.forEach(element => {
-        td = document.createElement('td')  
-        let input = document.createElement('input')
-        input.setAttribute('id', element)
-        td.appendChild(input);        
-        tr.appendChild(td);        
-    })
-    tfooter.appendChild(tr);
 
 
-    td = document.createElement('td')
-    tr.appendChild(td);
-    td = document.createElement('td')
-    btn = document.createElement('button')
-    btn.innerHTML = '작성'
-    btn.style = 'width: 50px;'
-    btn.addEventListener("click", function(){
-        let qnaContent = document.getElementById("qnaContent").value;
-        let qnaTitle = document.getElementById("qnaTitle").value;
-        fetch(`addQnA.do?qnaContent=${qnaContent}&qnaTitle=${qnaTitle}&productNo=${productNo}`)
-        .then(function(){
-            fetch(`selectQnA.do?productNo=${productNo}`)
-            .then(result => result.json())
-            .then(function(result){
-             makeRow(result)
-            })            
+    // QnA작성
+    if(logId != ""){        
+        let tfooter = document.createElement('tfoot')
+        let products = ['qnaTitle','qnaContent'];
+        let tr = document.createElement('tr')
+        let td = document.createElement('td')   
+        tr.appendChild(td);
+        products.forEach(element => {
+            td = document.createElement('td')  
+            let input = document.createElement('input')
+            input.setAttribute('id', element)
+            td.appendChild(input);      
+            tr.appendChild(td);        
         })
-        document.getElementById("qnaContent").value = "";
-        document.getElementById("qnaTitle").value = "";
-    })    
-    td.appendChild(btn)
-    tr.appendChild(td);
-    tfooter.appendChild(tr)   
+        tfooter.appendChild(tr);   
+        
+            td = document.createElement('td');
+            tr.appendChild(td);
+            td = document.createElement('td');
+            btn = document.createElement('button');
+            btn.innerHTML = '작성';
+            btn.style = 'width: 50px;';
+            btn.addEventListener("click", function(){
+                let qnaContent = document.getElementById("qnaContent").value;
+                let qnaTitle = document.getElementById("qnaTitle").value;
+                fetch(`addQnA.do?qnaContent=${qnaContent}&qnaTitle=${qnaTitle}&productNo=${productNo}&memberId=${logId}`)
+                .then(function(){
+                    fetch(`selectQnA.do?productNo=${productNo}`)
+                    .then(result => result.json())
+                    .then(function(result){
+                     makeRow(result);
+                    })            
+                })
+                document.getElementById("qnaContent").value = "";
+                document.getElementById("qnaTitle").value = "";
+            })    
+            td.appendChild(btn);
+            tr.appendChild(td);
+            tfooter.appendChild(tr);
+            document.getElementById('qnaTbl').appendChild(tfooter);
+    }
 
 
-    document.getElementById('qnaTbl').appendChild(tfooter);
 })
 
 function makeRow(result){
     document.getElementById('qna').innerHTML ="";
     result.forEach(element => {
-        let products = ['memberId','qnaTitle','qnaContent','qnaAnswer'];
+        let products = ['memberId','qnaTitle','qnaContent'];
         let tr = document.createElement('tr')
-        products.forEach(ele => {
+        products.forEach(ele => {                        
             let td = document.createElement('td')
             td.innerHTML = element[ele];
+            if(ele == 'qnaTitle'){
+                //모달 버튼
+                td.setAttribute("data-bs-toggle", "modal");
+                td.setAttribute("data-bs-target", "#staticBackdrop");
+                td.addEventListener("click",function(){
+                    products.forEach(ele => { 
+                        document.getElementById("Modal" + ele).innerHTML = element[ele];
+                    })
+                });
+            }
             tr.appendChild(td);           
         })
         let td = document.createElement('td')
-        let btn = document.createElement('button')
-        btn.innerHTML = '삭제'
-        btn.style = 'width: 50px;'
-        btn.addEventListener("click", function(){
-            fetch(`deleteQnA.do?qnaNo=${element['qnaNo']}`)
-            .then(function(){
-                document.getElementById(element['qnaNo']).innerHTML ="";
-            })
-        });
-        td.appendChild(btn)
+        if(element['qnaAnswer'] == " " ){
+            td.innerHTML = "답변대기"
+        }else{
+            td.innerHTML = "답변완료"
+        }
         tr.appendChild(td);
-        tr.setAttribute('id',element['qnaNo']);
+
+        if(logId == element['memberId']){
+            td = document.createElement('td')
+            let btn = document.createElement('button')
+            btn.innerHTML = '삭제';
+            btn.style = 'width: 50px;';
+            btn.addEventListener("click", function(){
+                fetch(`deleteQnA.do?qnaNo=${element['qnaNo']}`)
+                .then(function(){
+                    document.getElementById(element['qnaNo']).innerHTML ="";
+                })
+            });
+            td.appendChild(btn);
+            tr.appendChild(td);
+            tr.setAttribute('id',element['qnaNo']);
+        }
+
+
         document.getElementById('qna').appendChild(tr);
     })
 }
@@ -128,3 +155,13 @@ function cloneRow(reply = {}){
     template.querySelector("#createDate").innerHTML = reply.createDate;	
 	return template;
 }
+
+// 장바구니 담기
+document.getElementById("addCart").addEventListener('click',function(){
+    if(logId != ""){
+        let cnt = document.getElementById('cnt').value;
+        fetch(`addCart.do?productNo=${productNo}&count=${cnt}&memberId=${logId}`)
+    }else{
+        alert("로그인후 사용해 주세요")
+    }
+})

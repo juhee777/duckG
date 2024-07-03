@@ -13,6 +13,7 @@ public class UpdateQnA implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 
 	}
 
