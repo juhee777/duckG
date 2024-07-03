@@ -1,15 +1,18 @@
-﻿DROP TABLE member;
+DROP TABLE member;
 
 CREATE TABLE member (
 	member_id	varchar2(20)		NOT NULL,
 	member_no	number		NOT NULL,
-	member_pw	varchar2(20)		NULL,
-	member_name	varchar2(20)		NULL,
+	member_pw	varchar2(20)		NOT NULL,
+	member_name	varchar2(20)		NOT NULL,
 	email	varchar2(50)		NULL,
 	phone	varchar2(20)		NULL,
-	address	varchar2(200)		NULL,
-	created_date	date		NULL,
-	management	char(2)	DEFAULT 'U'	NULL
+	created_date	date	DEFAULT sysdate	NULL,
+	management	char(2)	DEFAULT 'U'	NULL,
+	addr_no	varchar2(20)		NOT NULL,
+	addr_local	varchar2(50)		NOT NULL,
+	addr_road	varchar2(50)		NOT NULL,
+	addr_det	varchar2(50)		NOT NULL
 );
 
 DROP TABLE product;
@@ -17,12 +20,12 @@ DROP TABLE product;
 CREATE TABLE product (
 	product_no	number		NOT NULL,
 	member_id	varchar2(20)		NOT NULL,
-	product_name	varchar2(200)		NULL,
-	image	varchar2(100)		NULL,
-	price	number		NULL,
-	category_name	varchar2(50)		NULL,
-	create_date	date		NULL,
-	stock	number		NULL,
+	product_name	varchar2(200)		NOT NULL,
+	image	varchar2(100)		NOT NULL,
+	price	number		NOT NULL,
+	category_name	varchar2(50)		NOT NULL,
+	create_date	date	DEFAULT sysdate	NOT NULL,
+	stock	number		NOT NULL,
 	main_info	varchar2(4000)		NULL,
 	semi_info	varchar2(100)		NULL,
 	discount	number		NULL,
@@ -46,8 +49,8 @@ CREATE TABLE qna (
 	qna_no	number		NOT NULL,
 	product_no	number		NOT NULL,
 	member_id	varchar2(20)		NOT NULL,
-	qna_content	varchar2(200)		NULL,
-	qna_title	varchar2(50)		NULL,
+	qna_title	varchar2(50)		NOT NULL,
+	qna_content	varchar2(200)		NOT NULL,
 	qna_answer	varchar2(200)		NULL
 );
 
@@ -60,6 +63,7 @@ CREATE TABLE jjim (
 );
 
 
+
 DROP TABLE review;
 
 CREATE TABLE review (
@@ -69,7 +73,7 @@ CREATE TABLE review (
 	review_content	varchar2(200)		NULL,
 	review_score	number		NULL,
 	review_image	varchar2(100)		NULL,
-	create_date	date		NULL
+	create_date	date	DEFAULT sysdate	NULL
 );
 
 
@@ -79,9 +83,11 @@ CREATE TABLE ordered (
 	order_no	number		NOT NULL,
 	member_id	varchar2(20)		NOT NULL,
 	product_no	number		NOT NULL,
-	count	number		NULL,
-	how_much	number		NULL,
-	bought_date	date		NULL
+	count	number		NOT NULL,
+	how_much	number		NOT NULL,
+	bought_date	date	DEFAULT sysdate	NULL,
+	Order_Sta	number	DEFAULT 1	NULL,
+	order_pak	varchar2(20)		NOT NULL
 );
 
 
@@ -186,13 +192,15 @@ REFERENCES product (
 	product_no
 );
 
---alter table member
---modify management default 'U';
 
-create sequence cart_seq;
-create sequence jjim_seq;
-create sequence member_seq;
-create sequence ordered_seq;
-create sequence product_seq;
-create sequence qna_seq;
-create sequence review_seq;
+create SEQUENCE member_seq;
+create SEQUENCE prodcut_seq;
+create SEQUENCE cart_seq;
+create SEQUENCE jjim_seq;
+create SEQUENCE ordered_seq;
+create SEQUENCE qna_seq;
+create SEQUENCE review_seq;
+
+insert into member(member_no, member_id, member_name, member_pw, management)
+values(member_seq.nextval, 'admin', '관리자', 'admin', 'A');
+select * from member;

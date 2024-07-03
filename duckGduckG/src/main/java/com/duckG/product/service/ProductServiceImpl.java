@@ -49,6 +49,12 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.productListPaging(search);
 	}
+
+	@Override
+	public List<String> categorList() {
+		// TODO Auto-generated method stub
+		return mapper.categoryList();
+	}
 	
 	
 	

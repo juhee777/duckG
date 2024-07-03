@@ -6,5 +6,6 @@ import com.duckG.vo.ReviewVO;
 
 public interface ReviewService {
 	List<ReviewVO> selectReview(int pno);
+	boolean AddReview(ReviewVO rvo);
 
 }

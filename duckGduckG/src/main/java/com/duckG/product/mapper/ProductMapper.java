@@ -16,4 +16,6 @@ public interface ProductMapper {
 	List<ProductVO> productDetail(int pno);
 	List<ProductVO> selectCategory(String cname);
 
+	//카테고리 뽑아오기
+	List<String> categoryList();
 }

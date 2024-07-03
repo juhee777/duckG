@@ -29,11 +29,11 @@
 					<div class="product__details__quantity">
 						<div class="quantity">
 							<div class="pro-qty">
-								<input type="text" value="1">
+								<input type="text" value="1" id="cnt">
 							</div>
 						</div>
 					</div>
-					<br> <a href="#" class="primary-btn">장바구니</a> <a href="#"
+					<br> <a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a> <a href="javascript:void(0);"
 						class="primary-btn">바로구매</a> <a href="#" class="heart-icon"><span
 						class="icon_heart_alt"></span></a>
 					<ul>
@@ -91,46 +91,61 @@
 								<table class="table table-hover" id="qnaTbl">
 									<thead>
 										<tr>
-											<th style="display: inline-block; width: 100px;">작성자</th>
-											<th>제목</th>
-											<th>내용</th>
-											<th>답변</th>
-											<th>삭제</th>
+											<th class="col-md-1">작성자</th>
+											<th class="col-md-2">제목</th>
+											<th class="col-md-6">내용</th>
+											<th class="col-md-2">답변상태</th>
+											<th class="col-md-1">삭제</th>
 										</tr>
 									</thead>
 									<tbody id="qna">
 
 									</tbody>
 								</table>
-								
+
 								<!-- Vertically centered modal -->
-											<!-- Button trigger modal -->
-											<button type="button" class="btn btn-primary"
-												data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-												Launch static backdrop modal</button>	
-								
+
 								<!-- Modal -->
-											<div class="modal fade " id="staticBackdrop"
-												data-bs-backdrop="static" data-bs-keyboard="false"
-												tabindex="-1" aria-labelledby="staticBackdropLabel"
-												aria-hidden="true">
-												<div class="modal-dialog modal-dialog-scrollable">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h5 class="modal-title" id="staticBackdropLabel">Modal
-																title</h5>
-															<button type="button" class="btn-close"
-																data-bs-dismiss="modal" aria-label="Close"></button>
-														</div>
-														<div class="modal-body">...</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-secondary"
-																data-bs-dismiss="modal">Close</button>
-															<button type="button" class="btn btn-primary">Understood</button>
-														</div>
-													</div>
-												</div>
+								<div class="modal fade " id="staticBackdrop"
+									data-bs-backdrop="static" data-bs-keyboard="false"
+									tabindex="-1" aria-labelledby="staticBackdropLabel"
+									aria-hidden="true">
+									<div class="modal-dialog ">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="staticBackdropLabel">QnA상세</h5>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
+											<div class="modal-body">
+											
+											<table style="height: 500px;">
+												<tr>
+													<th class="col-md-5">제목</th>
+													<td id="ModalqnaTitle" class="col-md-7">QnA제목</td>
+												</tr>
+												<tr>
+													<th class="col-md-5">User</th>
+													<td id="ModalmemberId" class="col-md-7">작성자</td>
+												</tr>
+												<tr>
+													<th class="col-md-5">내용</th>
+													<td id="ModalqnaContent" class="col-md-7">QnA내용</td>
+												</tr>	
+												<tr>
+													<th class="col-md-5">답변</th>
+													<td class="col-md-7"><textarea id="ModalqnaAnswer" rows="3" cols="45" style="border: none"></textarea></td>
+												</tr>	
+											</table>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-bs-dismiss="modal">닫기</button>
+												<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="QAnswer">답변등록</button>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="tab-pane" id="tabs-3" role="tabpanel">
@@ -158,11 +173,11 @@
 												<td id="memberId">$55.00</td>
 												<td id="reviewScore"></td>
 												<td id="createDate">$110.00</td>
-											</tr>	
+											</tr>
 										</tbody>
 									</table>
 								</div>
-								<!-- table -->	
+								<!-- table -->
 							</div>
 						</div>
 					</div>
@@ -182,5 +197,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-
+<script>
+	const logId = '${logId}'
+</script>
 <script src="js/product/productDetail.js"></script>

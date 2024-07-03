@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.duckG.DataSource;
-import com.duckG.product.mapper.ProductMapper;
 import com.duckG.review.mapper.ReviewMapper;
 import com.duckG.vo.ReviewVO;
 
@@ -19,4 +18,9 @@ public class ReviewServiceImpl implements ReviewService{
 		return mapper.selectReview(pno);
 	}
 
+	@Override
+	public boolean AddReview(ReviewVO rvo) {
+		// TODO Auto-generated method stub
+		return mapper.AddReview(rvo) == 1;
+	}
 }

@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
     <!-- Row Slide ( Category) -->
     <section class="categories">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3" style="display: none;">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
-                            <h5><a href="#">Fresh Fruit</a></h5>
-                        </div>
-                    </div>
+                	<c:forEach var="category" items="${categoryList }">
+	                    <div class="col-lg-3" style="width: 240px;">
+	                        <div class="categories__item set-bg" data-setbg="img/productDetail/category/${category }.jpg">
+	                            <h5><a href="#">${category }</a></h5>
+	                        </div>
+	                    </div>
+                	</c:forEach>
                 </div>
             </div>
         </div>

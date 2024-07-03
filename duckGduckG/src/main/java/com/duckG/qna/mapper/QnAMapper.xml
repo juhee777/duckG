@@ -25,7 +25,7 @@
 	<update id="updateQnA" parameterType="com.duckG.vo.QnAVO">
 		UPDATE qna
 		SET qna_answer = #{qnaAnswer}
-		WHERE qna_no = #{productNo}
+		WHERE qna_no = #{qnaNo}
 	</update>
 
 </mapper>
