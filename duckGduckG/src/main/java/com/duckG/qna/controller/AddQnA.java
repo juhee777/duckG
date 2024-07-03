@@ -23,13 +23,14 @@ public class AddQnA implements Control {
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
 		String qnaContent = req.getParameter("qnaContent");
 		String qnaTitle = req.getParameter("qnaTitle");
+		String memberId = req.getParameter("memberId");
 		
 		QnAVO qvo = new QnAVO();
 		
 		qvo.setProductNo(productNo);
 		qvo.setQnaContent(qnaContent);
 		qvo.setQnaTitle(qnaTitle);
-		qvo.setMemberId("user01");
+		qvo.setMemberId(memberId);
 		
 		svc.addQnA(qvo);		
 
