@@ -39,6 +39,7 @@ import com.duckG.order.controller.OrderForm;
 import com.duckG.order.controller.SelectOrder;
 import com.duckG.order.controller.UpdateOrder;
 import com.duckG.product.controller.AddProduct;
+import com.duckG.product.controller.CategoryList;
 import com.duckG.product.controller.DeleteProduct;
 import com.duckG.product.controller.ProductDetailForm;
 import com.duckG.product.controller.ProductForm;
@@ -106,6 +107,7 @@ public class FrontController extends HttpServlet {
 		map.put("/addProduct.do", new AddProduct());		//제품 추가
 		map.put("/deleteProdcut", new DeleteProduct());		//제품 제거
 		map.put("/updateProdcut", new UpdateProdcut());		//제품 정보 업데이트
+		map.put("/categoryList.do", new CategoryList());	//카테고리 가져오기
 
 		// 제품상세
 		map.put("/productDetailForm.do", new ProductDetailForm()); // 제품상세정보 페이지
