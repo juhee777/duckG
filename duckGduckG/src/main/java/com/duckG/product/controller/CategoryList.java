@@ -1,4 +1,4 @@
-package com.duckG.main;
+package com.duckG.product.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,18 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.duckG.Control;
 import com.duckG.product.service.ProductService;
 import com.duckG.product.service.ProductServiceImpl;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-public class MainControl implements Control {
+public class CategoryList implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		resp.setContentType("text/json;charset=utf-8");
+		
 		ProductService svc = new ProductServiceImpl();
-
+		
 		List<String> categoryList = svc.categorList();
-		req.setAttribute("categoryList", categoryList);
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		resp.getWriter().print(gson.toJson(categoryList));
 
-		req.getRequestDispatcher("main/main.tiles").forward(req, resp);
 	}
 
 }

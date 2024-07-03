@@ -19,20 +19,18 @@ public class SelectReview implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+
 		req.setCharacterEncoding("UTF-8");
-				resp.setContentType("text/json;charset=UTF-8");		
-				ReviewService svc = new ReviewServiceImpl();
-				
-				int productNo = Integer.parseInt(req.getParameter("productNo"));
-				
-				List<ReviewVO> list = svc.selectReview(productNo);		
+		resp.setContentType("text/json;charset=UTF-8");
+		ReviewService svc = new ReviewServiceImpl();
 
-				Gson gson = new GsonBuilder().create();
+		int productNo = Integer.parseInt(req.getParameter("productNo"));
 
-				resp.getWriter().print(gson.toJson(list));
+		List<ReviewVO> list = svc.selectReview(productNo);
 
+		Gson gson = new GsonBuilder().create();
+
+		resp.getWriter().print(gson.toJson(list));
 	}
 
 }

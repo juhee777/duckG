@@ -17,4 +17,6 @@ public interface ProductService {
 	int productTotal(SearchVO svo);
 	List<ProductVO> selectCategory(String sname);
 
+	//카테고리 뽑아오기
+	List<String> categorList(); 
 }

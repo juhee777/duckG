@@ -39,6 +39,7 @@ import com.duckG.order.controller.OrderForm;
 import com.duckG.order.controller.SelectOrder;
 import com.duckG.order.controller.UpdateOrder;
 import com.duckG.product.controller.AddProduct;
+import com.duckG.product.controller.CategoryList;
 import com.duckG.product.controller.DeleteProduct;
 import com.duckG.product.controller.ProductDetailForm;
 import com.duckG.product.controller.ProductForm;
@@ -50,6 +51,7 @@ import com.duckG.qna.controller.QnAForm;
 import com.duckG.qna.controller.SelectQnA;
 import com.duckG.qna.controller.UpdateQnA;
 import com.duckG.review.controller.AddReview;
+import com.duckG.review.controller.SelectReview;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
 // main.do -> FrontController -> /WEB-INF/public/main.jsp
@@ -99,12 +101,17 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteMember.do", new DeleteMember());	
 		
 		
+		// 리뷰
+		map.put("/selectReview.do" ,new SelectReview());      //제품 선택
+		
+		
 		//제품관리
 		map.put("/productForm.do", new ProductForm());		//제품상세정보 페이지
 		map.put("/selectProduct.do", new SelectProdcut());	//제품 선택
 		map.put("/addProduct.do", new AddProduct());		//제품 추가
 		map.put("/deleteProdcut", new DeleteProduct());		//제품 제거
 		map.put("/updateProdcut", new UpdateProdcut());		//제품 정보 업데이트
+		map.put("/categoryList.do", new CategoryList());	//카테고리 가져오기
 
 		// 제품상세
 		map.put("/productDetailForm.do", new ProductDetailForm()); // 제품상세정보 페이지
