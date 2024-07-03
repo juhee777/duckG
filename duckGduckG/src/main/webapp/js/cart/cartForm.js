@@ -4,7 +4,15 @@
 
 //장바구니 목록 갱신
 
+// document.getElementById('renewCartBtn').addEventListener('click', function(){
+// 	fetch('cartTbody')
+// 	.then(result => {
+// 		let cartTbody = document.getElementById('cartTbody');
+// 		cortTbody.innerHTML = '';
 
+// 		document.querySelector('cartTbody')
+// 	})
+// })
 
 
 
@@ -12,18 +20,23 @@
 // 장바구니 삭제.
 function removeCartFnc(e) {
 	console.log(e);// e ==> span icon_close
-	let delicon = this.dataset.delicon;
+	//console.log(this);
+	let delicon = e.target.dataset.delicon;
 	let tr = document.getElementById(delicon);
-	// ==> temp.querySelector('.icon_close').setAttribute("data-id", cart.cartNo);에서 삭제이벤트가 발생할 cartNo를 알려줬으니까 필요없지 않을까....
 
+	cartNo = delicon;
+		
 	const delCart = new XMLHttpRequest();
 	delCart.open('get', 'deleteCart.do?cartNo=' + cartNo);
 	delCart.send();
 	delCart.onload = function() {
 		let result = JSON.parse(delCart.responseText);
+		console.log(result);
 		if (result.retCode == 'OK') {
-			alert('정상적으로 삭제되었습니다!');
-			showList();
+			alert('정상 삭제');
+			tr.remove();
+		} else {
+			alert('삭제 실패')
 		}
 	}
 
@@ -67,10 +80,10 @@ function formInit() {
 	document.querySelectorAll('input[name=cnt]').forEach(item => {
 
 		item.addEventListener('change', function(cnt) {
-			fetch('updateCart.do?cno=cno&cnt='+cnt)
+			fetch('updateCart.do?cno=cno&cnt=' + cnt)
 				.then(result => result.json())
 				.then(result => {
-					if(result.retCode == "OK") {
+					if (result.retCode == "OK") {
 						console.log("업뎃완")
 					} else {
 						console.log("업뎃X")
@@ -83,9 +96,24 @@ function formInit() {
 			//가격 값이 들어있는 td, 수량값이 들어있는 td를 찾고 곱하고 합계 td에 출력
 			total = (price.replace(/,/g, '') * item.value.replace(/,/g, ''));
 			item.parentElement.parentElement.parentElement.nextElementSibling.innerText = (total + '').replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+
+			updateCartTotal();
 		});
 
-	})
+		function updateCartTotal() {
+			let cartTotal = 0;
+			document.querySelectorAll('input[name=cnt]').forEach(item => {
+				let price = item.parentElement.parentElement.parentElement.previousElementSibling.innerHTML;
+				
+				total = parseInt(price) * parseInt(item.value);
 
+				cartTotal += total;
+			});
+			document.getElementById('cartTotal').innerText = cartTotal;
+		}
+	})
 }
+
+
+//장바구니 총합계
 
