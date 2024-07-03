@@ -117,4 +117,4 @@
     </form>
 </body>
 
-<script src="js/product.js"></script>
+<script src="js/product/product.js"></script>
