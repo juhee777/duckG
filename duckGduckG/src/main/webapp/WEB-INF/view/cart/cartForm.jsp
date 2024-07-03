@@ -22,7 +22,7 @@
 						<tbody id="cartTbody">
 						<tr style="display:none;">
 							<td class="shoping__cart__item" ${cart.productNo}>
-							<img src="img/productDetail/${cart.image}" width=100, height=100 alt="${cart.productName}">
+							<!-- <img src="img/productDetail/${cart.image}" width=100, height=100 alt="${cart.productName}"> -->
 								<h6>${cart.productName}</h6></td>
 							<td class="shoping__cart__price" data-price="${cart.price}"><fmt:formatNumber value="${cart.price}" pattern="#,###"/></td>
 							<td class="shoping__cart__quantity">
@@ -72,26 +72,18 @@
 			<div class="col-lg-12">
 				<div class="shoping__cart__btns">
 					<a href="productForm.do" class="primary-btn cart-btn">쇼핑 계속하기</a> <a
-						href="cartForm.do" class="primary-btn cart-btn cart-btn-right"><span
-						class="icon_loading"></span> 장바구니 갱신</a>
+						href="cartForm.do" class="primary-btn cart-btn cart-btn-right">
+						<span class="icon_loading" id="renewCartBtn"></span> 장바구니 갱신</a>
 				</div>
 			</div>
 			<div class="col-lg-6">
-				<div class="shoping__continue">
-					<div class="shoping__discount">
-						<h5>할인 코드</h5>
-						<form action="#">
-							<input type="text" placeholder="Enter your coupon code">
-							<button type="submit" class="site-btn">쿠폰 적용</button>
-						</form>
-					</div>
-				</div>
+				<div class="shoping__continue"></div>
 			</div>
 			<div class="col-lg-6">
-				<div class="shoping__checkout">
+				<div class="shoping__checkout" >
 					<h5>장바구니 합계</h5>
 					<ul>
-						<li>합계 <span>$454.98</span></li>
+						<li>합계 <span id="cartTotal"></span></li>
 					</ul>
 					<a href="#" class="primary-btn">결제하기</a>
 				</div>
