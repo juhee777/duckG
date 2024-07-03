@@ -71,6 +71,10 @@
 		where b.rn > (#{page} - 1) * 12
 	</select>
 
-
+	<select id="categoryList">
+		select category_name 
+		from product 
+		GROUP by category_name
+	</select>
 
 </mapper>
