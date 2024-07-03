@@ -7,7 +7,7 @@
 
 
 	<select id="cartList" resultType="com.duckG.vo.CartVO">
-		select
+		select c.cart_no,
 			p.image as image,
 			p.product_name as productName,
 			p.price as price,
@@ -27,7 +27,6 @@
 		update cart
 		set count = #{count}
 		where cart_no =	#{cartNo}
-		and member_id = #{memberId}
 	</update>
 
 	<select id="checkCart" resultType="com.duckG.vo.CartVO">

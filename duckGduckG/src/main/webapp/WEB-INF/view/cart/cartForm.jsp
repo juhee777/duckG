@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!-- Shoping Cart Section Begin -->
 <section class="shoping-cart spad">
@@ -20,6 +20,22 @@
 							</tr>
 						</thead>
 						<tbody id="cartTbody">
+						<tr style="display:none;">
+							<td class="shoping__cart__item" ${cart.productNo}>
+							<img src="img/productDetail/${cart.image}" width=100, height=100 alt="${cart.productName}">
+								<h6>${cart.productName}</h6></td>
+							<td class="shoping__cart__price" data-price="${cart.price}"><fmt:formatNumber value="${cart.price}" pattern="#,###"/></td>
+							<td class="shoping__cart__quantity">
+								<div class="quantity">
+									<div class="pro-qty">
+										<input type="text" name="cnt" value="${cart.count}">
+									</div>
+								</div>
+							</td>
+							<td class="shoping__cart__total"><fmt:formatNumber value="${cart.price * cart.count}" pattern="#,###"/></td>
+							<td class="shoping__cart__item__close">
+							<span class="icon_close" onclick="removeCartFnc(event)"></span></td>
+						</tr>
 							<c:choose>
 								<c:when test="${empty cartList}">
 									<tr>
@@ -28,12 +44,11 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach var="cart" items="${cartList}">
-										<tr>
+										<tr data-no="${cart.cartNo}">
 											<td class="shoping__cart__item" ${cart.productNo}>
-											<img src="img/productDetail/mungBean.jpg" width=100, height=100 alt="${cart.productName}">
-											<!-- <img src="img/productDetail/${cart.image}.jpg" width=100, height=100 alt="${cart.productName}"> -->
-												<h7>${cart.productName}</h7></td>
-											<td class="shoping__cart__price">${cart.price}</td>
+											<img src="img/productDetail/${cart.image}" width=100, height=100 alt="${cart.productName}">
+												<h6>${cart.productName}</h6></td>
+											<td class="shoping__cart__price" data-price="${cart.price}"><fmt:formatNumber value="${cart.price}" pattern="#,###"/></td>
 											<td class="shoping__cart__quantity">
 												<div class="quantity">
 													<div class="pro-qty">
@@ -41,9 +56,9 @@
 													</div>
 												</div>
 											</td>
-											<td class="shoping__cart__total">${cart.price * cart.count}</td>
+											<td class="shoping__cart__total"><fmt:formatNumber value="${cart.price * cart.count}" pattern="#,###"/></td>
 											<td class="shoping__cart__item__close">
-											<span class="icon_close" id="delicon" onclick="removeCartFnc(event)"></span></td>
+											<span class="icon_close" onclick="removeCartFnc(event)"></span></td>
 										</tr>
 									</c:forEach>
 								</c:otherwise>

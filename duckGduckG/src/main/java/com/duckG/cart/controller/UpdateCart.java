@@ -17,18 +17,24 @@ public class UpdateCart implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String cno = req.getParameter("cno");
+		String count = req.getParameter("cnt");
 
 		CartService cso = new CartServiceImpl();
 
 		CartVO cvo = new CartVO();
 		cvo.setCartNo(Integer.parseInt(cno));
-		//cvo.setCount(Integer.parseInt(count));
-
-		cso.updateCart((cvo));
-
-		req.setAttribute("cartNo", cno);
-
-		req.getRequestDispatcher("cart/cartForm.tiles").forward(req, resp);
+		cvo.setCount(Integer.parseInt(count));
+		
+		try {
+			if(cso.updateCart(cvo)) {
+				resp.getWriter().print("{\"retCode\":\"OK\"}");
+			}			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+				resp.getWriter().print("{\"retCode\":\"NG\"}");
+		}
+		
 
 	}
 

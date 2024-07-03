@@ -24,15 +24,17 @@ public class CartForm implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		HttpSession session = req.getSession();
-		String id = (String)session.getAttribute("logId");
-		
+		String id = (String) session.getAttribute("logId");
+
 		try {
-			if(id != null){
+			if (id != null) {
 				CartService cso = new CartServiceImpl();
-				
+
 				List<CartVO> cartTbody = cso.cartList(id);
 				req.setAttribute("cartList", cartTbody);
 				req.getRequestDispatcher("cart/cartForm.tiles").forward(req, resp);
+			} else {
+				req.getRequestDispatcher("member/loginForm.tiles").forward(req, resp);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -42,7 +44,7 @@ public class CartForm implements Control {
 			w.write("<script>alert('아 똑바로좀 ㅋ');</script>");
 			w.flush();
 			w.close();
-			resp.sendRedirect("main.do");
+			// resp.sendRedirect("main.do");
 		}
 	}
 
