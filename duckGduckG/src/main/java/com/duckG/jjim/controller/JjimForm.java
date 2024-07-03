@@ -14,7 +14,7 @@ public class JjimForm implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		req.getRequestDispatcher("product/test.tiles").forward(req, resp);
+		req.getRequestDispatcher("jjim/jjimForm.tiles").forward(req, resp);
 
 	}
 

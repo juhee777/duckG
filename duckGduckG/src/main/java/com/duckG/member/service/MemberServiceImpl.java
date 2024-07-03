@@ -45,5 +45,11 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return mapper.updatpw(mvo) == 1;
 	}
+	
+	@Override
+	public boolean delmember(String id) {
+		// TODO Auto-generated method stub
+		return mapper.delmember(id) == 1;
+	}
 
 }

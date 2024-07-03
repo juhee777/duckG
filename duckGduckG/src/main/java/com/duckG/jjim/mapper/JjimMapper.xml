@@ -4,4 +4,26 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.duckG.jjim.mapper.JjimMapper">
+
+	<!-- jjim상세 -->
+	
+	<select id="selectJjim" resultType="com.duckG.vo.JjimVO">
+		select *
+		from jjim
+		where product_no = #{productNo}
+	</select>
+	
+	<insert id="addJjim" parameterType="com.duckG.vo.JjimVO">
+		INSERT INTO jjim 
+		VALUES (#{memberId}, #{productNo})
+	</insert>
+	
+	<delete id="delJjim" parameterType="com.duckG.vo.JjimVO">	
+		DELETE from jjim
+		where product_no = #{productNo}
+		and   member_id = #{memberId}
+	</delete>
+
+
+
 </mapper>

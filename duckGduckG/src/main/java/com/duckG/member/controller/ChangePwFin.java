@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import com.duckG.Control;
 import com.duckG.member.service.MemberService;
@@ -19,7 +19,8 @@ public class ChangePwFin implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		
-		String id = "user01";
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("logId");
 				
 		MemberService msv = new MemberServiceImpl();
 		MemberVO mvo = new MemberVO();
@@ -29,11 +30,6 @@ public class ChangePwFin implements Control {
 		String pw1 = req.getParameter("pw1");
 		String pw2 = req.getParameter("pw2");
 		String pwdb = msv.pwdb(id).getMemberPw();
-		
-		System.out.println(pw);
-		System.out.println(pw1);
-		System.out.println(pw2);
-		System.out.println(pwdb);
 		
 		mvo.setMemberId(id);
 		mvo.setMemberPw(pw1);

@@ -26,8 +26,7 @@ fetch(`selectProduct.do?productNo=${productNo}`)
 fetch(`selectQnA.do?productNo=${productNo}`)
 .then(result => result.json())
 .then(function(result){
-
-    
+       
     fetch(`selectQnA.do?productNo=${productNo}`)
     .then(result => result.json())
     .then(function(result){
@@ -41,12 +40,21 @@ fetch(`selectQnA.do?productNo=${productNo}`)
         let products = ['qnaTitle','qnaContent'];
         let tr = document.createElement('tr')
         let td = document.createElement('td')   
+        td.innerHTML = "QnA작성"
         tr.appendChild(td);
         products.forEach(element => {
             td = document.createElement('td')  
-            let input = document.createElement('input')
-            input.setAttribute('id', element)
-            td.appendChild(input);      
+            if(element == 'qnaContent'){
+                let textarea = document.createElement('textarea');
+                textarea.setAttribute('id', element);
+                textarea.setAttribute('rows', '2');
+                textarea.setAttribute('cols', '70');
+                td.appendChild(textarea);    
+            }else{
+                let input = document.createElement('input');
+                input.setAttribute('id', element);
+                td.appendChild(input);      
+            }
             tr.appendChild(td);        
         })
         tfooter.appendChild(tr);   
@@ -88,7 +96,7 @@ function makeRow(result){
         products.forEach(ele => {                        
             let td = document.createElement('td')
             td.innerHTML = element[ele];
-            if(ele == 'qnaTitle'){
+            if(ele == 'qnaContent'){
                 //모달 버튼
                 td.setAttribute("data-bs-toggle", "modal");
                 td.setAttribute("data-bs-target", "#staticBackdrop");
@@ -96,9 +104,25 @@ function makeRow(result){
                     products.forEach(ele => { 
                         document.getElementById("Modal" + ele).innerHTML = element[ele];
                     })
+                    document.getElementById("ModalqnaAnswer").value = element['qnaAnswer'];
+                    document.getElementById("QAnswer").setAttribute('qnaNo',element['qnaNo']);
+
+                    fetch(`selectProduct.do?productNo=${productNo}`)
+                    .then(result => result.json())
+                    .then(function(result){
+                        let seller = "";
+                        result.forEach(ele =>{
+                            seller = ele.memberId;
+                        })
+                        if(logId == seller){
+                            document.getElementById("QAnswer").style = "display : block";
+                        }else{
+                            document.getElementById("QAnswer").style = "display : none";
+                        }
+                    })
                 });
             }
-            tr.appendChild(td);           
+                tr.appendChild(td);           
         })
         let td = document.createElement('td')
         if(element['qnaAnswer'] == " " ){
@@ -117,7 +141,7 @@ function makeRow(result){
                 fetch(`deleteQnA.do?qnaNo=${element['qnaNo']}`)
                 .then(function(){
                     document.getElementById(element['qnaNo']).innerHTML ="";
-                })
+                })                
             });
             td.appendChild(btn);
             tr.appendChild(td);
@@ -164,4 +188,18 @@ document.getElementById("addCart").addEventListener('click',function(){
     }else{
         alert("로그인후 사용해 주세요")
     }
+})
+
+// QnA답변
+document.getElementById("QAnswer").addEventListener("click",function(){
+    let qnaNo = document.getElementById("QAnswer").getAttribute('qnaNo');
+    let QAnswer = document.getElementById("ModalqnaAnswer").value;    
+    fetch(`updateQnA.do?qnaNo=${qnaNo}&QAnswer=${QAnswer}`)
+
+    fetch(`selectQnA.do?productNo=${productNo}`)
+    .then(result => result.json())
+    .then(function(result){
+        makeRow(result)
+    })
+    document.getElementById("ModalqnaAnswer").value = "";
 })

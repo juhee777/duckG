@@ -12,4 +12,7 @@ public interface MemberService {
 	boolean updateMemberFin(MemberVO mvo);
 	MemberVO pwdb(String id);
 	boolean updatpw(MemberVO mvo);
+	
+	boolean delmember(String id);
+	
 }
