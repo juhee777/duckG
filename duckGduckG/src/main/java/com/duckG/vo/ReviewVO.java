@@ -1,7 +1,8 @@
 package com.duckG.vo;
 
+import java.util.Date;
+
 import lombok.Data;
-import oracle.sql.DATE;
 
 @Data
 public class ReviewVO {
@@ -11,5 +12,5 @@ public class ReviewVO {
 	private String reviewContent;
 	private int reviewScore;
 	private String reviewImage;
-	private Data createDate;	
+	private Date createDate;	
 }

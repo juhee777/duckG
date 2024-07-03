@@ -49,6 +49,7 @@ import com.duckG.qna.controller.DeleteQnA;
 import com.duckG.qna.controller.QnAForm;
 import com.duckG.qna.controller.SelectQnA;
 import com.duckG.qna.controller.UpdateQnA;
+import com.duckG.review.controller.AddReview;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
 // main.do -> FrontController -> /WEB-INF/public/main.jsp
@@ -75,7 +76,7 @@ public class FrontController extends HttpServlet {
 		//회원관리
 		map.put("/memberList.do", new MemberList());		//모든 회원조회
 		map.put("/addMember.do", new AddMember());			//회원 추가
-		map.put("/deleteMember.do", new DeleteMember());	//회원 제거 or 탈퇴
+		
 		
 		//정보수정 완료
 		map.put("/updateMember.do", new UpdateMember());	//회원정보 갱신
@@ -92,7 +93,10 @@ public class FrontController extends HttpServlet {
 		map.put("/MyInfo.do", new MyInfo());
 		map.put("/SelectOrder.do" ,new SelectOrder());
 		map.put("/UpdateOrder.do", new UpdateOrder());
+		map.put("/AddReview.do", new AddReview());
 		
+		//탈퇴
+		map.put("/deleteMember.do", new DeleteMember());	
 		
 		
 		//제품관리

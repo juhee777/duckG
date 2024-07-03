@@ -6,5 +6,6 @@ import com.duckG.vo.ReviewVO;
 
 public interface ReviewMapper {
 	List<ReviewVO> selectReview(int pno);
+	int AddReview(ReviewVO rvo);
 
 }
