@@ -33,7 +33,7 @@
 							</div>
 						</div>
 					</div>
-					<br> <a href="#" class="primary-btn" id="addCart">장바구니</a> <a href="#"
+					<br> <a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a> <a href="javascript:void(0);"
 						class="primary-btn">바로구매</a> <a href="#" class="heart-icon"><span
 						class="icon_heart_alt"></span></a>
 					<ul>
@@ -91,11 +91,11 @@
 								<table class="table table-hover" id="qnaTbl">
 									<thead>
 										<tr>
-											<th class="col-md-2">작성자</th>
-											<th class="col-md-3">제목</th>
-											<th class="col-md-3">내용</th>
+											<th class="col-md-1">작성자</th>
+											<th class="col-md-2">제목</th>
+											<th class="col-md-6">내용</th>
 											<th class="col-md-2">답변상태</th>
-											<th class="col-md-2">삭제</th>
+											<th class="col-md-1">삭제</th>
 										</tr>
 									</thead>
 									<tbody id="qna">
@@ -122,7 +122,7 @@
 											<table style="height: 500px;">
 												<tr>
 													<th class="col-md-5">제목</th>
-													<td id="ModalqnaTitle" class="col-md-7">QnA제목QnA제목QnA제목QnA제목QnA제목</td>
+													<td id="ModalqnaTitle" class="col-md-7">QnA제목</td>
 												</tr>
 												<tr>
 													<th class="col-md-5">User</th>
@@ -130,18 +130,18 @@
 												</tr>
 												<tr>
 													<th class="col-md-5">내용</th>
-													<td id="ModalqnaContent" class="col-md-7">QnA내용QnA내용QnA내용QnA내용QnA내용</td>
+													<td id="ModalqnaContent" class="col-md-7">QnA내용</td>
 												</tr>	
 												<tr>
 													<th class="col-md-5">답변</th>
-													<td class="col-md-7"><textarea id="ModalqnaAnswer" rows="5" cols="45"></textarea></td>
+													<td class="col-md-7"><textarea id="ModalqnaAnswer" rows="3" cols="45" style="border: none"></textarea></td>
 												</tr>	
 											</table>
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-bs-dismiss="modal">닫기</button>
-												<button type="button" class="btn btn-primary">답변등록</button>
+												<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="QAnswer">답변등록</button>
 											</div>
 										</div>
 									</div>
