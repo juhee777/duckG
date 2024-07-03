@@ -72,23 +72,19 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="img/productDetail/${product.image}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="#" id="heart"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">${product.productName}</a></h6>
+                                <h6><a href="productDetailForm.do?productNo=${product.productNo }">${product.productName}</a></h6>
                                 <h5>
                                   <c:choose>
                                     <c:when test="${product.discount > 0}">
                                         <span class="original-price"><fmt:formatNumber value="${product.price}" pattern="#,###" />원</span>
-                                        <span class="sale-price product_${product.productNo}">
-                                           <script type="text/javascript">
-                                                let cou = ${product.price - (product.price * product.discount / 100)};
-                                                let result = cou.toLocaleString('ko-KR');
-                                                document.querySelector('.product_${product.productNo}').innerHTML = result + "원";
-                                            </script>
+                                        <span class="sale-price">
+                                           <fmt:formatNumber value="${product.price - (product.price * product.discount / 100)}" pattern="#,###" />원
                                         </span>
                                     </c:when>
                                     <c:otherwise>
@@ -121,4 +117,4 @@
     </form>
 </body>
 
-<script src=""></script>
+<script src="js/product.js"></script>

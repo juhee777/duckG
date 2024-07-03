@@ -11,5 +11,7 @@ public static void main(String[] args) {
 	ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
 	
 	
+	
+	
 }
 }
