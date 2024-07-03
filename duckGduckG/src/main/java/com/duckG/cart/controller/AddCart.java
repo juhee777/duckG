@@ -22,7 +22,7 @@ public class AddCart implements Control {
 
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
 		int count = Integer.parseInt(req.getParameter("count"));
-		String memberId = req.getParameter("memberId");
+		String memberId = req.getParameter("memberId");		
 
 		CartVO cvo = new CartVO();
 		cvo.setProductNo(productNo);
