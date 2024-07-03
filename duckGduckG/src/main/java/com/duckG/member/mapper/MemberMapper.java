@@ -14,4 +14,6 @@ public interface MemberMapper {
 	MemberVO pwdb(String id);         // 비밀번호 조회
 	int updatpw(MemberVO mvo);
 	
+	int delmember(String id);
+	
 }
