@@ -25,6 +25,8 @@ public class CartForm implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("logId");
+		
+		//장바구니에 추가할 때의 수량값 number
 
 		try {
 			if (id != null) {
