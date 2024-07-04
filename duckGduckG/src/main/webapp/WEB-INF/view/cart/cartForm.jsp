@@ -58,7 +58,7 @@
 											</td>
 											<td class="shoping__cart__total"><fmt:formatNumber value="${cart.price * cart.count}" pattern="#,###"/></td>
 											<td class="shoping__cart__item__close">
-											<span class="icon_close" onclick="removeCartFnc(event)"></span></td>
+											<span class="icon_close" data-delicon="${cart.cartNo }" onclick="removeCartFnc(event)"></span></td>
 										</tr>
 									</c:forEach>
 								</c:otherwise>
@@ -90,8 +90,8 @@
 			</div>
 		</div>
 	</div>
-</section>
-<!-- Shoping Cart Section End -->
+</section><!-- Shoping Cart Section End -->
+
 
 <script src="js/cart/cartForm.js"></script>
 
