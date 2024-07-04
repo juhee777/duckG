@@ -27,7 +27,7 @@
 		where  order_no = #{orderNo}
 	</update>
 	
-	<select id="orderDetails" parameterType ="com.duckG.vo.OrderVO">
+	<select id="orderDetails" parameterType ="String" resultType="com.duckG.vo.OrderVO">
 		SELECT o.product_no,
 		       o.count,
 		       o.how_much,

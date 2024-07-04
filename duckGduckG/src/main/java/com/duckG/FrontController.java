@@ -25,6 +25,7 @@ import com.duckG.member.controller.ChangePw;
 import com.duckG.member.controller.ChangePwFin;
 import com.duckG.member.controller.DeleteMember;
 import com.duckG.member.controller.Inquire;
+import com.duckG.member.controller.Inquireget;
 import com.duckG.member.controller.LoginControl;
 import com.duckG.member.controller.LoginForm;
 import com.duckG.member.controller.LogoutControl;
@@ -33,7 +34,7 @@ import com.duckG.member.controller.MyInfo;
 import com.duckG.member.controller.RegistForm;
 import com.duckG.member.controller.UpdateMember;
 import com.duckG.member.controller.updateMemberFin;
-import com.duckG.order.controller.AddOrder;
+import com.duckG.order.controller.OrderDetails;
 import com.duckG.order.controller.DeleteOrder;
 import com.duckG.order.controller.OrderForm;
 import com.duckG.order.controller.SelectOrder;
@@ -90,6 +91,7 @@ public class FrontController extends HttpServlet {
 		
 		//1:1 문의
 		map.put("/Inquire.do", new Inquire());				//1:1 문의
+		map.put("/Inquireget.do", new Inquireget());
 				
 		//마이페이지, 리뷰
 		map.put("/MyInfo.do", new MyInfo());
@@ -97,7 +99,8 @@ public class FrontController extends HttpServlet {
 		map.put("/UpdateOrder.do", new UpdateOrder());
 		map.put("/AddReview.do", new AddReview());
 		map.put("/OrderForm.do", new OrderForm());
-		map.put("/AddOrder.do", new AddOrder());
+		map.put("/OrderDetails.do", new OrderDetails());
+
 		
 		//탈퇴
 		map.put("/deleteMember.do", new DeleteMember());	
@@ -109,6 +112,7 @@ public class FrontController extends HttpServlet {
 		
 		//제품관리
 		map.put("/productForm.do", new ProductForm());		//제품상세정보 페이지
+		map.put("/AddOrder.do", new OrderDetails());
 		map.put("/selectProduct.do", new SelectProdcut());	//제품 선택
 		map.put("/addProduct.do", new AddProduct());		//제품 추가
 		map.put("/deleteProdcut", new DeleteProduct());		//제품 제거

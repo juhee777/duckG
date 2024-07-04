@@ -16,12 +16,12 @@ public class UpdateMember implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		//임시 로그인
+
 		HttpSession session = req.getSession();
-		session.setAttribute("logId", "user01");	
+		String id = (String) session.getAttribute("logId");
+		
 		MemberService msv = new MemberServiceImpl();
-		MemberVO mvo = msv.updateMemberfind("user01");
+		MemberVO mvo = msv.updateMemberfind(id);
 		
 		req.setAttribute("mvo", mvo);
 		req.getRequestDispatcher("MyInfo/updateMember.tiles").forward(req, resp);

@@ -1,6 +1,9 @@
 package com.duckG.member.mapper;
 
+import java.util.List;
+
 import com.duckG.vo.MemberVO;
+import com.duckG.vo.OrderVO;
 
 public interface MemberMapper {
 	//로그인
@@ -16,4 +19,5 @@ public interface MemberMapper {
 	
 	int delmember(String id);
 	
+	List<OrderVO> Inquireget(String id);
 }
