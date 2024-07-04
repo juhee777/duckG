@@ -26,4 +26,6 @@
 		set    order_sta = #{orderSta}
 		where  order_no = #{orderNo}
 	</update>
+	
+	
 </mapper>
