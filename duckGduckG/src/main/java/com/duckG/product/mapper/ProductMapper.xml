@@ -13,11 +13,12 @@
 	</select>
 
 
-	<!-- -->
+	<!-- 모든 상품정보 -->
 	<select id="productList" resultType="com.duckG.vo.ProductVO">
 		select *
 		from product
 	</select>
+	
 	<!-- 검색. -->
 	<select id="selectProduct" resultType="com.duckG.vo.ProductVO">
 		select *
@@ -31,7 +32,30 @@
 		from product
 		where category_name = #{category}
 	</select>
-
+	
+	<!-- 최근제품 9개 -->
+	<select id="lastestProduct" resultType="com.duckG.vo.ProductVO">
+		select rownum rn,
+		        a.* 
+		from    (select *
+		        from product 
+		        order by create_date desc) a
+		         <![CDATA[
+		where rownum < 10;
+		]]>
+	</select>
+	
+	<!-- 인기제품 9개 -->
+	<select id="popularProduct" resultType="com.duckG.vo.ProductVO">
+		select rownum rn,
+		        a.* 
+		from    (select *
+		        from product 
+		        order by sales desc) a
+		         <![CDATA[
+		where rownum < 10;
+		]]>
+	</select>
 	<!-- page -->
 	<select id="productTotal" resultType="int" parameterType="com.duckG.vo.SearchVO">
 		select count(1)

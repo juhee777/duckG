@@ -25,4 +25,16 @@
         		#{reviewScore},
        		 	#{reviewImage})
 	</insert> 
+	
+	<select id="lastestReview" resultType="com.duckG.vo.ReviewVO">
+		select rownum rn,
+		        a.* 
+		from    (select *
+		        from review 
+		        order by create_date desc) a
+		         <![CDATA[
+		where rownum < 10;
+		]]>
+	</select>
+	
 </mapper>

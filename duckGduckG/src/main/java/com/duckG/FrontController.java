@@ -34,13 +34,14 @@ import com.duckG.member.controller.RegistForm;
 import com.duckG.member.controller.UpdateMember;
 import com.duckG.member.controller.updateMemberFin;
 import com.duckG.order.controller.AddOrder;
-import com.duckG.order.controller.DeleteOrder;
 import com.duckG.order.controller.OrderForm;
 import com.duckG.order.controller.SelectOrder;
 import com.duckG.order.controller.UpdateOrder;
 import com.duckG.product.controller.AddProduct;
 import com.duckG.product.controller.CategoryList;
 import com.duckG.product.controller.DeleteProduct;
+import com.duckG.product.controller.LastestProduct;
+import com.duckG.product.controller.PopularProduct;
 import com.duckG.product.controller.ProductDetailForm;
 import com.duckG.product.controller.ProductForm;
 import com.duckG.product.controller.SelectProdcut;
@@ -51,6 +52,7 @@ import com.duckG.qna.controller.QnAForm;
 import com.duckG.qna.controller.SelectQnA;
 import com.duckG.qna.controller.UpdateQnA;
 import com.duckG.review.controller.AddReview;
+import com.duckG.review.controller.LastestReview;
 import com.duckG.review.controller.SelectReview;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
@@ -98,6 +100,7 @@ public class FrontController extends HttpServlet {
 		map.put("/AddReview.do", new AddReview());
 		map.put("/OrderForm.do", new OrderForm());
 		map.put("/AddOrder.do", new AddOrder());
+		map.put("/lastestReview.do", new LastestReview());	//최근 리뷰 9개
 		
 		//탈퇴
 		map.put("/deleteMember.do", new DeleteMember());	
@@ -114,6 +117,8 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteProdcut", new DeleteProduct());		//제품 제거
 		map.put("/updateProdcut", new UpdateProdcut());		//제품 정보 업데이트
 		map.put("/categoryList.do", new CategoryList());	//카테고리 가져오기
+		map.put("/lastestProduct", new LastestProduct());	//최근상품목록 9개
+		map.put("/popularProduct", new PopularProduct());	//인기상품 9개
 
 		// 제품상세
 		map.put("/productDetailForm.do", new ProductDetailForm()); // 제품상세정보 페이지
