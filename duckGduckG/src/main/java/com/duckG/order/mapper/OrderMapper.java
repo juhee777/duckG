@@ -8,4 +8,6 @@ public interface OrderMapper {
 
 	List<OrderVO> OrderList(String id); // 구매목록 불러오기
 	int UpdateOrder(OrderVO ovo);
+	
+	List<OrderVO> orderDetails(String orderNo);
 }

@@ -7,5 +7,7 @@ import com.duckG.vo.ReviewVO;
 public interface ReviewService {
 	List<ReviewVO> selectReview(int pno);
 	boolean AddReview(ReviewVO rvo);
-
+	
+	//최근 리뷰 9건
+	List<ReviewVO> lastestReview();
 }

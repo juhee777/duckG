@@ -36,7 +36,7 @@
 		and product_no = #{productNo} 
 	</select>
 	
-	<insert id="addCart" parameterType="com.duckG.vo.CartVO">
+	<insert  id="addCart" parameterType="com.duckG.vo.CartVO">
 		INSERT INTO cart 
 		VALUES (CART_SEQ.nextval, #{productNo}, #{memberId}, #{count})
 	</insert>

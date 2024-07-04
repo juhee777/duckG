@@ -19,9 +19,9 @@ public class DeleteMember implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-//		HttpSession session = req.getSession();
-//		String id = (String)session.getAttribute("logId");
-		String id = "user07";//변경
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("logId");
+		
 		
 		MemberService msv = new MemberServiceImpl();
 		MemberVO mvo = new MemberVO();

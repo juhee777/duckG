@@ -17,24 +17,21 @@ public class AddJjim implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		JjimService svc = new JjimServiceImpl();
-		req.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/json;charset=UTF-8");
-		
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
-		
-		HttpSession session = req.getSession();
-		String uid = (String) session.getAttribute("logId");
+		String memberId = req.getParameter("memberId");
 		
 		JjimVO jvo = new JjimVO();
-		
-		jvo.setMemberId(uid);
 		jvo.setProductNo(productNo);
+		jvo.setMemberId(memberId);
 		
+		if(svc.addJjim(jvo)) { //{'retCode": "OK", "retMsg": "Success"}
+			resp.getWriter().print("{\"retCode\": \"OK\", \"retMsg\": \"Success\"}");
+		}else { //{'retCode": "NG", "retMsg": "Fail"}
+			resp.getWriter().print("{\"retCode\": \"NG\", \"retMsg\": \"Fail\"}");
+		}
 		
-		
-		svc.addJjim(jvo);		
 	}
 
 }

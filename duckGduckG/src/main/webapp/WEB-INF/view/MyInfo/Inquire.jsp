@@ -22,11 +22,11 @@
             action=https://script.google.com/macros/s/AKfycbyuJRwljQNYPvn0K33jqjOzlp_Zs6KuKowIpj5973Xca5AgROsl6LOxvHzT7hijd1cMkg/exec>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="ID" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="ID" readonly>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" readonly>
                     </div>
                     <div class="col-lg-12 text-center">
                         <input type="text" placeholder="제목">
@@ -39,4 +39,7 @@
         </div>
     </div>
 </section>
-    
+<script>
+	const id = '${loginId}';
+</script>
+<script src="js/myinfo/Inquire.js"></script>

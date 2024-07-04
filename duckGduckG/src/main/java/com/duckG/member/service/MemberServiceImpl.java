@@ -1,10 +1,13 @@
 package com.duckG.member.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.duckG.DataSource;
 import com.duckG.member.mapper.MemberMapper;
 import com.duckG.vo.MemberVO;
+import com.duckG.vo.OrderVO;
 
 public class MemberServiceImpl implements MemberService{
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
@@ -52,4 +55,9 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.delmember(id) == 1;
 	}
 
+@Override
+	public List<OrderVO> Inquireget(String id) {
+	// TODO Auto-generated method stub
+	return mapper.Inquireget(id);
+	}
 }

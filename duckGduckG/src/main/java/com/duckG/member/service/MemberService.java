@@ -1,6 +1,9 @@
 package com.duckG.member.service;
 
+import java.util.List;
+
 import com.duckG.vo.MemberVO;
+import com.duckG.vo.OrderVO;
 
 public interface MemberService {
 	//로그인
@@ -14,5 +17,7 @@ public interface MemberService {
 	boolean updatpw(MemberVO mvo);
 	
 	boolean delmember(String id);
+	
+	List<OrderVO> Inquireget(String id);
 	
 }
