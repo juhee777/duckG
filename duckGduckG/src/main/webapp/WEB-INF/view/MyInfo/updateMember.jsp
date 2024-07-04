@@ -94,26 +94,28 @@ MemberVO mvo = (MemberVO)request.getAttribute("mvo");
 						<p>
 							우편 번호<span>*</span>
 						</p>
-						<input type="text" name="sample4_postcode" placeholder="우편 번호" value="<%=mvo.getAddrNo()%>">
+						<input type="text" name="addrno" id="sample4_postcode" placeholder="우편 번호" value="<%=mvo.getAddrNo()%>">
 					</div>
 					<div class="checkout__input">
 						<p>
 							도로명 주소<span>*</span>
 						</p>
-						<input type="text" name="add" id="sample4_roadAddress"
-							placeholder="도로명 주소" class="checkout_input__add" value="<%=mvo.getAddrRoad()%>">
+						<input type="text" name="addroad" id="sample4_roadAddress" placeholder="도로명 주소" class="checkout_input__add" value="<%=mvo.getAddrRoad()%>">
 					</div>
 					<div class="checkout__input">
 						<p>
 							지번 주소<span>*</span>
 						</p>
-						<input id="sample4_jibunAddress" placeholder="지번 주소" value="<%=mvo.getAddrLocal()%>">
+						<input type="text" name="addrlocal" id="sample4_jibunAddress" placeholder="지번 주소" value="<%=mvo.getAddrLocal()%>">
+					</div>
+					<div>
+						<span id="guide" style="color:#999;display:none"></span>
 					</div>
 					<div class="checkout__input">
 						<p>
 							상세 주소<span>*</span>
 						</p>
-						<input id="sample4_detailAddress" placeholder="상세 주소" value="<%=mvo.getAddrDet()%>">
+						<input type="text" name="addrdet" id="sample4_detailAddress" placeholder="상세 주소" value="<%=mvo.getAddrDet()%>">
 					</div>
 					<div style="text-align: center;">
 						<button type="submit" class="site-btn">수정</button>
@@ -127,7 +129,6 @@ MemberVO mvo = (MemberVO)request.getAttribute("mvo");
 
 	</div>
 </section>
-
 
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

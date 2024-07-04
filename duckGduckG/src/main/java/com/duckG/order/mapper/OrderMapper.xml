@@ -26,4 +26,28 @@
 		set    order_sta = #{orderSta}
 		where  order_no = #{orderNo}
 	</update>
+	
+	<select id="orderDetails" parameterType ="String" resultType="com.duckG.vo.OrderVO">
+		SELECT o.product_no,
+		       o.count,
+		       o.how_much,
+		       o.bought_date,
+		       o.order_sta,
+		       o.order_pak,
+		       m.member_name,
+		       m.phone,
+		       m.addr_no,
+		       m.addr_local,
+		       m.addr_road,
+		       m.addr_det,
+		       p.image,
+		       p.price,
+		       p.sales,
+		       p.product_name
+		from ordered o INNER JOIN MEMBER m
+  			   on o.member_id = m.member_id
+  			 INNER JOIN product p
+    		   on o.product_no = p.product_no
+		where order_no = #{orderNo}
+	</select>
 </mapper>

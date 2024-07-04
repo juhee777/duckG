@@ -23,4 +23,10 @@ public class ReviewServiceImpl implements ReviewService{
 		// TODO Auto-generated method stub
 		return mapper.AddReview(rvo) == 1;
 	}
+
+	@Override
+	public List<ReviewVO> lastestReview() {
+		// TODO Auto-generated method stub
+		return mapper.lastestReview();
+	}
 }

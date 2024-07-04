@@ -2,10 +2,12 @@
  * 
  */
 // ***************************************아이디값 가져오기
-let userid = 'user01'; 
+
+
+
 let Allcountpage;
 
-
+//모달
 let focusedElementBeforeModal;
 const modal = document.getElementById('modal');
 const modalOverlay = document.querySelector('.modal-overlay');
@@ -13,7 +15,7 @@ const modalOverlay = document.querySelector('.modal-overlay');
 
 
 let overlap;
-fetch('SelectOrder.do?userid=user01')//*********************가져오는 값 변경
+fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 	.then(result => result.json())
 	.then((result => {
 		console.log(result);
@@ -72,6 +74,7 @@ function cloneRow(order = {}) {
 				li.querySelector('#btw2').innerHTML = "재구매";
 
 				li.querySelector('#btw3').innerHTML = "상세 내역";
+				li.querySelector('#btw3').setAttribute("onclick", "location.href='OrderForm.do?orderNo=" + order.orderNo+"'");
 
 				//주문 번호
 				li.querySelector('#btw0').addEventListener('click', function(){
@@ -86,6 +89,7 @@ function cloneRow(order = {}) {
 			case 3: //구매확정,리뷰완료
 
 				li.querySelector('#btw1').innerHTML = "상세 내역";
+				li.querySelector('#btw1').setAttribute("onclick", "location.href='OrderForm.do?orderNo=" + order.orderNo+"'");
 				
 				li.querySelector('#btw2').innerHTML = "재구매";
 
