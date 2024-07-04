@@ -9,4 +9,6 @@ public interface OrderService {
 	
 	List<OrderVO> OrderList(String id);
 	boolean UpdateOrder(OrderVO ovo);
+	
+	List<OrderVO> orderDetails(String orderNo);
 }
