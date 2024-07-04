@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.duckG.cart.controller.AddCart;
 import com.duckG.cart.controller.CartForm;
+import com.duckG.cart.controller.CheckCart;
 import com.duckG.cart.controller.DeleteCart;
 import com.duckG.cart.controller.SelectCart;
 import com.duckG.cart.controller.UpdateCart;
@@ -129,6 +130,7 @@ public class FrontController extends HttpServlet {
 		map.put("/addCart.do", new AddCart());				//카트 추가
 		map.put("/deleteCart.do", new DeleteCart());		//카트 제거
 		map.put("/updateCart.do", new UpdateCart());		//카트 정보 업데이트
+		map.put("/checkCart.do", new CheckCart());		//카트 정보 업데이트
 		
 		//Q&A관리
 		map.put("/qnaForm.do", new QnAForm());			//QnA상세정보 페이지
