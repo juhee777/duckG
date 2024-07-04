@@ -19,4 +19,6 @@ public interface ProductService {
 
 	//카테고리 뽑아오기
 	List<String> categorList(); 
+	List<ProductVO> lastestProduct();
+	List<ProductVO> popularProduct();
 }

@@ -18,4 +18,6 @@ public interface ProductMapper {
 
 	//카테고리 뽑아오기
 	List<String> categoryList();
+	List<ProductVO> lastestProduct();	//최근제품 9개
+	List<ProductVO> popularProduct();	//인기제품 9개
 }
