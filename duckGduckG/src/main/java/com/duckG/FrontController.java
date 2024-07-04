@@ -130,6 +130,7 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteCart.do", new DeleteCart());		//카트 제거
 		map.put("/updateCart.do", new UpdateCart());		//카트 정보 업데이트
 		
+		
 		//Q&A관리
 		map.put("/qnaForm.do", new QnAForm());			//QnA상세정보 페이지
 		map.put("/selectQnA.do", new SelectQnA());		//QnA 선택
