@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.duckG.Control;
 import com.duckG.jjim.service.JjimService;
@@ -16,6 +17,7 @@ public class AddJjim implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		JjimService svc = new JjimServiceImpl();
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
 		String memberId = req.getParameter("memberId");
@@ -30,7 +32,6 @@ public class AddJjim implements Control {
 			resp.getWriter().print("{\"retCode\": \"NG\", \"retMsg\": \"Fail\"}");
 		}
 		
-
 	}
 
 }

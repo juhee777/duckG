@@ -28,14 +28,14 @@
 					<p id="semiInfo">제품 설명.</p>
 					<div class="product__details__quantity">
 						<div class="quantity">
-							<div class="pro-qty">
-								<input type="text" value="1" id="cnt">
+							<div class="pro-qty"  >
+								<input type="text" id="cnt" value="1"  >
 							</div>
 						</div>
 					</div>
 					<br> <a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a> <a href="javascript:void(0);"
-						class="primary-btn">바로구매</a> <a href="#" class="heart-icon"><span
-						class="icon_heart_alt"></span></a>
+						class="primary-btn">바로구매</a> <a href="javascript:void(0)" id="jjim" class="heart-icon" style="text-decoration: none"><span
+						class="icon_heart_alt" id="jjimIcon"></span></a>
 					<ul>
 						<li><b>판매자</b> <span id="memberId">0.5 kg</span></li>
 						<li><b>상품등록일</b> <span id="createDate">In Stock</span></li>
@@ -200,4 +200,4 @@
 <script>
 	const logId = '${logId}'
 </script>
-<script src="js/product/productDetail.js"></script>
+<script defer src="js/product/productDetail.js"></script>

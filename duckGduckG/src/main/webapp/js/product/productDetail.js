@@ -13,16 +13,29 @@ fetch(`selectProduct.do?productNo=${productNo}`)
 .then(result => result.json())
 .then(result => {
     result.forEach(element => {   
-        let products = ['productName','price','createDate','stock','mainInfo','semiInfo','sales','memberId'];    
+        let products = ['productName','createDate','stock','mainInfo','semiInfo','sales','memberId'];    
         products.forEach(ele => {
             document.getElementById(ele).innerHTML = (element[ele]);
         })
+        document.getElementById('price').innerHTML = (element['price']) + " 원";
         document.getElementById("image").setAttribute("src", `img/productDetail/${element["image"]}`);
+        document.getElementById("jjim").setAttribute("jjimId", element["productNo"]);
+
+        fetch(`selectJjim.do?productNo=${element["productNo"]}`)
+        .then(result => result.json())
+        .then(result => {
+            if(result.retCod == 'NO'){
+                document.getElementById("jjimIcon").setAttribute("class", "icon_heart_alt");
+            }else{
+                document.getElementById("jjimIcon").setAttribute("class", "icon_heart");
+            }
+        })
     });
 })
 
 
 // QnA
+
 fetch(`selectQnA.do?productNo=${productNo}`)
 .then(result => result.json())
 .then(function(result){
@@ -119,10 +132,10 @@ function makeRow(result){
                         }else{
                             document.getElementById("QAnswer").style = "display : none";
                         }
-                    })
-                });
+                    });
+                })
             }
-                tr.appendChild(td);           
+            tr.appendChild(td);           
         })
         let td = document.createElement('td')
         if(element['qnaAnswer'] == " " ){
@@ -195,11 +208,44 @@ document.getElementById("QAnswer").addEventListener("click",function(){
     let qnaNo = document.getElementById("QAnswer").getAttribute('qnaNo');
     let QAnswer = document.getElementById("ModalqnaAnswer").value;    
     fetch(`updateQnA.do?qnaNo=${qnaNo}&QAnswer=${QAnswer}`)
-
-    fetch(`selectQnA.do?productNo=${productNo}`)
-    .then(result => result.json())
-    .then(function(result){
-        makeRow(result)
+    .then(function(){
+        fetch(`selectQnA.do?productNo=${productNo}`)
+        .then(result => result.json())
+        .then(function(result){
+            makeRow(result)
+        })
     })
+
     document.getElementById("ModalqnaAnswer").value = "";
 })
+
+// jjim 하기
+document.getElementById("jjim").addEventListener("click", function(){
+    let productNo = document.getElementById("jjim").getAttribute("jjimId");
+    console.log(logId);
+
+    if(logId == "" || logId == null){
+        alert("로그인후 이용가능합니다.")
+    }else{
+        if(document.getElementById("jjimIcon").getAttribute("class") == "icon_heart_alt"){
+            fetch(`addJjim.do?productNo=${productNo}&logId=${logId}`)
+            .then(function(){
+                document.getElementById("jjimIcon").setAttribute("class", "icon_heart");
+            })
+        }else{
+            fetch(`deleteJjim.do?productNo=${productNo}`)
+            .then(function(){
+                document.getElementById("jjimIcon").setAttribute("class", "icon_heart_alt");
+            })
+        }
+    }
+})
+
+// 가격변경
+document.querySelector(".pro-qty").addEventListener("click",function(){
+    let cnt = document.querySelector("#cnt").value
+    console.log(cnt);        
+
+})
+
+// 수량, 
