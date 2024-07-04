@@ -22,4 +22,10 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return mapper.UpdateOrder(ovo) == 1;
 	}
+	
+	@Override
+	public List<OrderVO> orderDetails(String orderNo) {
+		// TODO Auto-generated method stub
+		return mapper.orderDetails(orderNo);
+	}
 }

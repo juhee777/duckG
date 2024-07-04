@@ -72,6 +72,7 @@ function cloneRow(order = {}) {
 				li.querySelector('#btw2').innerHTML = "재구매";
 
 				li.querySelector('#btw3').innerHTML = "상세 내역";
+				li.querySelector('#btw3').setAttribute("onclick", "location.href='UpdateOrder.do?orderNo=" + order.orderNo+"'");
 
 				//주문 번호
 				li.querySelector('#btw0').addEventListener('click', function(){
