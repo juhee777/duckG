@@ -41,7 +41,7 @@
 		        from product 
 		        order by create_date desc) a
 		         <![CDATA[
-		where rownum < 10;
+		where rownum < 10
 		]]>
 	</select>
 	
@@ -53,7 +53,7 @@
 		        from product 
 		        order by sales desc) a
 		         <![CDATA[
-		where rownum < 10;
+		where rownum < 10
 		]]>
 	</select>
 	<!-- page -->
