@@ -1,3 +1,9 @@
+DROP TABLE jjim;
+DROP TABLE cart;
+DROP TABLE qna;
+DROP TABLE review;
+DROP TABLE ordered;
+DROP TABLE product;
 DROP TABLE member;
 
 CREATE TABLE member (
@@ -9,13 +15,11 @@ CREATE TABLE member (
 	phone	varchar2(20)		NULL,
 	created_date	date	DEFAULT sysdate	NULL,
 	management	char(2)	DEFAULT 'U'	NULL,
-	addr_no	varchar2(20)		NOT NULL,
-	addr_local	varchar2(50)		NOT NULL,
-	addr_road	varchar2(50)		NOT NULL,
-	addr_det	varchar2(50)		NOT NULL
+	addr_no	varchar2(20)		NULL,
+	addr_local	varchar2(50)		NULL,
+	addr_road	varchar2(50)		NULL,
+	addr_det	varchar2(50)		NULL
 );
-
-DROP TABLE product;
 
 CREATE TABLE product (
 	product_no	number		NOT NULL,
@@ -31,19 +35,16 @@ CREATE TABLE product (
 	discount	number		NULL,
 	sales	number		NULL
 );
-
-
-DROP TABLE cart;
+ 
 
 CREATE TABLE cart (
 	cart_no	number		NOT NULL,
 	product_no	number		NOT NULL,
 	member_id	varchar2(20)		NOT NULL,
-	count	number		NULL
+	count	number  DEFAULT 1		NULL
 );
 
 
-DROP TABLE qna;
 
 CREATE TABLE qna (
 	qna_no	number		NOT NULL,
@@ -55,16 +56,12 @@ CREATE TABLE qna (
 );
 
 
-DROP TABLE jjim;
 
 CREATE TABLE jjim (
 	member_id	varchar2(20)		NOT NULL,
 	product_no	number		NOT NULL
 );
 
-
-
-DROP TABLE review;
 
 CREATE TABLE review (
 	review_no	number		NOT NULL,
@@ -77,7 +74,6 @@ CREATE TABLE review (
 );
 
 
-DROP TABLE ordered;
 
 CREATE TABLE ordered (
 	order_no	number		NOT NULL,
@@ -194,7 +190,7 @@ REFERENCES product (
 
 
 create SEQUENCE member_seq;
-create SEQUENCE prodcut_seq;
+create SEQUENCE product_seq;
 create SEQUENCE cart_seq;
 create SEQUENCE jjim_seq;
 create SEQUENCE ordered_seq;
@@ -203,4 +199,11 @@ create SEQUENCE review_seq;
 
 insert into member(member_no, member_id, member_name, member_pw, management)
 values(member_seq.nextval, 'admin', '관리자', 'admin', 'A');
+
+insert into member(member_no, member_id, member_name, member_pw)
+values(member_seq.nextval, 'user01', '사용자', '1111');
+
+insert into product
+values(product_seq.nextval, 'user01', '아쿠아 오아시스 젤', 'aquaOasisGel', '12000', '스킨케어', sysdate, 100, null, null, null, null);
+
 select * from member;
