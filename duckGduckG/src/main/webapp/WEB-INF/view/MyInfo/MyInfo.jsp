@@ -384,5 +384,7 @@ button#submit-review-btn {
   </div>
 </div>
 <div class="modal-overlay"></div>
-
+<script>
+	const id = '${loginId}';
+</script>
 <script src="js/myinfo/orderlist.js"></script>

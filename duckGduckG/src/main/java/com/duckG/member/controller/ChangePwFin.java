@@ -35,11 +35,8 @@ public class ChangePwFin implements Control {
 		mvo.setMemberPw(pw1);
 		
 		if(pwdb.equals(pw)) {		
-			System.out.println("1");
 			if(pw1.equals(pw2)) {
-				System.out.println("2");
 				if(pw1.contains("!") || pw1.contains("#") || pw1.contains("&") || pw1.contains("*")) {
-					System.out.println("3");
 					msv.updatpw(mvo);
 					resp.setContentType("text/html; charset=UTF-8");
 				    PrintWriter out = resp.getWriter();

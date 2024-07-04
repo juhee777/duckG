@@ -30,7 +30,11 @@
 		update member
 		set    member_name = #{memberName},
 		       phone = #{phone},
-		       email = #{email}
+		       email = #{email},
+		       addr_no = #{addrNo},
+		       addr_local = #{addrLocal},
+		       addr_road = #{addrRoad},
+		       addr_det = #{addrDet}
 		where  member_id = #{memberId}
 	</update>
 	
@@ -51,4 +55,10 @@
 		where member_id = #{memberId}
 		
 	</delete>
+	
+	<select id="Inquireget" parameterType ="String" resultType="com.duckG.vo.MemberVO">
+		select *
+		from member
+		where member_id = #{memberId}
+	</select>
 </mapper>
