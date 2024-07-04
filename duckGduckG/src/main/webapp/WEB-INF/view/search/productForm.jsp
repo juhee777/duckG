@@ -72,9 +72,9 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="img/productDetail/${product.image}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#" id="heart"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="#" class="heart" heart="${product.productNo }"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="#" class="cart" cart="${product.productNo }"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
@@ -116,5 +116,9 @@
         </div>
     </form>
 </body>
-
+<script>
+	const logId = '${logId}';
+	const productNo = '${productNo}';
+	const count = '${cnt}';
+</script>
 <script src="js/product/product.js"></script>
