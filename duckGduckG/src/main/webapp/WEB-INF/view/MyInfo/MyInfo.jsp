@@ -289,7 +289,7 @@ button#submit-review-btn {
 
 						<li class="clonelist" id="listid" style="display: none; list-style-type: none;">
 							<div id="line"></div>
-							<img src="" onerror="javascript:this.src='img/zeroimage.jpg;'" style="width: 150px; float: left;">
+							<img src="" onerror="javascript:this.src='img/productDetail/no_img.jpg;'" style="width: 150px; float: left;">
 							<div style=" padding-bottom: 20px;">
 								<span class="col-sm-2" style="font-size: x-large; font-weight: bold;">주문 번호: </span> <span style="font-size: large; font-weight: bold;" class=" col-sm-2" id="orderPak"></span>
 								<span class="col-sm-2">구매 일자: </span> <span class="col-sm-2" id="boughtDate"></span>

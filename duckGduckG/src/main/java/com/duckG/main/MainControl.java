@@ -29,9 +29,9 @@ public class MainControl implements Control {
 		List<ReviewVO> topReviewList = rsvc.lastestReview();
 		
 		req.setAttribute("categoryList", categoryList);
-		req.setAttribute("lastproductList", lastProductList);
-		req.setAttribute("topproductList", topProductList);
-		req.setAttribute("topreviewList", topReviewList);
+		req.setAttribute("lastProductList", lastProductList);
+		req.setAttribute("topProductList", topProductList);
+		req.setAttribute("topReviewList", topReviewList);
 
 		req.getRequestDispatcher("main/main.tiles").forward(req, resp);
 	}
