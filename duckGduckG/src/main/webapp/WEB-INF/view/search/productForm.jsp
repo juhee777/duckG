@@ -100,15 +100,6 @@
     </div>
   </div>
 </div>
-
-<hr>
-
-<div class="container text-center text-white">
-  <h2 class="text-info">Bootstrap 4 Modal</h2>
-  <p>An example of the <code>.modal</code> component.<br>
-    Click the button above to open the modal.</p>
-  <a target="_blank" href="https://getbootstrap.com/docs/4.0/components/modal/">docs/4.0/components/modal/</a>
-</div>
                           </ul>
                             </div>
                             <div class="product__item__text">
