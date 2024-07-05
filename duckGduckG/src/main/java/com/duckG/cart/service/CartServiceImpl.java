@@ -34,16 +34,23 @@ public class CartServiceImpl implements CartService{
 	
 
 	@Override
+
 	public boolean checkCart(CartVO cvo) {
-		// TODO Auto-generated method stub
+
 		return mapper.checkCart(cvo) == 0;
 	}
 	
 	@Override
 	public boolean checkUpdateCart(CartVO cvo) {
-		// TODO Auto-generated method stub
 		return mapper.checkUpdateCart(cvo) == 1;
 	}
+
+	@Override
+	public int iconCnt(CartVO cvo) {
+		return mapper.checkCart(cvo);
+	}
+	
+	
 
 	
 }

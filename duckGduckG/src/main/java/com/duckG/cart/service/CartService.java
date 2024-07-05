@@ -8,6 +8,7 @@ public interface CartService {
 
 	List<CartVO> cartList(String memberId);
 
+
 	boolean addCart(CartVO cvo);
 
 	boolean deleteCart(int cartNo);
@@ -17,5 +18,7 @@ public interface CartService {
 	boolean checkCart(CartVO cvo);
 	
 	boolean checkUpdateCart(CartVO cvo);
+	
+	int iconCnt(CartVO cvo);
 
 }

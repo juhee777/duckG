@@ -2,21 +2,6 @@
  * 
  */
 
-//장바구니 목록 갱신
-
-// document.getElementById('renewCartBtn').addEventListener('click', function(){
-// 	fetch('cartTbody')
-// 	.then(result => {
-// 		let cartTbody = document.getElementById('cartTbody');
-// 		cortTbody.innerHTML = '';
-
-// 		document.querySelector('cartTbody')
-// 	})
-// })
-
-
-
-
 // 장바구니 삭제.
 function removeCartFnc(e) {
 	console.log(e.target);// e ==> span icon_close
