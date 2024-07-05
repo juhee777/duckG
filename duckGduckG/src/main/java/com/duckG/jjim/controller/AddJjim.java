@@ -26,7 +26,7 @@ public class AddJjim implements Control {
 		
 		JjimVO jvo = new JjimVO();
 		jvo.setProductNo(productNo);
-		jvo.setMemberId(memberId);
+		jvo.setMemberId(memberId);		
 		
 		if(!svc.jjimList(jvo)) {
 			resp.getWriter().print("{\"retCode\": \"overlap\", \"retMsg\": \"Success\"}");
