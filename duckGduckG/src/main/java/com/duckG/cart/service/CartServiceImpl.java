@@ -46,8 +46,8 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public int iconCnt(CartVO cvo) {
-		return mapper.checkCart(cvo);
+	public int iconCnt(String memberId) {
+		return mapper.IconCntCheck(memberId);
 	}
 
 	@Override

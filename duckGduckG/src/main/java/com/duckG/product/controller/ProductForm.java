@@ -12,7 +12,7 @@ import com.duckG.product.service.ProductService;
 import com.duckG.product.service.ProductServiceImpl;
 import com.duckG.vo.ProductVO;
 import com.duckG.vo.SearchVO;
-import com.duckG.vo.pageDTO;
+import com.duckG.vo.PageDTO;
 
 public class ProductForm implements Control {
 
@@ -35,7 +35,7 @@ public class ProductForm implements Control {
 
 		// paging계산
 		int total = svc.productTotal(search);
-		pageDTO dto = new pageDTO(Integer.parseInt(page), total);
+		PageDTO dto = new PageDTO(Integer.parseInt(page), total);
 		req.setAttribute("paging", dto);
 
 		req.getRequestDispatcher("search/productForm.tiles").forward(req, resp);

@@ -16,10 +16,10 @@
 	</section>
 
 <section>
-    <div class="contact-form spad">
+      <div class="contact-form spad">
         <div class="container">
-            <form method = "post" id="emilForm" class="gform" method="POST" data-email="yumewokimini@gmail.com"
-            action=https://script.google.com/macros/s/AKfycbyuJRwljQNYPvn0K33jqjOzlp_Zs6KuKowIpj5973Xca5AgROsl6LOxvHzT7hijd1cMkg/exec>
+            <form method = "post" id="emilForm" target = iframe1 class="gform" method="POST" data-email="yumewokimini@gmail.com"
+             action=https://script.google.com/macros/s/AKfycbwbh1ryS1J6-mK1ugeL2LBS1BP4EUVgBpllteEwrT0fN77VotOBGhsHfw8xXbl77-b1oA/exec>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <input type="text" class="form-control" id="name" name="name" placeholder="ID" readonly>
@@ -31,14 +31,15 @@
                     <div class="col-lg-12 text-center">
                         <input type="text" placeholder="제목">
                         <textarea placeholder="내용" class="form-control" id="message" name="message" rows="5"></textarea>
-                        <button type="submit" class="site-btn">발송</button>
-                        <button type="submit" class="site-btn">취소</button>
+                        <button id="submits" type="submit" class="site-btn">발송</button>
+                        <button type="reset" class="site-btn">취소</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </section>
+<iframe id="iframe1" name="iframe1" style="display:none" src="MyInfo.do" ></iframe> 
 <script>
 	const id = '${loginId}';
 </script>

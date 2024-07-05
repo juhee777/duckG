@@ -13,6 +13,7 @@ import com.duckG.cart.controller.AddCart;
 import com.duckG.cart.controller.CartForm;
 import com.duckG.cart.controller.CartPayRemove;
 import com.duckG.cart.controller.IconCnt;
+import com.duckG.cart.controller.CheckCart;
 import com.duckG.cart.controller.DeleteCart;
 import com.duckG.cart.controller.SelectCart;
 import com.duckG.cart.controller.UpdateCart;
@@ -39,7 +40,6 @@ import com.duckG.member.controller.RegistForm;
 import com.duckG.member.controller.UpdateMember;
 import com.duckG.member.controller.updateMemberFin;
 import com.duckG.order.controller.OrderDetails;
-import com.duckG.order.controller.DeleteOrder;
 import com.duckG.order.controller.OrderForm;
 import com.duckG.order.controller.SelectOrder;
 import com.duckG.order.controller.UpdateOrder;
@@ -154,6 +154,29 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/payForm.do", new PayForm());	//결제화면
 		map.put("/pay.do", new Pay());			//결제기능
+		//찜관리
+		map.put("/jjimForm.do", new JjimForm());			//찜상세정보 페이지
+		map.put("/selectJjim.do", new SelectJjim());		//찜 선택
+		map.put("/addJjim.do", new AddJjim());				//찜 추가
+		map.put("/deleteJjim.do", new DeleteJjim());		//찜 제거
+		map.put("/updateJjim.do", new UpdateJjim());		//찜 정보 업데이트
+		
+		//카트관리
+		map.put("/cartForm.do", new CartForm());			//카트상세정보 페이지
+		map.put("/selectCart.do", new SelectCart());		//카트 선택
+		map.put("/addCart.do", new AddCart());				//카트 추가
+		map.put("/deleteCart.do", new DeleteCart());		//카트 제거
+		map.put("/updateCart.do", new UpdateCart());		//카트 정보 업데이트
+		map.put("/checkCart.do", new CheckCart());		//cart icon에서 추가
+		
+		map.put("/IconCount.do", new IconCnt());			//카트 아이콘 수량 업데이트	
+		
+		//Q&A관리
+		map.put("/qnaForm.do", new QnAForm());			//QnA상세정보 페이지
+		map.put("/selectQnA.do", new SelectQnA());		//QnA 선택
+		map.put("/addQnA.do", new AddQnA());			//QnA 추가
+		map.put("/deleteQnA.do", new DeleteQnA());		//QnA 제거
+		map.put("/updateQnA.do", new UpdateQnA());		//QnA 정보 업데이트
 	}
 
 	@Override

@@ -1,3 +1,5 @@
+<%@page import="com.duckG.vo.OrderVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 	<style>
@@ -245,8 +247,6 @@ button#submit-review-btn {
 	</style>
 
 
-
-
 	<!-- Blog Section Begin -->
 	<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg" style="width: 100%">
 		<div class="container">
@@ -321,6 +321,8 @@ button#submit-review-btn {
 			<br>
 			<br>
 		</div>
+
+        
 	<div class="col-lg-12" style="text-align: center;">
 		<div class="product__pagination blog__pagination" id="pagelise">
 			<a href="#">1</a> 
@@ -332,6 +334,13 @@ button#submit-review-btn {
 		</div>
 	</div>
 </section>
+
+
+  
+  
+
+
+
 
 
 

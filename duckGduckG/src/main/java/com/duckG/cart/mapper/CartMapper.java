@@ -18,7 +18,7 @@ public interface CartMapper {
 	
 	int checkUpdateCart(CartVO cvo); // 장바구니에 있으면 업데이트
 	
-	String IconCntCheck(CartVO vco); // 아이콘 장바구니 수량
+	int IconCntCheck(String memberId); // 아이콘 장바구니 수량
 	
 	int emptyCart(String logId);
 }

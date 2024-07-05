@@ -43,8 +43,8 @@
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-				<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+				<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span class="jjimCnt">1</span></a></li>
+				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span class="cartCount">3</span></a></li>
 			</ul>
 			<div class="header__cart__price">
 				item: <span>$150.00</span>
@@ -155,8 +155,8 @@
 				<div class="col-lg-3">
 					<div class="header__cart">
 						<ul>
-							<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+							<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span class="jjimCnt">1</span></a></li>
+							<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span class="cartCount">3</span></a></li>
 						</ul>
 					</div>
 				</div>

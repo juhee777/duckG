@@ -3,6 +3,35 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<style>
+.center {
+	text-align: center;
+}
+
+.pagination {
+	display: inline-block;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+	border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+</style>
 <section class="shoping-cart spad">
 	<div class="container">
 		<div class="row">
@@ -25,7 +54,7 @@
 								<tr>
 									<td>
 									<img src="img/productDetail/${item.image}" alt="" width="70px" onerror="this.src='img/productDetail/no_img.jpg'"></td>
-									<td class="shoping__cart__item"><h5>${item.productName}</h5></td>
+									<td class="shoping__cart__item" onClick="location.href='productDetailForm.do?productNo=${item.productNo}'"><h5>${item.productName}</h5></td>
 									<td class="shoping__cart__price" price="${item.price}">${item.price} 원</td>
 									<td class="shoping__cart__quantity">
 										<div class="quantity">
@@ -41,6 +70,26 @@
 							</c:forEach>	
 						</tbody>
 					</table>
+					<!-- paging -->
+					<div class="center">
+						<div class="pagination">					
+					
+							<c:if test="${paging.prev }">
+								<a href="jjimForm.do?page=${paging.startPage -1}}">&laquo;</a>
+							</c:if>
+					
+					
+							<c:forEach var="p" begin="${paging.startPage }" end="${paging.endPage }" step="1">
+								<a href="jjimForm.do?page=${p }" class="${p == paging.page ? 'active' : ''}">${p }</a>
+							</c:forEach>
+					
+							<c:if test="${paging.next }">
+								<a href="jjimForm.do?page=${paging.endPage +1}">&raquo;</a>
+							</c:if>
+					
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
