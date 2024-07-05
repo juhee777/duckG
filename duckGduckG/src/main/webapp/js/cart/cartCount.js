@@ -21,3 +21,12 @@ function cartCount() {
 	
 
 }
+
+// 찜 Cnt
+fetch(`updateJjim.do`)
+.then(result => result.json())
+.then(result => {
+	document.querySelectorAll(".jjimCnt").forEach(ele =>{
+		ele.innerHTML = result;
+	})
+})
