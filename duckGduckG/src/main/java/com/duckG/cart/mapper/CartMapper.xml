@@ -8,13 +8,14 @@
 
 	<select id="cartList" resultType="com.duckG.vo.CartVO">
 		select c.cart_no,
-			p.image as image,
-			p.product_name as productName,
-			p.price as price,
-    		p.product_no as product_no,
-			c.count as count
+		p.image as image,
+		p.product_name as productName,
+		p.price as price,
+		p.product_no as product_no,
+		c.count as count
 		from cart c left outer JOIN product p
-		ON c.product_no = p.product_no
+		ON c.product_no =
+		p.product_no
 		where c.member_id = #{memberId}
 	</select>
 
@@ -26,27 +27,36 @@
 	<update id="modifyCart">
 		update cart
 		set count = #{count}
-		where cart_no =	#{cartNo}
-	</update>
-	
-	<update id="checkUpdateCart" parameterType="com.duckG.vo.CartVO">
-		update cart
-		set count = #{count}
-		where member_id = #{memberId}
-		and product_no = #{productNo} 
+		where cart_no =
+		#{cartNo}
 	</update>
 
-	<select id="checkCart" >
+	<update id="checkUpdateCart" parameterType="com.duckG.vo.CartVO">
+		update cart
+		set count
+		= #{count}
+		where member_id = #{memberId}
+		and product_no = #{productNo}
+	</update>
+
+	<select id="checkCart">
+		select COUNT(1)
+		from cart
+		where member_id =
+		#{memberId}
+		and product_no = #{productNo}
+	</select>
+
+	<insert id="addCart" parameterType="com.duckG.vo.CartVO">
+		INSERT INTO cart
+		VALUES (CART_SEQ.nextval, #{productNo}, #{memberId}, #{count})
+	</insert>
+
+	<select id="IconCntCheck" parameterType="com.duckG.vo.CartVO">
 		select COUNT(1)
 		from cart
 		where member_id = #{memberId}
-		and product_no = #{productNo} 
 	</select>
-	
-	<insert  id="addCart" parameterType="com.duckG.vo.CartVO">
-		INSERT INTO cart 
-		VALUES (CART_SEQ.nextval, #{productNo}, #{memberId}, #{count})
-	</insert>
 
 
 </mapper>
