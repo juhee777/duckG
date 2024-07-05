@@ -121,6 +121,7 @@ function formInit() {
 
 // 업데이트 함수!
 function updateCount(cno, cnt) {
+	console.log(cno, cnt);
 	fetch('updateCart.do?cno=' + cno + '&cnt=' + cnt)
 		.then(result => result.json())
 		.then(result => {
