@@ -27,6 +27,11 @@ public class UpdateJjim implements Control {
 		HttpSession session = req.getSession();
 		String uid = (String) session.getAttribute("logId");
 		
+		int total = svc.jjimTotal(uid);
+
+		Gson gson = new GsonBuilder().create();
+
+		resp.getWriter().print(gson.toJson(total));
 	}
 
 }
