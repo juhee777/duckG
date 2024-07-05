@@ -20,13 +20,17 @@ public class AddJjim implements Control {
 
 		JjimService svc = new JjimServiceImpl();
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
-		String memberId = req.getParameter("memberId");
+		
+		HttpSession session = req.getSession();
+		String memberId = (String) session.getAttribute("logId");
 		
 		JjimVO jvo = new JjimVO();
 		jvo.setProductNo(productNo);
 		jvo.setMemberId(memberId);
 		
-		if(svc.addJjim(jvo)) { //{'retCode": "OK", "retMsg": "Success"}
+		if(!svc.jjimList(jvo)) {
+			resp.getWriter().print("{\"retCode\": \"overlap\", \"retMsg\": \"Success\"}");
+		}else if(svc.addJjim(jvo)) { //{'retCode": "OK", "retMsg": "Success"}
 			resp.getWriter().print("{\"retCode\": \"OK\", \"retMsg\": \"Success\"}");
 		}else { //{'retCode": "NG", "retMsg": "Fail"}
 			resp.getWriter().print("{\"retCode\": \"NG\", \"retMsg\": \"Fail\"}");

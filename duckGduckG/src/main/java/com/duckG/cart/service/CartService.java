@@ -7,13 +7,18 @@ import com.duckG.vo.CartVO;
 public interface CartService {
 
 	List<CartVO> cartList(String memberId);
-	boolean addCart(CartVO cvo);
-	boolean deleteCart(int cartNo);
-	boolean updateCart(CartVO cvo);
-	List<CartVO> checkCart(CartVO cvo);
-	List<CartVO> iconCnt(CartVO cvo);
-	
 
+
+	boolean addCart(CartVO cvo);
+
+	boolean deleteCart(int cartNo);
+
+	boolean updateCart(CartVO cvo);
+
+	boolean checkCart(CartVO cvo);
 	
+	boolean checkUpdateCart(CartVO cvo);
 	
+	List<CartVO> iconCnt(CartVO cvo);
+
 }

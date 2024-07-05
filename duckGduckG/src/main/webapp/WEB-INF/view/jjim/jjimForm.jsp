@@ -24,16 +24,16 @@
 								<tr>
 									<td class="shoping__cart__item"><img src="img/productDetail/${item.image}" alt="" width="70px">
 										<h5>${item.productName}</h5></td>
-									<td class="shoping__cart__price">${item.price} 원</td>
+									<td class="shoping__cart__price" price="${item.price}">${item.price} 원</td>
 									<td class="shoping__cart__quantity">
 										<div class="quantity">
 											<div class="pro-qty">
-												<input type="text" value="1">
+												<input type="text" value="1" id="cnt">
 											</div>
 										</div>
 									</td>
-									<td class="shoping__cart__total">${item.price} 원</td>
-									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a></td>
+									<td class="shoping__cart__total" id="price">${item.price} 원</td>
+									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn" id="addCart" pno="${item.productNo}">장바구니</a></td>
 									<td class="shoping__cart__total"><a href="javascript:void(0);"class="primary-btn jjim" jjimId=${item.productNo }>찜취소</a></td>
 								</tr>
 							</c:forEach>	
@@ -46,7 +46,7 @@
 </section>
 
 <script>
-	const logId = '${logId}'
+	const logId = '${logId}';
 </script>
 
-<script src="js/jjim/jjim.js"></script>
+<script defer src="js/jjim/jjim.js"></script>

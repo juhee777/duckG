@@ -26,7 +26,6 @@ public class DeleteJjim implements Control {
 
 		HttpSession session = req.getSession();
 		String uid = (String) session.getAttribute("logId");
-		System.out.println(uid);
 
 		JjimVO jvo = new JjimVO();
 
