@@ -1,6 +1,5 @@
 <%@page import="com.duckG.vo.OrderVO"%>
 <%@page import="java.util.List"%>
-<%@page import="com.duckG.vo.MyInfopageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 	<style>
