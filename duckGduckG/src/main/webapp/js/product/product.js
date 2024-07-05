@@ -20,7 +20,7 @@ ele.addEventListener('click', function(e){
 	
 	e.preventDefault(); //기존에 있던 링크 동작 방지
 	let productNo = this.getAttribute('cart')
-	console.log(productNo)
+	console.log(this);//모달창에 들어가는 상품 tr
 	
 	if(logId == null || logId == ''){
 		alert("로그인이 필요합니다.")
@@ -45,7 +45,7 @@ function addHeart(productNo){
 		}else if(result.retCode == 'overlap'){
 			alert("찜에 이미 있습니다.")
 		}else{
-			alert("장바구니 추가 실패" + result.retMsg)
+			alert("찜 추가 실패" + result.retMsg)
 		}
 	}
 }
@@ -64,6 +64,37 @@ document.querySelectorAll('.heart').forEach(item => {
 	}
 	})
 })
+
+//장바구니 모달
+$(document).ready(function() {  
+  $('#cartModal').modal('show');
+  
+});
+
+function modalclick(e,pno){
+	let myProduct = document.getElementById(pno);
+	//이미지 가격 제품이름 제품번호
+	let productNo = myProduct.querySelector('input[name=ppno]').value;
+	let image = myProduct.querySelector('input[name=ppimg]').value;
+	let productName = myProduct.querySelector('input[name=ppname]').value;
+	let price = myProduct.querySelector('input[name=ppprice]').value;
+	
+	let modal = document.querySelector('#cartModal tbody > tr');
+	console.log(modal);
+	modal.querySelector('td:nth-child(1) img').src = "img/productDetail/"+image;
+	modal.querySelector('td:nth-child(2)').innerHTML = productName;
+	modal.querySelector('td:nth-child(3)').innerHTML = price;
+	document.querySelector('#total').innerHTML = price;
+	
+	//modal.querySelector('input[name=ppno]').value = productNo;
+	
+
+	document.addEventListener('change', function() {
+	document.getElementById('total').innerHTML = (input1.value*price);
+	
+	addCart(productNo);
+	})
+}
 
 
 
