@@ -13,7 +13,7 @@ function cartCount() {
 	fetch('IconCount.do' )
 		.then(result => result.json())
 		.then(result => {
-			console.log(result.count);
+			console.log(result);
 			cartCountText.forEach(span => {
 				span.innerHTML = result.count;
 			})
