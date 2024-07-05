@@ -14,9 +14,9 @@ public class JjimServiceImpl implements JjimService{
 	JjimMapper mapper = sqlSession.getMapper(JjimMapper.class);
 	
 	@Override
-	public List<JjimVO> selectJjim(int pno) {
+	public List<JjimVO> selectJjim(String uid, int page) {
 		// TODO Auto-generated method stub
-		return mapper.selectJjim(pno);
+		return mapper.selectJjim(uid, page);
 	}
 	
 	@Override
@@ -31,6 +31,17 @@ public class JjimServiceImpl implements JjimService{
 		return mapper.delJjim(jvo) == 1;
 	}
 	
+	@Override
+	public boolean jjimList(JjimVO jvo) {
+		// TODO Auto-generated method stub
+		return mapper.jjimList(jvo) == 0;
+	}
+	
+	@Override
+	public int jjimTotal(String uid) {
+		// TODO Auto-generated method stub
+		return mapper.jjimTotal(uid);
+	}
 	
 	
 

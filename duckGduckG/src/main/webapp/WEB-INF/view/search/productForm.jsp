@@ -57,6 +57,9 @@
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
+/*모달창*/
+
+
 </style>
 <body>
     <form action="productForm.do">
@@ -72,10 +75,32 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="img/productDetail/${product.image}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#" id="heart"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="#" class="heart" heart="${product.productNo }"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
+                                    <li><a href="#" class="cart" cart="${product.productNo }"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <!-- 모달창 -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch modal</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+                          </ul>
                             </div>
                             <div class="product__item__text">
                                 <h6><a href="productDetailForm.do?productNo=${product.productNo }">${product.productName}</a></h6>
@@ -116,5 +141,9 @@
         </div>
     </form>
 </body>
-
+<script>
+	const logId = '${logId}';
+	const productNo = '${productNo}';
+	const count = '${cnt}';
+</script>
 <script src="js/product/product.js"></script>

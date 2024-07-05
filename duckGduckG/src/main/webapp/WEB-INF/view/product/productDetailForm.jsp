@@ -12,7 +12,7 @@
 				<div class="product__details__pic">
 					<div class="product__details__pic__item">
 						<img class="product__details__pic__item--large"
-							src="img/product/details/product-details-1.jpg" alt="" id="image">
+							src="img/product/details/product-details-1.jpg" alt="" id="image" onerror="this.src='img/productDetail/no_img.jpg'">
 					</div>
 				</div>
 			</div>
@@ -28,15 +28,21 @@
 					<p id="semiInfo">제품 설명.</p>
 					<div class="product__details__quantity">
 						<div class="quantity">
-							<div class="pro-qty">
-								<input type="text" value="1" id="cnt">
+							<div class="pro-qty"  >
+								<input type="text" id="cnt" value="1"  >
 							</div>
 						</div>
 					</div>
+						<table style=" width:300px; height: 70px">
+							<tr>
+								<td ><h3 style="margin: 0">합계</h3></td>
+								<td ><h3 id="priceBox" style="margin: 0">10,000&#8361</h3></td>
+							</tr>
+						</table>
 					<br> <a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a> <a href="javascript:void(0);"
-						class="primary-btn">바로구매</a> <a href="#" class="heart-icon"><span
-						class="icon_heart_alt"></span></a>
-					<ul>
+						class="primary-btn">바로구매</a> <a href="javascript:void(0)" id="jjim" class="heart-icon" style="text-decoration: none;"><span
+						class="icon_heart_alt" id="jjimIcon" style="color: pink;"></span></a>
+					<ul style="margin: 0; padding-left: 0;">
 						<li><b>판매자</b> <span id="memberId">0.5 kg</span></li>
 						<li><b>상품등록일</b> <span id="createDate">In Stock</span></li>
 						<li><b>상품재고</b> <span id="stock">01 day shipping. <samp>Free
@@ -200,4 +206,4 @@
 <script>
 	const logId = '${logId}'
 </script>
-<script src="js/product/productDetail.js"></script>
+<script defer src="js/product/productDetail.js"></script>

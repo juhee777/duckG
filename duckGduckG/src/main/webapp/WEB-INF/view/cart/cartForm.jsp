@@ -20,22 +20,6 @@
 							</tr>
 						</thead>
 						<tbody id="cartTbody">
-						<tr style="display:none;">
-							<td class="shoping__cart__item" ${cart.productNo}>
-							<!-- <img src="img/productDetail/${cart.image}" width=100, height=100 alt="${cart.productName}"> -->
-								<h6>${cart.productName}</h6></td>
-							<td class="shoping__cart__price" data-price="${cart.price}"><fmt:formatNumber value="${cart.price}" pattern="#,###"/></td>
-							<td class="shoping__cart__quantity">
-								<div class="quantity">
-									<div class="pro-qty">
-										<input type="text" name="cnt" value="${cart.count}">
-									</div>
-								</div>
-							</td>
-							<td class="shoping__cart__total"><fmt:formatNumber value="${cart.price * cart.count}" pattern="#,###"/></td>
-							<td class="shoping__cart__item__close">
-							<span class="icon_close" onclick="removeCartFnc(event)"></span></td>
-						</tr>
 							<c:choose>
 								<c:when test="${empty cartList}">
 									<tr>
@@ -46,7 +30,7 @@
 									<c:forEach var="cart" items="${cartList}">
 										<tr data-no="${cart.cartNo}">
 											<td class="shoping__cart__item" ${cart.productNo}>
-											<img src="img/productDetail/${cart.image}" width=100, height=100 alt="${cart.productName}">
+											<img src="img/productDetail/${cart.image}" onerror="javascript:this.src='img/productDetail/no_img.jpg;'" width=100, height=100 alt="${cart.productName}">
 												<h6>${cart.productName}</h6></td>
 											<td class="shoping__cart__price" data-price="${cart.price}"><fmt:formatNumber value="${cart.price}" pattern="#,###"/></td>
 											<td class="shoping__cart__quantity">
@@ -58,7 +42,7 @@
 											</td>
 											<td class="shoping__cart__total"><fmt:formatNumber value="${cart.price * cart.count}" pattern="#,###"/></td>
 											<td class="shoping__cart__item__close">
-											<span class="icon_close" onclick="removeCartFnc(event)"></span></td>
+											<span class="icon_close" data-delicon="${cart.cartNo }" onclick="removeCartFnc(event)"></span></td>
 										</tr>
 									</c:forEach>
 								</c:otherwise>
@@ -90,8 +74,8 @@
 			</div>
 		</div>
 	</div>
-</section>
-<!-- Shoping Cart Section End -->
+</section><!-- Shoping Cart Section End -->
+
 
 <script src="js/cart/cartForm.js"></script>
 

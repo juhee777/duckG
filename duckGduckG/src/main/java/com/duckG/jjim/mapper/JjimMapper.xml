@@ -6,22 +6,47 @@
 <mapper namespace="com.duckG.jjim.mapper.JjimMapper">
 
 	<!-- jjim상세 -->
-	
+
 	<select id="selectJjim" resultType="com.duckG.vo.JjimVO">
-		select *
-		from jjim
-		where product_no = #{productNo}
-	</select>
+		select a.*
+		from (SELECT rownum rn, b.*
+		      from (select j.member_id member_id,
+		                   j.product_no product_no,
+		                   p.image image,
+		                   p.price price,
+		                   p.product_name product_name
+		             from jjim j inner join product p
+		             on j.product_no = p.product_no
+		             where j.member_id = #{memberId}
+		             ORDER BY product_no) b 
+		      <![CDATA[
+		      where rownum <= (#{page}) * 5 ) a
+		      ]]>
+		where a.rn > (#{page} - 1) * 5
+	</select>	
 	
+	<select id="jjimList" parameterType="com.duckG.vo.JjimVO">
+		select COUNT(1)
+		from jjim 
+		where product_no = #{productNo}
+		and member_id = #{memberId}		
+	</select>	
+	
+	<select id="jjimTotal" parameterType="com.duckG.vo.JjimVO">
+		select COUNT(1)
+		from jjim		
+		where member_id = #{memberId}		
+	</select>	
+
 	<insert id="addJjim" parameterType="com.duckG.vo.JjimVO">
-		INSERT INTO jjim 
+		INSERT INTO jjim
 		VALUES (#{memberId}, #{productNo})
 	</insert>
-	
-	<delete id="delJjim" parameterType="com.duckG.vo.JjimVO">	
+
+	<delete id="delJjim" parameterType="com.duckG.vo.JjimVO">
 		DELETE from jjim
 		where product_no = #{productNo}
-		and   member_id = #{memberId}
+		and member_id = #{memberId}
 	</delete>
 
 

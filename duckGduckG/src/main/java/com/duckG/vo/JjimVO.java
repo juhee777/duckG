@@ -6,4 +6,7 @@ import lombok.Data;
 public class JjimVO {	
 	private String memberId;
 	private int productNo;
+	private String image;
+	private int price;
+	private String productName;
 }

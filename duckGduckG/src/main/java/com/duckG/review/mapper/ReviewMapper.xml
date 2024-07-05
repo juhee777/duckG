@@ -33,7 +33,7 @@
 		        from review 
 		        order by create_date desc) a
 		         <![CDATA[
-		where rownum < 10;
+		where rownum < 10
 		]]>
 	</select>
 	
