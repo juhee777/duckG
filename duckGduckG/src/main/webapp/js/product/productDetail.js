@@ -198,6 +198,16 @@ document.getElementById("addCart").addEventListener('click',function(){
     if(logId != ""){
         let cnt = document.getElementById('cnt').value;
         fetch(`addCart.do?productNo=${productNo}&count=${cnt}`)
+        .then(result => result.json())
+        .then(result =>{
+            if(result.retCode == 'OK'){
+                alert("해당상품이"+ cnt + "개 장바구니에 추가되었습니다") ;     
+            }else if(result.retCode == 'OKUP'){
+                alert("해당상품이"+ cnt + "개로 변경되었습니다") ; 
+            }else{
+                alert("장바구니 담기 실패!.") ;                
+            }
+        })
     }else{
         alert("로그인후 사용해 주세요")
     }
