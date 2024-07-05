@@ -27,14 +27,12 @@
 	<update id="modifyCart">
 		update cart
 		set count = #{count}
-		where cart_no =
-		#{cartNo}
+		where cart_no = #{cartNo}
 	</update>
 
 	<update id="checkUpdateCart" parameterType="com.duckG.vo.CartVO">
 		update cart
-		set count
-		= #{count}
+		set count = #{count}
 		where member_id = #{memberId}
 		and product_no = #{productNo}
 	</update>
@@ -42,8 +40,7 @@
 	<select id="checkCart">
 		select COUNT(1)
 		from cart
-		where member_id =
-		#{memberId}
+		where member_id = #{memberId}
 		and product_no = #{productNo}
 	</select>
 
@@ -58,5 +55,9 @@
 		where member_id = #{memberId}
 	</select>
 
+	<delete id="emptyCart" parameterType="String">
+		delete cart
+		where member_id = #{logId}
+	</delete>
 
 </mapper>

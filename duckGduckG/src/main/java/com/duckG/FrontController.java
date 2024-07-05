@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.duckG.cart.controller.AddCart;
 import com.duckG.cart.controller.CartForm;
+import com.duckG.cart.controller.CartPayRemove;
+import com.duckG.cart.controller.IconCnt;
 import com.duckG.cart.controller.CheckCart;
 import com.duckG.cart.controller.DeleteCart;
-import com.duckG.cart.controller.IconCnt;
 import com.duckG.cart.controller.SelectCart;
 import com.duckG.cart.controller.UpdateCart;
 import com.duckG.jjim.controller.AddJjim;
@@ -22,6 +23,8 @@ import com.duckG.jjim.controller.JjimForm;
 import com.duckG.jjim.controller.SelectJjim;
 import com.duckG.jjim.controller.UpdateJjim;
 import com.duckG.main.MainControl;
+import com.duckG.main.Pay;
+import com.duckG.main.PayForm;
 import com.duckG.member.controller.AddMember;
 import com.duckG.member.controller.ChangePw;
 import com.duckG.member.controller.ChangePwFin;
@@ -73,64 +76,84 @@ public class FrontController extends HttpServlet {
 	public void init() throws ServletException {
 		// 홈페이지
 		map.put("/main.do", new MainControl());
-		
-		//로그인
-		map.put("/loginForm.do", new LoginForm());	//로그인창
-		map.put("/login.do", new LoginControl());	//로그인
-		map.put("/logout.do", new LogoutControl());	//로그아웃
-		map.put("/registForm.do", new RegistForm());	//회원가입창
-		
-		//회원관리
-		map.put("/memberList.do", new MemberList());		//모든 회원조회
-		map.put("/addMember.do", new AddMember());			//회원 추가
-		
-		
-		//정보수정 완료
-		map.put("/updateMember.do", new UpdateMember());	//회원정보 갱신
-		map.put("/updateMemberFin.do", new updateMemberFin()); //회원 정보 업데이트 완료
-		
-		//비밀번호 변경
-		map.put("/ChangePw.do", new ChangePw());			//비밀번호 변경
+
+		// 로그인
+		map.put("/loginForm.do", new LoginForm()); // 로그인창
+		map.put("/login.do", new LoginControl()); // 로그인
+		map.put("/logout.do", new LogoutControl()); // 로그아웃
+		map.put("/registForm.do", new RegistForm()); // 회원가입창
+
+		// 회원관리
+		map.put("/memberList.do", new MemberList()); // 모든 회원조회
+		map.put("/addMember.do", new AddMember()); // 회원 추가
+
+		// 정보수정 완료
+		map.put("/updateMember.do", new UpdateMember()); // 회원정보 갱신
+		map.put("/updateMemberFin.do", new updateMemberFin()); // 회원 정보 업데이트 완료
+
+		// 비밀번호 변경
+		map.put("/ChangePw.do", new ChangePw()); // 비밀번호 변경
 		map.put("/ChangePwFin.do", new ChangePwFin());
-		
-		//1:1 문의
-		map.put("/Inquire.do", new Inquire());				//1:1 문의
+
+		// 1:1 문의
+		map.put("/Inquire.do", new Inquire()); // 1:1 문의
 		map.put("/Inquireget.do", new Inquireget());
-				
-		//마이페이지, 리뷰
+
+		// 마이페이지, 리뷰
 		map.put("/MyInfo.do", new MyInfo());
-		map.put("/SelectOrder.do" ,new SelectOrder());
+		map.put("/SelectOrder.do", new SelectOrder());
 		map.put("/UpdateOrder.do", new UpdateOrder());
 		map.put("/AddReview.do", new AddReview());
 		map.put("/OrderForm.do", new OrderForm());
 		map.put("/OrderDetails.do", new OrderDetails());
 
+		map.put("/lastestReview.do", new LastestReview()); // 최근 리뷰 9개
 
-		map.put("/lastestReview.do", new LastestReview());	//최근 리뷰 9개
+		// 탈퇴
+		map.put("/deleteMember.do", new DeleteMember());
 
-		
-		//탈퇴
-		map.put("/deleteMember.do", new DeleteMember());	
-		
-		
 		// 리뷰
-		map.put("/selectReview.do" ,new SelectReview());      //제품 선택
-		
-		
-		//제품관리
-		map.put("/productForm.do", new ProductForm());		//제품상세정보 페이지
+		map.put("/selectReview.do", new SelectReview()); // 제품 선택
+
+		// 제품관리
+		map.put("/productForm.do", new ProductForm()); // 제품상세정보 페이지
 		map.put("/AddOrder.do", new OrderDetails());
-		map.put("/selectProduct.do", new SelectProdcut());	//제품 선택
-		map.put("/addProduct.do", new AddProduct());		//제품 추가
-		map.put("/deleteProdcut", new DeleteProduct());		//제품 제거
-		map.put("/updateProdcut", new UpdateProdcut());		//제품 정보 업데이트
-		map.put("/categoryList.do", new CategoryList());	//카테고리 가져오기
-		map.put("/lastestProduct", new LastestProduct());	//최근상품목록 9개
-		map.put("/popularProduct", new PopularProduct());	//인기상품 9개
+		map.put("/selectProduct.do", new SelectProdcut()); // 제품 선택
+		map.put("/addProduct.do", new AddProduct()); // 제품 추가
+		map.put("/deleteProdcut", new DeleteProduct()); // 제품 제거
+		map.put("/updateProdcut", new UpdateProdcut()); // 제품 정보 업데이트
+		map.put("/categoryList.do", new CategoryList()); // 카테고리 가져오기
+		map.put("/lastestProduct", new LastestProduct()); // 최근상품목록 9개
+		map.put("/popularProduct", new PopularProduct()); // 인기상품 9개
 
 		// 제품상세
 		map.put("/productDetailForm.do", new ProductDetailForm()); // 제품상세정보 페이지
+
+		// 찜관리
+		map.put("/jjimForm.do", new JjimForm()); // 찜상세정보 페이지
+		map.put("/selectJjim.do", new SelectJjim()); // 찜 선택
+		map.put("/addJjim.do", new AddJjim()); // 찜 추가
+		map.put("/deleteJjim.do", new DeleteJjim()); // 찜 제거
+		map.put("/updateJjim.do", new UpdateJjim()); // 찜 정보 업데이트
+
+		// 카트관리
+		map.put("/cartForm.do", new CartForm()); // 카트상세정보 페이지
+		map.put("/selectCart.do", new SelectCart()); // 카트 선택
+		map.put("/addCart.do", new AddCart()); // 카트 추가
+		map.put("/deleteCart.do", new DeleteCart()); // 카트 제거
+		map.put("/updateCart.do", new UpdateCart()); // 카트 정보 업데이트
+		map.put("/checkCart.do", new IconCnt()); // 카트 정보 업데이트
+		map.put("/cartPayRemove.do", new CartPayRemove());	//결제후 카트 삭제
+
+		// Q&A관리
+		map.put("/qnaForm.do", new QnAForm()); // QnA상세정보 페이지
+		map.put("/selectQnA.do", new SelectQnA()); // QnA 선택
+		map.put("/addQnA.do", new AddQnA()); // QnA 추가
+		map.put("/deleteQnA.do", new DeleteQnA()); // QnA 제거
+		map.put("/updateQnA.do", new UpdateQnA()); // QnA 정보 업데이트
 		
+		map.put("/payForm.do", new PayForm());	//결제화면
+		map.put("/pay.do", new Pay());			//결제기능
 		//찜관리
 		map.put("/jjimForm.do", new JjimForm());			//찜상세정보 페이지
 		map.put("/selectJjim.do", new SelectJjim());		//찜 선택

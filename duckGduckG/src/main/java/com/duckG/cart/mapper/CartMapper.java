@@ -20,5 +20,5 @@ public interface CartMapper {
 	
 	int IconCntCheck(String memberId); // 아이콘 장바구니 수량
 	
-
+	int emptyCart(String logId);
 }

@@ -29,6 +29,8 @@ public class DeleteMember implements Control {
 		mvo.setMemberId(id);
 		
 		msv.delmember(id);
+		session.removeAttribute("logId");
+		session.removeAttribute("manage");
 		resp.sendRedirect("main.do");
 		
 	}
