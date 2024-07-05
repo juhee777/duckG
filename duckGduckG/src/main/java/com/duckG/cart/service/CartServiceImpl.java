@@ -49,6 +49,12 @@ public class CartServiceImpl implements CartService{
 	public int iconCnt(CartVO cvo) {
 		return mapper.checkCart(cvo);
 	}
+
+	@Override
+	public int emptyCart(String logId) {
+		// TODO Auto-generated method stub
+		return mapper.emptyCart(logId);
+	}
 	
 	
 

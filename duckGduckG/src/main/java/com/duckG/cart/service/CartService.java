@@ -21,4 +21,6 @@ public interface CartService {
 	
 	int iconCnt(CartVO cvo);
 
+	//결제할때 카트 비우기
+	int emptyCart(String logId);
 }
