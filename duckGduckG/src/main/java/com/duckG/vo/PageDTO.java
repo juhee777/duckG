@@ -3,7 +3,7 @@ package com.duckG.vo;
 import lombok.Data;
 
 @Data
-public class pageDTO {
+public class PageDTO {
 	//현재페이지 기준으로 보여주기
 	private int startPage, endPage;
 	//이전 페이지가 있는지 이후 페이지가 있는지 계산
@@ -11,7 +11,7 @@ public class pageDTO {
 	private int page;
 	
 	//생성자
-	public pageDTO(int page, int total) {
+	public PageDTO(int page, int total) {
 		this.page = page; 
 		this.endPage = (int) (Math.ceil(page / 10.0) * 10);
 		this.startPage = this.endPage - 9;
