@@ -55,5 +55,9 @@
 		where member_id = #{memberId}
 	</select>
 
+	<delete id="emptyCart" parameterType="String">
+		delete cart
+		where member_id = #{logId}
+	</delete>
 
 </mapper>
