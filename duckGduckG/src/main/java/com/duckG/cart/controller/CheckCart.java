@@ -10,8 +10,6 @@ import javax.servlet.http.HttpSession;
 import com.duckG.Control;
 import com.duckG.cart.service.CartService;
 import com.duckG.cart.service.CartServiceImpl;
-import com.duckG.jjim.service.JjimService;
-import com.duckG.jjim.service.JjimServiceImpl;
 import com.duckG.vo.CartVO;
 
 public class CheckCart implements Control {

@@ -30,7 +30,8 @@ function changVal(){
 document.getElementById("addCart").addEventListener('click',function(){
     if(logId != ""){
         let cnt = document.getElementById('cnt').value;
-        fetch(`addCart.do?productNo=${productNo}&count=${cnt}&memberId=${logId}`)
+        let productNo = document.getElementById("addCart").getAttribute("pno");
+        fetch(`addCart.do?productNo=${productNo}&count=${cnt}`)
     }else{
         alert("로그인후 사용해 주세요")
     }

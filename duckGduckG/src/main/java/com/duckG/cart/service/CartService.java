@@ -14,6 +14,6 @@ public interface CartService {
 
 	boolean updateCart(CartVO cvo);
 
-	List<CartVO> checkCart(CartVO cvo);
+	boolean checkCart(CartVO cvo);
 
 }

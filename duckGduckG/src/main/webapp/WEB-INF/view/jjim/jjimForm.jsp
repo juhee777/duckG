@@ -33,7 +33,7 @@
 										</div>
 									</td>
 									<td class="shoping__cart__total" id="price">${item.price} 원</td>
-									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a></td>
+									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn" id="addCart" pno="${item.productNo}">장바구니</a></td>
 									<td class="shoping__cart__total"><a href="javascript:void(0);"class="primary-btn jjim" jjimId=${item.productNo }>찜취소</a></td>
 								</tr>
 							</c:forEach>	
