@@ -321,6 +321,8 @@ button#submit-review-btn {
 			<br>
 			<br>
 		</div>
+
+		
 	<div class="col-lg-12" style="text-align: center;">
 		<div class="product__pagination blog__pagination" id="pagelise">
 			<a href="#">1</a> 
@@ -332,6 +334,13 @@ button#submit-review-btn {
 		</div>
 	</div>
 </section>
+
+
+  
+  
+
+
+
 
 
 
