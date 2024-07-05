@@ -9,6 +9,8 @@ function addCart(productNo){
 		let result = JSON.parse(addCartAjax.responseText)
 		if(result.retCode == 'OK'){
 			alert("장바구니에 추가되었습니다.")
+		}else if(result.retCode == 'OKUp'){
+			alert("장바구니에 추가되었습니다.")
 		}else{
 			alert("장바구니 추가 실패" + result.retMsg)
 		}
@@ -66,10 +68,10 @@ document.querySelectorAll('.heart').forEach(item => {
 })
 
 //장바구니 모달
-$(document).ready(function() {  
-  $('#cartModal').modal('show');
+//$(document).ready(function() {  
+//  $('#cartModal').modal('show');
   
-});
+//});
 
 function modalclick(e,pno){
 	let myProduct = document.getElementById(pno);
