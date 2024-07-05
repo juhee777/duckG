@@ -12,7 +12,7 @@
 				<div class="product__details__pic">
 					<div class="product__details__pic__item">
 						<img class="product__details__pic__item--large"
-							src="img/product/details/product-details-1.jpg" alt="" id="image">
+							src="img/product/details/product-details-1.jpg" alt="" id="image" onerror="this.src='img/productDetail/no_img.jpg'">
 					</div>
 				</div>
 			</div>
