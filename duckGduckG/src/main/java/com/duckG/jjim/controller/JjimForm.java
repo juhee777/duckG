@@ -12,7 +12,7 @@ import com.duckG.Control;
 import com.duckG.jjim.service.JjimService;
 import com.duckG.jjim.service.JjimServiceImpl;
 import com.duckG.vo.JjimVO;
-import com.duckG.vo.pageDTO2;
+import com.duckG.vo.jjimPageDTO;
 
 public class JjimForm implements Control {
 
@@ -31,7 +31,7 @@ public class JjimForm implements Control {
 		int totalCnt = svc.jjimTotal(uid);
 
 		List<JjimVO> list = svc.selectJjim(uid, Integer.parseInt(page));
-		pageDTO2 dto = new pageDTO2(Integer.parseInt(page), totalCnt);
+		jjimPageDTO dto = new jjimPageDTO(Integer.parseInt(page), totalCnt);
 
 		req.setAttribute("paging", dto);
 		req.setAttribute("jjim", list);
