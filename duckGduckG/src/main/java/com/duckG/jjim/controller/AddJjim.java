@@ -20,7 +20,9 @@ public class AddJjim implements Control {
 
 		JjimService svc = new JjimServiceImpl();
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
-		String memberId = req.getParameter("memberId");
+		
+		HttpSession session = req.getSession();
+		String memberId = (String) session.getAttribute("logId");
 		
 		JjimVO jvo = new JjimVO();
 		jvo.setProductNo(productNo);

@@ -222,13 +222,12 @@ document.getElementById("QAnswer").addEventListener("click",function(){
 // jjim 하기
 document.getElementById("jjim").addEventListener("click", function(){
     let productNo = document.getElementById("jjim").getAttribute("jjimId");
-    console.log(logId);
 
     if(logId == "" || logId == null){
         alert("로그인후 이용가능합니다.")
     }else{
         if(document.getElementById("jjimIcon").getAttribute("class") == "icon_heart_alt"){
-            fetch(`addJjim.do?productNo=${productNo}&logId=${logId}`)
+            fetch(`addJjim.do?productNo=${productNo}`)
             .then(function(){
                 document.getElementById("jjimIcon").setAttribute("class", "icon_heart");
             })
