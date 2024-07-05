@@ -61,3 +61,10 @@ document.querySelectorAll(".primary-btn.cart").forEach(ele =>{
         }
     })
 })
+
+// 상품으로 이동
+document.querySelectorAll(".shoping__cart__item").forEach(ele =>{
+    ele.addEventListener("click",function(){
+        
+    })
+})
