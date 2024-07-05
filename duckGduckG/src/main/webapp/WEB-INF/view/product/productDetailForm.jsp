@@ -33,10 +33,16 @@
 							</div>
 						</div>
 					</div>
+						<table style=" width:300px; height: 70px">
+							<tr>
+								<td ><h3 style="margin: 0">합계</h3></td>
+								<td ><h3 id="priceBox" style="margin: 0">10,000&#8361</h3></td>
+							</tr>
+						</table>
 					<br> <a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a> <a href="javascript:void(0);"
-						class="primary-btn">바로구매</a> <a href="javascript:void(0)" id="jjim" class="heart-icon" style="text-decoration: none"><span
-						class="icon_heart_alt" id="jjimIcon"></span></a>
-					<ul>
+						class="primary-btn">바로구매</a> <a href="javascript:void(0)" id="jjim" class="heart-icon" style="text-decoration: none;"><span
+						class="icon_heart_alt" id="jjimIcon" style="color: pink;"></span></a>
+					<ul style="margin: 0; padding-left: 0;">
 						<li><b>판매자</b> <span id="memberId">0.5 kg</span></li>
 						<li><b>상품등록일</b> <span id="createDate">In Stock</span></li>
 						<li><b>상품재고</b> <span id="stock">01 day shipping. <samp>Free
