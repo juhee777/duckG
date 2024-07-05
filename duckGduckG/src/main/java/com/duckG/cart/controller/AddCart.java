@@ -26,7 +26,6 @@ public class AddCart implements Control {
 		
 		HttpSession session = req.getSession();
 		String logId = (String)session.getAttribute("logId");
-
 		
 		CartVO cvo = new CartVO();
 		cvo.setProductNo(productNo);
