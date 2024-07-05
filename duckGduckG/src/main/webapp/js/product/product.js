@@ -41,7 +41,9 @@ function addHeart(productNo){
 	addHeartAjax.onload = function(){
 		let result = JSON.parse(addHeartAjax.responseText)
 		if(result.retCode == 'OK'){
-			alert("장바구니에 추가되었습니다.")
+			alert("찜에 추가되었습니다.")
+		}else if(result.retCode == 'overlap'){
+			alert("찜에 이미 있습니다.")
 		}else{
 			alert("장바구니 추가 실패" + result.retMsg)
 		}
