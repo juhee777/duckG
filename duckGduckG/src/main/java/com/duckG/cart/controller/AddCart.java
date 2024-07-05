@@ -40,7 +40,11 @@ public class AddCart implements Control {
 				resp.getWriter().print("{\"retCode\": \"NG\", \"retMsg\": \"Fail\"}");
 			}			
 		}else {
-			resp.getWriter().print("{\"retCode\": \"NO\", \"retMsg\": \"Fail\"}");
+			if(svc.checkUpdateCart(cvo)) {
+				resp.getWriter().print("{\"retCode\": \"OK\", \"retMsg\": \"Success\"}");			
+			}else {
+				resp.getWriter().print("{\"retCode\": \"NG\", \"retMsg\": \"Fail\"}");
+			}
 		}
 		
 	}
