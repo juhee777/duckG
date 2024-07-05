@@ -18,8 +18,10 @@ fetch(`selectProduct.do?productNo=${productNo}`)
             document.getElementById(ele).innerHTML = (element[ele]);
         })
         document.getElementById('price').innerHTML = (element['price']) + " 원";
+        document.getElementById('price').setAttribute("price", element['price'])
         document.getElementById("image").setAttribute("src", `img/productDetail/${element["image"]}`);
         document.getElementById("jjim").setAttribute("jjimId", element["productNo"]);
+        document.getElementById("priceBox").innerHTML = ( element['price']) + " 원";
 
         fetch(`selectJjim.do?productNo=${element["productNo"]}`)
         .then(result => result.json())
@@ -198,6 +200,23 @@ document.getElementById("addCart").addEventListener('click',function(){
     if(logId != ""){
         let cnt = document.getElementById('cnt').value;
         fetch(`addCart.do?productNo=${productNo}&count=${cnt}`)
+        .then(result => result.json())
+        .then(result =>{
+            let doCArt ="";
+            if(result.retCode == 'OK'){
+                doCArt = confirm("해당상품이"+ cnt + "개 장바구니에 추가되었습니다.\n장바구니로 이동하시겠습니까?" )
+                if(doCArt){
+                    location.href = 'cartForm.do';
+                }
+            }else if(result.retCode == 'OKUP'){
+                doCArt = confirm("해당상품이"+ cnt + "개로 변경되었습니다.\n장바구니로 이동하시겠습니까?" )
+                if(doCArt){
+                    location.href = 'cartForm.do';
+                }
+            }else{
+                alert("장바구니 담기 실패!.") ;                
+            }
+        })
     }else{
         alert("로그인후 사용해 주세요")
     }
@@ -243,8 +262,8 @@ document.getElementById("jjim").addEventListener("click", function(){
 // 가격변경
 document.querySelector(".pro-qty").addEventListener("click",function(){
     let cnt = document.querySelector("#cnt").value
-    console.log(cnt);        
+    let price = document.getElementById("price").getAttribute("price")
+    document.getElementById("priceBox").innerHTML = (cnt*price)+" 원"
 
 })
 
-// 수량, 
