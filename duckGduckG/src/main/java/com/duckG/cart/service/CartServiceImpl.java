@@ -46,7 +46,7 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public List<CartVO> iconCnt(CartVO cvo) {
+	public int iconCnt(CartVO cvo) {
 		return mapper.checkCart(cvo);
 	}
 	

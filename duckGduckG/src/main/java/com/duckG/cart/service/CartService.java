@@ -19,6 +19,6 @@ public interface CartService {
 	
 	boolean checkUpdateCart(CartVO cvo);
 	
-	List<CartVO> iconCnt(CartVO cvo);
+	int iconCnt(CartVO cvo);
 
 }
