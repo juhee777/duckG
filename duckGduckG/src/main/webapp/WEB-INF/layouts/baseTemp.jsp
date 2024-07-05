@@ -108,13 +108,18 @@
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<div class="header__top__right">
+							<c:if test="${logId != null }">
+								<div class="header__top__right__language">
+									<a href="MyInfo.do"><i class="fa fa-user"></i> 내정보</a>
+								</div>
+							</c:if>
 							<div class="header__top__right__auth">
 								<c:choose>
-									<c:when test="${logId != nulll }">
-										<a href="logout.do"><i class="fa fa-user"></i> Logout</a>
+									<c:when test="${logId != null }">
+										<a href="logout.do"><i class="fa fa-user"></i> 로그아웃</a>
 									</c:when>
 									<c:otherwise>
-										<a href="loginForm.do"><i class="fa fa-user"></i> Login</a>
+										<a href="loginForm.do"><i class="fa fa-user"></i> 로그인</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
