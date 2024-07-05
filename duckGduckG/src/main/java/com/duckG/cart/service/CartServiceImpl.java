@@ -34,10 +34,17 @@ public class CartServiceImpl implements CartService{
 	
 
 	@Override
-	public List<CartVO> checkCart(int productNo, String memberId) {
+	public List<CartVO> checkCart(CartVO cvo) {
 		// TODO Auto-generated method stub
-		return mapper.checkCart(productNo,memberId);
+		return mapper.checkCart(cvo);
 	}
+
+	@Override
+	public List<CartVO> iconCnt(CartVO cvo) {
+		return mapper.checkCart(cvo);
+	}
+	
+	
 
 	
 }

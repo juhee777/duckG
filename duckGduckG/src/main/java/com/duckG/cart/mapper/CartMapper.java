@@ -16,6 +16,4 @@ public interface CartMapper {
 
 	List<CartVO> checkCart(CartVO vco);// 이미 장바구니에 담긴 상품인지 확인
 
-	List<CartVO> checkCart(int productNo, String memberId);
-
 }
