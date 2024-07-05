@@ -44,7 +44,7 @@
 		<div class="humberger__menu__cart">
 			<ul>
 				<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span class="cartCount">3</span></a></li>
 			</ul>
 			<div class="header__cart__price">
 				item: <span>$150.00</span>
@@ -151,7 +151,7 @@
 					<div class="header__cart">
 						<ul>
 							<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+							<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span class="cartCount">3</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -242,7 +242,7 @@
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-
+	<script src="js/cart/cartCount.js"></script>
 
 </body>
 

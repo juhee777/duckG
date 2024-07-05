@@ -14,8 +14,11 @@ public interface CartMapper {
 
 	int modifyCart(CartVO vco);// 장바구니 수량 수정
 
-	List<CartVO> checkCart(CartVO vco);// 이미 장바구니에 담긴 상품인지 확인
-
-	List<CartVO> checkCart(int productNo, String memberId);
+	int checkCart(CartVO vco);// 이미 장바구니에 담긴 상품인지 확인
+	
+	int checkUpdateCart(CartVO cvo); // 장바구니에 있으면 업데이트
+	
+	int IconCntCheck(String memberId); // 아이콘 장바구니 수량
+	
 
 }

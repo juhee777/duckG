@@ -23,24 +23,29 @@ public class AddCart implements Control {
 
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
 		int count = Integer.parseInt(req.getParameter("count"));
-		System.out.println(count);
+		
 		HttpSession session = req.getSession();
 		String logId = (String)session.getAttribute("logId");
-		//String memberId = req.getParameter("memberId");
-
 		
 		CartVO cvo = new CartVO();
 		cvo.setProductNo(productNo);
 		cvo.setCount(count);
 		cvo.setMemberId(logId);
 
-		svc.addCart(cvo);
-		
-		if(svc.addCart(cvo)) { //{'retCode": "OK", "retMsg": "Success"}
-			resp.getWriter().print("{\"retCode\": \"OK\", \"retMsg\": \"Success\"}");
-		}else { //{'retCode": "NG", "retMsg": "Fail"}
-			resp.getWriter().print("{\"retCode\": \"NG\", \"retMsg\": \"Fail\"}");
+		if(svc.checkCart(cvo)) {
+			if(svc.addCart(cvo)) { //{'retCode": "OK", "retMsg": "Success"}
+				resp.getWriter().print("{\"retCode\": \"OK\", \"retMsg\": \"Success\"}");
+			}else { //{'retCode": "NG", "retMsg": "Fail"}
+				resp.getWriter().print("{\"retCode\": \"NG\", \"retMsg\": \"Fail\"}");
+			}			
+		}else {
+			if(svc.checkUpdateCart(cvo)) {
+				resp.getWriter().print("{\"retCode\": \"OKUP\", \"retMsg\": \"Success\"}");			
+			}else {
+				resp.getWriter().print("{\"retCode\": \"NGUP\", \"retMsg\": \"Fail\"}");
+			}
 		}
+		
 	}
 
 }
