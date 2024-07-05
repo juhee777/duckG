@@ -11,7 +11,8 @@
 					<table>
 						<thead>
 							<tr>
-								<th class="col-md-5" style="text-align: left;">찜목록</th>
+								<th class="col-md-1"  style="text-align: left;">찜목록</th>
+								<th class="col-md-4"></th>
 								<th class="col-md-1">가격</th>
 								<th class="col-md-1">개수</th>
 								<th class="col-md-1">합계</th>
@@ -22,18 +23,19 @@
 						<tbody>						
 							<c:forEach var="item" items="${jjim}">
 								<tr>
-									<td class="shoping__cart__item"><img src="img/productDetail/${item.image}" alt="" width="70px">
-										<h5>${item.productName}</h5></td>
+									<td>
+									<img src="img/productDetail/${item.image}" alt="" width="70px" onerror="this.src='img/productDetail/no_img.jpg'"></td>
+									<td class="shoping__cart__item"><h5>${item.productName}</h5></td>
 									<td class="shoping__cart__price" price="${item.price}">${item.price} 원</td>
 									<td class="shoping__cart__quantity">
 										<div class="quantity">
 											<div class="pro-qty">
-												<input type="text" value="1" id="cnt">
+												<input type="text" value="1" id="${item.productNo}" class="cntBox" pno="${item.productNo}" price="${item.price}">
 											</div>
 										</div>
 									</td>
-									<td class="shoping__cart__total" id="price">${item.price} 원</td>
-									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn" id="addCart" pno="${item.productNo}">장바구니</a></td>
+									<td class="shoping__cart__total" id="${item.productNo}P">${item.price} 원</td>
+									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn cart"  pno="${item.productNo}">장바구니</a></td>
 									<td class="shoping__cart__total"><a href="javascript:void(0);"class="primary-btn jjim" jjimId=${item.productNo }>찜취소</a></td>
 								</tr>
 							</c:forEach>	
