@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -43,30 +43,32 @@
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-				<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span class="jjimCnt">1</span></a></li>
-				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span class="cartCount">3</span></a></li>
+				<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
+						class="jjimCnt">1</span></a></li>
+				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i>
+						<span class="cartCount">3</span></a></li>
 			</ul>
-			<div class="header__cart__price">
-				item: <span>$150.00</span>
-			</div>
 		</div>
 		<div class="humberger__menu__widget">
-			<div class="header__top__right__language">
-				<img src="img/language.png" alt="">
-				<div>English</div>
-				<span class="arrow_carrot-down"></span>
-				<ul>
-					<li><a href="#">Spanis</a></li>
-					<li><a href="#">English</a></li>
-				</ul>
-			</div>
+			<c:if test="${logId != null }">
+				<div class="header__top__right__language">
+					<a href="MyInfo.do"><i class="fa fa-user"></i> 내정보</a>
+				</div>
+			</c:if>
 			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Login</a>
+				<c:choose>
+					<c:when test="${logId != null }">
+						<a href="logout.do"><i class="fa fa-user"></i> 로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="loginForm.do"><i class="fa fa-user"></i> 로그인</a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
-				<li class="active"><a href="./index.html">Home</a></li>
+				<li><a href="./index.html">Home</a></li>
 				<li><a href="/shop-grid.html">Shop</a></li>
 				<li><a href="#">Pages</a>
 					<ul class="header__menu__dropdown">
@@ -88,7 +90,6 @@
 		<div class="humberger__menu__contact">
 			<ul>
 				<li><i class="fa fa-envelope"></i> alscjf2738@gmail.com</li>
-				<li>Free Shipping for all Order of $99</li>
 			</ul>
 		</div>
 	</div>
@@ -132,13 +133,14 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="main.do"><img src="img/logo/logo.png" alt="" style="display: block; padding-left: 35px; height: 75px;"></a>
+						<a href="main.do"><img src="img/logo/logo.png" alt=""
+							style="display: block; padding-left: 35px; height: 75px;"></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li class="active"><a href="./index.html">Home</a></li>
+							<li><a href="./index.html">Home</a></li>
 							<li><a href="./shop-grid.html">Shop</a></li>
 							<li><a href="#">Pages</a>
 								<ul class="header__menu__dropdown">
@@ -155,8 +157,10 @@
 				<div class="col-lg-3">
 					<div class="header__cart">
 						<ul>
-							<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span class="jjimCnt">1</span></a></li>
-							<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i> <span class="cartCount">3</span></a></li>
+							<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
+									class="jjimCnt">1</span></a></li>
+							<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i>
+									<span class="cartCount">3</span></a></li>
 						</ul>
 					</div>
 				</div>
