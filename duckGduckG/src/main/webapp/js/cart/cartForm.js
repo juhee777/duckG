@@ -18,6 +18,7 @@ function removeCartFnc(e) {
 		if (result.retCode == 'OK') {
 			alert('정상 삭제');
 			tr.remove();
+			updateCartTotal();
 		} else {
 			alert('삭제 실패')
 		}
@@ -38,6 +39,8 @@ function updateCartTotal() {
 	*/
 	document.querySelectorAll('.shoping__cart__total').forEach(item => {
 		let price = parseInt(item.innerText.split(',').join(""));
+		console.log(item);
+		console.log(price);
 		cartTotal += price;
 	})
 	document.getElementById('cartTotal').innerText = (cartTotal + '').replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -125,11 +128,8 @@ function updateCount(cno, cnt) {
 	fetch('updateCart.do?cno=' + cno + '&cnt=' + cnt)
 		.then(result => result.json())
 		.then(result => {
-			console.log(result);
-
 			if (result.retCode == "OK") {
 				console.log("업데이트")
-				//console.log(cnt);
 
 			} else {
 				console.log("업데이트 오류")
