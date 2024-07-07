@@ -6,7 +6,8 @@
   <mapper namespace="com.duckG.order.mapper.OrderMapper">
   
  	<select id ="OrderList" parameterType ="String" resultType="com.duckG.vo.OrderVO">
-        select o.order_no,
+        select ROWNUM,
+        	   o.order_no,
                o.member_id,
                o.product_no,
                o.count,
@@ -19,6 +20,7 @@
 		from ordered o INNER JOIN product p
              on o.product_no = p.product_no
         where o.member_id = #{memberId}
+        ORDER BY o.order_no DESC
 	</select>
 	
 	<update id="UpdateOrder" parameterType ="com.duckG.vo.OrderVO">

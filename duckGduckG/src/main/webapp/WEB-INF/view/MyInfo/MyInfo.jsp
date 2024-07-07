@@ -242,9 +242,10 @@ button#submit-review-btn {
 #submit-review {
   align-self: flex-end;
 }	
-		
 
-	</style>
+
+
+</style>
 
 
 	<!-- Blog Section Begin -->
@@ -323,15 +324,16 @@ button#submit-review-btn {
 		</div>
 
         
-	<div class="col-lg-12" style="text-align: center;">
-		<div class="product__pagination blog__pagination" id="pagelise">
-			<a href="#">1</a> 
-			<a href="#">2</a> 
-			<a href="#">3</a> 
-			<a href="#">
-			<i class="fa fa-long-arrow-right"></i>
-			</a>
-		</div>
+	
+	<div class="col-lg-12">
+		<span  id="clonepage" style="display: none;">
+			<a class="pagelists">1</a> 
+		</span>
+			<!-- <a href="#"><i class="fa fa-long-arrow-right"></i></a> -->
+	</div>
+	
+	<div id="pagelist" style="text-align: center; " class="product__pagination blog__pagination" >
+		
 	</div>
 </section>
 
