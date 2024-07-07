@@ -13,7 +13,7 @@ const modal = document.getElementById('modal');
 const modalOverlay = document.querySelector('.modal-overlay');
 
 let param = new URLSearchParams(window.location.search);
-let page = param.get('page');
+let page= param.get('page');
 
 
 
@@ -24,6 +24,7 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		
 		
 		console.log(result);
+		console.log(page);
 		console.log(result.length);
 		console.log(param.toString());
 		
@@ -113,6 +114,7 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 			pagecount = Math.floor(result.length/10);
 			
 			for(let i = 1; i<=pagecount; i++){
+				console.log(i);
 				clonepage(i)
 			}
 			
@@ -121,6 +123,7 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		}else{
 			pagecount = result.length/10+1;		
 			for(let i = 1; i<=pagecount; i++){		
+				console.log(i);
 				clonepage(i)
 			}
 			

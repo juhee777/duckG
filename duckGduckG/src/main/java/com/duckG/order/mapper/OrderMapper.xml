@@ -19,6 +19,8 @@
 		from ordered o INNER JOIN product p
              on o.product_no = p.product_no
         where o.member_id = #{memberId}
+        order by o.order_no DESC
+        
 	</select>
 	
 	<update id="UpdateOrder" parameterType ="com.duckG.vo.OrderVO">

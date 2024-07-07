@@ -323,16 +323,15 @@ button#submit-review-btn {
 		</div>
 
         
-	<div class="col-lg-12" style="text-align: center;">
-		<div class="product__pagination blog__pagination" id="pagelise">
-			<a href="#">1</a> 
-			<a href="#">2</a> 
-			<a href="#">3</a> 
-			<a href="#">
-			<i class="fa fa-long-arrow-right"></i>
-			</a>
-		</div>
+	<div class="col-lg-12" style="text-align: center; display: none;">
+		<span class="product__pagination blog__pagination" id="clonepage">
+			<a href="#" class="pagelists">1</a> 
+		</span>
 	</div>
+	
+	<div id="pagelist" style="text-align: center; ">	
+	</div>
+	
 </section>
 
 
