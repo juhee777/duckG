@@ -50,4 +50,9 @@
     		   on o.product_no = p.product_no
 		where order_no = #{orderNo}
 	</select>
+	
+	<insert id="insertOrder" parameterType="com.duckG.vo.OrderVO">
+		insert into ordered (order_no, member_id, product_no, count, how_much, order_pak) 
+		values( order_seq.nextval, #{memberId}, #{productNo}, #{count}, #{howMuch}, #{memberId} || '-' || order_seq.currval)
+	</insert>
 </mapper>

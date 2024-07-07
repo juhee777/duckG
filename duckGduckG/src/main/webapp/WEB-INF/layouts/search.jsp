@@ -8,7 +8,7 @@
 			<div class="col-lg-3">
 				<div class="hero__categories">
 					<div class="hero__categories__all">
-						<i class="fa fa-bars"></i> <span>All departments</span>
+						<i class="fa fa-bars"></i> <span>모든 카테고리</span>
 					</div>
 					<ul style="display: none;">
 						<li><a href="productForm.do?category=스킨케어">스킨케어</a></li>
@@ -25,10 +25,6 @@
 				<div class="hero__search">
 					<div class="hero__search__form">
 						<form action="productForm.do">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
                                 <c:choose>
                                   <c:when test="${!empty search }">
                                   <input type="text" name="keyword" placeholder="검색어: ${search}">
@@ -37,10 +33,10 @@
                                   <input type="text" name="keyword" placeholder="카테고리: ${category}">
                                   </c:when>
                                   <c:otherwise>
-                                  <input type="text" name="keyword" placeholder="What do yo u need?">
+                                  <input type="text" name="keyword" placeholder="무엇을 검색하시겠습니까? (ex.스킨케어)">
                                   </c:otherwise>
                                 </c:choose>
-                                <button type="submit" class="site-btn" onclick="search()">SEARCH</button>
+                                <button type="submit" class="site-btn" onclick="search()">검색</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">

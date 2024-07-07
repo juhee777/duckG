@@ -11,4 +11,6 @@ public interface OrderService {
 	boolean UpdateOrder(OrderVO ovo);
 	
 	List<OrderVO> orderDetails(String orderNo);
+	
+	boolean addOrder(OrderVO ovo);
 }

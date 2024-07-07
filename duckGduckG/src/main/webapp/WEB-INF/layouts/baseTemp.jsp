@@ -42,12 +42,14 @@
 			<a href="main.do"><img src="img/logo/logo.png" alt=""></a>
 		</div>
 		<div class="humberger__menu__cart">
+			<c:if test="${logId != null }">
 			<ul>
 				<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
 						class="jjimCnt">1</span></a></li>
 				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i>
 						<span class="cartCount">3</span></a></li>
 			</ul>
+			</c:if>
 		</div>
 		<div class="humberger__menu__widget">
 			<c:if test="${logId != null }">
@@ -68,17 +70,12 @@
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
-				<li><a href="./index.html">Home</a></li>
-				<li><a href="/shop-grid.html">Shop</a></li>
-				<li><a href="#">Pages</a>
+				<li><a href="/">메인페이지</a></li>
+				<li><a href="productForm.do">전체 상품</a></li>
+				<li><a href="#">고객센터</a>
 					<ul class="header__menu__dropdown">
-						<li><a href="./shop-details.html">Shop Details</a></li>
-						<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-						<li><a href="./checkout.html">Check Out</a></li>
-						<li><a href="./blog-details.html">Blog Details</a></li>
+						<li><a href="Inquire.do">1:1 문의</a></li>
 					</ul></li>
-				<li><a href="./blog.html">Blog</a></li>
-				<li><a href="./contact.html">Contact</a></li>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
@@ -140,21 +137,17 @@
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li><a href="./index.html">Home</a></li>
-							<li><a href="./shop-grid.html">Shop</a></li>
-							<li><a href="#">Pages</a>
+							<li><a href="/">메인페이지</a></li>
+							<li><a href="productForm.do">전체 상품</a></li>
+							<li><a href="#">고객센터</a>
 								<ul class="header__menu__dropdown">
-									<li><a href="./shop-details.html">Shop Details</a></li>
-									<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-									<li><a href="./checkout.html">Check Out</a></li>
-									<li><a href="./blog-details.html">Blog Details</a></li>
+									<li><a href="Inquire.do">1:1 문의</a></li>
 								</ul></li>
-							<li><a href="./blog.html">Blog</a></li>
-							<li><a href="./contact.html">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="col-lg-3">
+					<c:if test="${logId != null }">
 					<div class="header__cart">
 						<ul>
 							<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
@@ -163,6 +156,7 @@
 									<span class="cartCount">3</span></a></li>
 						</ul>
 					</div>
+					</c:if>
 				</div>
 			</div>
 			<div class="humberger__open">
