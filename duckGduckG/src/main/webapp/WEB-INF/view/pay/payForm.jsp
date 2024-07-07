@@ -47,7 +47,7 @@
 										<p>
 											전화번호<span>*</span>
 										</p>
-										<input type="text" name="phone" value="${mvo.phone = null ? '' : mvo.phone}"  required>
+										<input type="text" name="phone" value="${mvo.phone = null ? '' : mvo.phone}" placeholder="ex) 010-1111-2222"  required>
 									</div>
 								</div>
 								<div class="col-lg-6">
@@ -55,7 +55,7 @@
 										<p>
 											이메일<span>*</span>
 										</p>
-										<input type="text" name="email" value="${mvo.email = null ? '' : mvo.email}"  required>
+										<input type="text" name="email" value="${mvo.email = null ? '' : mvo.email}" placeholder="ex) duckG1234@naver.com"  required>
 									</div>
 								</div>
 							</div>

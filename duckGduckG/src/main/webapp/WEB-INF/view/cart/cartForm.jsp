@@ -69,7 +69,7 @@
 					<ul>
 						<li>합계 <span id="cartTotal"></span></li>
 					</ul>
-					<a href="#" class="primary-btn">결제하기</a>
+					<a href="payForm.do" class="primary-btn">결제하기</a>
 				</div>
 			</div>
 		</div>

@@ -27,4 +27,6 @@ public class OrderVO {
 	private String addrRoad;
 	private String addrDet;
 	
+	private String ROWNUM;
+	
 }

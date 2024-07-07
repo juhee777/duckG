@@ -12,17 +12,32 @@ let focusedElementBeforeModal;
 const modal = document.getElementById('modal');
 const modalOverlay = document.querySelector('.modal-overlay');
 
+let param = new URLSearchParams(window.location.search);
+let page = param.get('page');
+
 
 
 let overlap;
 fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 	.then(result => result.json())
 	.then((result => {
+		
+		
 		console.log(result);
-		Allcountpage = result.length;
-		prooder = result.orderNo;
-		let temp = "";
-		result.forEach(center => {
+		console.log(result.length);
+		console.log(param.toString());
+		
+		//console.log(page);
+
+
+		
+		if(result.length<10){  //구매가 10보다 작을때
+			console.log("작동1");
+
+			Allcountpage = result.length;
+			prooder = result.orderNo;
+			let temp = "";
+			result.forEach(center => {
 			if (temp == center.orderPak) {
 				overlap = 1;
 				cloneRow(center);
@@ -32,8 +47,106 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 				cloneRow(center);
 			}
 		})
+		
+		}else{ //구매가 10보다 클때
+			console.log("작동2");
+			let afterliset = page * 10;
+			let Beforeliset = afterliset - 9;
+			
+			//페이지 출력
+			for(let i = Beforeliset-1; i<=afterliset-1; i++){
+				
+				
+				console.log(Beforeliset);
+				console.log(afterliset);
+				console.log(result.length/10+1);
+				
+				Allcountpage = result.length;
+				prooder = result.orderNo;
+				let temp = "";
+				
+				
+				
+				
+				
+				
+				
+				if (temp == result.orderPak) { //물건 같이 구매하면 출력
+					console.log("작동3");
+					overlap = 1;
+					cloneRow(result[i]);
+					
+				} else { 
+					
+					if(page == (Math.floor(result.length/10)+1)){ //마지막 페이지 출력
+						console.log("작동5");
+						console.log(i);
+						afterliset = result.length;
+						
+						console.log(afterliset);
+						
+						temp = result.orderPak;
+						overlap = 0;
+						cloneRow(result[i]);
+						
+						
+					}else{ // 일반 10개 출력
+						console.log("작동4")
+						console.log(i)
+						temp = result.orderPak;
+						overlap = 0;
+						cloneRow(result[i]);
+					}
+					
+					
+					
+			}
+				
+			}
+			
+		}
+		
+		//번호 출력하기
+		let pagecount = 0;
+		
+		if(result.length % 10 == 0){
+			pagecount = Math.floor(result.length/10);
+			
+			for(let i = 1; i<=pagecount; i++){
+				clonepage(i)
+			}
+			
+			
+			
+		}else{
+			pagecount = result.length/10+1;		
+			for(let i = 1; i<=pagecount; i++){		
+				clonepage(i)
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 	}))
+function clonepage(i){
+	let list = document.querySelector('#clonepage').cloneNode(true);
+	
+	list.querySelector('.pagelists').innerHTML = i;
+	list.setAttribute('id', i)
+	list.querySelector('.pagelists').setAttribute('href', 'MyInfo.do?page='+i)
+	
+	list.style.display = ""
+	document.querySelector('#pagelist').appendChild(list);
+}
 
 // 1. 구매 확정 , 반품하기 2. 리뷰쓰기,재 구매 
 function cloneRow(order = {}) {

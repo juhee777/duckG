@@ -28,4 +28,10 @@ public class OrderServiceImpl implements OrderService{
 		// TODO Auto-generated method stub
 		return mapper.orderDetails(orderNo);
 	}
+
+	@Override
+	public boolean addOrder(OrderVO ovo) {
+		// TODO Auto-generated method stub
+		return mapper.insertOrder(ovo) == 1;
+	}
 }

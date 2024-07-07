@@ -10,4 +10,7 @@ public interface OrderMapper {
 	int UpdateOrder(OrderVO ovo);
 	
 	List<OrderVO> orderDetails(String orderNo);
+	
+	//구매목록 등록
+	int insertOrder(OrderVO ovo);
 }
