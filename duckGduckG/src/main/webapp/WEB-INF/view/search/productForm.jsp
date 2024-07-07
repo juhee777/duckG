@@ -65,7 +65,7 @@
 	background-color: #ddd;
 }
 
-/*모달창*/
+
 </style>
 <body>
 	<form action="productForm.do">
@@ -82,6 +82,7 @@
 							<input type="hidden" name="ppimg" value="${product.image}">
 							<input type="hidden" name="ppname" value="${product.productName}">
 							<input type="hidden" name="ppprice" value="${product.price}">
+							 <input type="hidden" name="ppdiscount" value="${product.discount}">
 							<div class="product__item__pic set-bg"
 								data-setbg="img/productDetail/${product.image}">
 								<ul class="product__item__pic__hover">
@@ -90,7 +91,6 @@
 									<li><a href="#"><i class="fa fa-retweet"></i></a></li>
 									<!-- 여기 -->
 									<li><button
-											onclick="modalclick(event,${product.productNo })"
 											type="button" data-toggle="modal" data-target="#cartModal"
 											style="border: 0; border-radius: 100%;">
 											<a href="#"> <i class="fa fa-shopping-cart"></i></a>
@@ -149,11 +149,6 @@
 </body>
 
 <!-- 모달창 -->
-<div class="container">
-	<button type="button" data-toggle="modal" data-target="#cartModal">
-		<i class="fa fa-shopping-cart"></i>
-	</button>
-</div>
 
 <div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -173,8 +168,8 @@
 						<thead>
 							<tr>
 								<th scope="col"></th>
-								<th scope="col" id="">제품</th>
-								<th scope="col" id="">가격</th>
+								<th scope="col">제품</th>
+								<th scope="col">가격</th>
 								<th scope="col">개수</th>
 							</tr>
 						</thead>
@@ -184,10 +179,10 @@
 									src="img/productDetail/${product.image}"
 									onerror="this.onerror=null; this.src='img/productDetail/no_img.jpg';"
 									class="img-fluid img-thumbnail" alt="Sheep"></td>
-								<td>Vans Sk8-Hi MTE Shoes</td>
+								<td>Vans Sk8-Hi MTE Shoes</td> <!-- 제품이름 -->
 								<td>1</td>
 								<td class="qty"><input type="text" class="form-control"
-									id="input1" value="1"></td>
+									id="input1" value="1"></td> <!-- 갯수 넣는 폼 -->
 							</tr>
 						</tbody>
 					</table>
