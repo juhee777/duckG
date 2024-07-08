@@ -186,30 +186,30 @@ fetch(`selectReview.do?productNo=${productNo}`)
 .then(result => {
     let cnt = 0;
     let reviewScores = 0;
-     
+    
     result.forEach(ele =>{
         document.querySelector("tbody#reviews").appendChild(cloneRow(ele));
         reviewScores += ele.reviewScore
         cnt++;
     })
-
+    
     let star =  1.0 * reviewScores / cnt
     for(let i = 1; i<=5; i++){
-        if(star>1){
+        if(star>=1){
             let starA = document.createElement("i");
             starA.setAttribute("class", "fa fa-star");
             document.getElementById("stars").appendChild(starA);
-            reviewScores -= 1;
+            star -= 1;
         }else if(star>0){
             let starA = document.createElement("i");
             starA.setAttribute("class", "fa fa-star-half-o");
             document.getElementById("stars").appendChild(starA);
-            reviewScores -= 1;
+            star -= 1;
         }else{
             let starA = document.createElement("i");
             starA.setAttribute("class", "fa fa-star-o");
             document.getElementById("stars").appendChild(starA);
-            reviewScores -= 1;
+            star -= 1;
         }
     }
     document.getElementById("reviewCnt").innerHTML = "(" + cnt + ")";
