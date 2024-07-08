@@ -26,10 +26,6 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		if(param.size == 0){
 			page = 1;
 		};
-		
-		console.log(result.length);
-		console.log(param.size);
-		console.log(page);
 			
 		if(result.length == 0){
 			orderzero.style.display = ""

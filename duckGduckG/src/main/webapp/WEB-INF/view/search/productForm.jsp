@@ -2,75 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<style>
-.product__item__text h6 a {
-	color: #333;
-	text-decoration: none;
-}
 
-.product__item__text h5 {
-	color: #7fad39;
-	font-weight: bold;
-}
-
-.product-list-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 15px;
-}
-
-.product-list-row {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 -15px;
-}
-
-.original-price {
-	font-size: 0.8em;
-	color: #888;
-	text-decoration: line-through;
-	margin-right: 5px;
-}
-
-.sale-price {
-	color: #dd2222;
-}
-
-/* 페이지 */
-.center {
-	text-align: center;
-}
-
-.pagination {
-	display: inline-block;
-}
-
-.pagination a {
-	color: black;
-	float: left;
-	padding: 8px 16px;
-	text-decoration: none;
-	transition: background-color .3s;
-	border: 1px solid #ddd;
-	margin: 0 4px;
-}
-
-.pagination a.active {
-	background-color: #4CAF50;
-	color: white;
-	border: 1px solid #4CAF50;
-}
-
-.pagination a:hover:not(.active) {
-	background-color: #ddd;
-}
-
-
-</style>
+<link rel="stylesheet" href="css/product/productForm.css" />
 <body>
 	<form action="productForm.do">
 		<section class="breadcrumb-section set-bg"
-			data-setbg="img/breadcrumb.jpg"></section>
+			data-setbg=""></section>
 		<!-- Breadcrumb Section End -->
 
 		<div class="product-list-container">
@@ -88,11 +25,11 @@
 								<ul class="product__item__pic__hover">
 									<li><a href="#" class="heart"
 										heart="${product.productNo }"><i class="fa fa-heart"></i></a></li>
-									<li><a href="#"><i class="fa fa-retweet"></i></a></li>
+									
 									<!-- 여기 -->
 									<li><button
 											type="button" data-toggle="modal" data-target="#cartModal"
-											style="border: 0; border-radius: 100%;">
+											style="border: 0; background-color:transparent; border-radius: 50%;">
 											<a href="#"> <i class="fa fa-shopping-cart"></i></a>
 										</button></li>
 
