@@ -53,7 +53,7 @@
 							<c:forEach var="item" items="${jjim}">
 								<tr>
 									<td>
-									<img src="img/productDetail/${item.image}" alt="" width="70px" onerror="this.src='img/productDetail/no_img.jpg'"></td>
+									<img src="img/productDetail/${item.image}" alt="" width="70px" onerror="this.src='img/productDetail/no_img.gif'"></td>
 									<td class="shoping__cart__item" onClick="location.href='productDetailForm.do?productNo=${item.productNo}'"><h5>${item.productName}</h5></td>
 									<td class="shoping__cart__price" price="${item.price}">
 									

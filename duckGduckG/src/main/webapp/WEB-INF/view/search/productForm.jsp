@@ -114,7 +114,7 @@
 							<tr>
 								<td class="w-25"><img
 									src="img/productDetail/${product.image}"
-									onerror="this.onerror=null; this.src='img/productDetail/no_img.jpg';"
+									onerror="this.onerror=null; this.src='img/productDetail/no_img.gif';"
 									class="img-fluid img-thumbnail" alt="Sheep"></td>
 								<td>Vans Sk8-Hi MTE Shoes</td> <!-- 제품이름 -->
 								<td>1</td>
