@@ -11,7 +11,7 @@
 							<div class="col-lg-3" style="width: 240px;">
 								<div class="categories__item set-bg"
 									data-setbg="img/productDetail/category/${category }.jpg"
-									onerror="this.onerror=null; this.style.background-image=url('img/productDetail/no_img.jpg');">
+									onerror="this.onerror=null; this.style.background-image=url('img/productDetail/no_img.gif');">
 									<h5>
 										<a href="productForm.do?category=${category}">${category }</a>
 									</h5>
@@ -40,7 +40,7 @@
 										<div class="latest-product__item__pic">
 											<img src="img/productDetail/${newProduct.image }"
 												alt="${newProduct.productName }"
-												onerror="this.onerror=null; this.src='img/productDetail/no_img.jpg';">
+												onerror="this.onerror=null; this.src='img/productDetail/no_img.gif';">
 										</div>
 										<div class="latest-product__item__text">
 											<h6>${newProduct.productName }</h6>
@@ -67,7 +67,7 @@
 										<div class="latest-product__item__pic">
 											<img src="img/productDetail/${topProduct.image }"
 												alt="${topProduct.productName }"
-												onerror="this.onerror=null; this.src='img/productDetail/no_img.jpg';">
+												onerror="this.onerror=null; this.src='img/productDetail/no_img.gif';">
 										</div>
 										<div class="latest-product__item__text">
 											<h6>${topProduct.productName }</h6>
@@ -94,7 +94,7 @@
 										<div class="latest-product__item__pic">
 											<img src="img/productDetail/${newReview.reviewImage }"
 												alt="${newReview.reviewContent }"
-												onerror="this.onerror=null; this.src='img/productDetail/no_img.jpg';">
+												onerror="this.onerror=null; this.src='img/productDetail/no_img.gif';">
 										</div>
 										<div class="latest-product__item__text">
 											<h6>${newReview.reviewContent }</h6>

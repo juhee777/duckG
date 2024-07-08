@@ -23,7 +23,7 @@
 							<c:choose>
 								<c:when test="${empty cartList}">
 									<tr>
-										<td>장바구니가 비어있습니다.</td>
+										<td colspan="5">장바구니가 비어있습니다.</td>
 									</tr>
 								</c:when>
 								<c:otherwise>

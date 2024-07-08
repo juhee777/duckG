@@ -23,6 +23,8 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 	.then(result => result.json())
 	.then((result => {
 		
+		
+		
 		if(param.size == 0){
 			page = 1;
 		};
@@ -30,6 +32,8 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		if(result.length == 0){
 			orderzero.style.display = ""
 		}
+		
+		
 		
 		if(result.length<10){  //구매가 10보다 작을때
 
@@ -90,19 +94,35 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		if(Math.floor(result.length/10) > 10){
 			
 			if(result.length % 10 == 0){
-				pagecount=Math.ceil(page/10)*10;
+				console.log("동작함1");
+				
+				
+				if(result.length/10<Math.ceil(page/10)*10){
+					pagecount = result.length/10
+				}else{
+					pagecount=Math.ceil(page/10)*10; 
+				}
 				
 				for(let i = pagecount-9; i<=pagecount; i++){	
+					
+					if(Math.ceil(result.length/10) == page){
+						document.querySelector('#end').setAttribute('style', 'display:none');
+						
+					}else if(page == 1){
+						document.querySelector('#first').setAttribute('style', 'display:none');
+					}
 					clonepage(i);
-
 				}	
 				
 				
 			}else{
-				//pagecount = result.length/10+1;	
 				pagecount=Math.ceil(page/10)*10;
-
 				for(let i = pagecount-9; i<=pagecount; i++){	
+					if(Math.ceil(result.length/10) == page){
+						document.querySelector('#end').setAttribute('style', 'display:none');
+					}else if(page == 1){
+						document.querySelector('#first').setAttribute('style', 'display:none');
+					}
 					clonepage(i);
 				}
 				
@@ -111,34 +131,31 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 
 			if(result.length % 10 == 0){
 
-				pagecount = Math.ceil(result.length/10);
+				pagecount = (result.length/10);
 				for(let i = 1; i<=pagecount; i++){
+					if(Math.ceil(result.length/10) == page){
+						document.querySelector('#end').setAttribute('style', 'display:none');
+					}else if(page == 1){
+						document.querySelector('#first').setAttribute('style', 'display:none');
+					}
 					clonepage(i)
 				}	
 			}else{
-
-				pagecount = Math.ceil(result.length/10)+1;		
+				pagecount = Math.ceil(result.length/10);		
 				for(let i = 1; i<=pagecount; i++){		
+					if(Math.ceil(result.length/10) == page){
+						document.querySelector('#end').setAttribute('style', 'display:none');
+					}else if(page == 1){
+						document.querySelector('#first').setAttribute('style', 'display:none');
+					}
 					clonepage(i)
 				}	
 			}
 		}
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 	}))
+	
+	
+	
 function clonepage(i){
 	let list = document.querySelector('#clonepage').cloneNode(true);
 	
