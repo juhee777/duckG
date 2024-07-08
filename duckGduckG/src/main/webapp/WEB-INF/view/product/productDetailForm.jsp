@@ -61,7 +61,7 @@
 					<div class="product__details__pic__item">
 						<img class="product__details__pic__item--large"
 							src="img/product/details/product-details-1.jpg" alt="" id="image"
-							onerror="this.src='img/productDetail/no_img.jpg'">
+							onerror="this.src='img/productDetail/no_img.gif'">
 					</div>
 				</div>
 			</div>
@@ -90,7 +90,7 @@
 					</table>
 					<br> <a href="javascript:void(0);" class="primary-btn"
 						id="addCart">장바구니</a> <a href="javascript:void(0);"
-						class="primary-btn">바로구매</a> <a href="javascript:void(0)"
+						class="primary-btn" id="Buy">바로구매</a> <a href="javascript:void(0)"
 						id="jjim" class="heart-icon" style="text-decoration: none;"><span
 						class="icon_heart_alt" id="jjimIcon" style="color: pink;"></span></a>
 					<ul style="margin: 0; padding-left: 0;">

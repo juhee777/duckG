@@ -53,7 +53,7 @@
 							<c:forEach var="item" items="${jjim}">
 								<tr>
 									<td>
-									<img src="img/productDetail/${item.image}" alt="" width="70px" onerror="this.src='img/productDetail/no_img.jpg'"></td>
+									<img src="img/productDetail/${item.image}" alt="" width="70px" onerror="this.src='img/productDetail/no_img.gif'"></td>
 									<td class="shoping__cart__item" onClick="location.href='productDetailForm.do?productNo=${item.productNo}'"><h5>${item.productName}</h5></td>
 									<td class="shoping__cart__price" price="${item.price}">
 									
@@ -80,7 +80,7 @@
 										<span class="sale-price"> <fmt:formatNumber value="${item.price - item.price * item.discount / 100}" pattern="#,###" /> 원</span>										
 									</c:if>	
 									</td>
-									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn cart"  pno="${item.productNo}">장바구니</a></td>
+									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn cart"  pno="${item.productNo}" jjimId=${item.productNo }>장바구니</a></td>
 									<td class="shoping__cart__total"><a href="javascript:void(0);"class="primary-btn jjim" jjimId=${item.productNo }>찜취소</a></td>
 								</tr>
 							</c:forEach>	

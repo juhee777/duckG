@@ -256,6 +256,28 @@ document.getElementById("addCart").addEventListener('click',function(){
     }
 })
 
+// 바로구매
+document.getElementById("Buy").addEventListener('click',function(){
+    if(logId != ""){
+        let cnt = document.getElementById('cnt').value;
+        fetch(`addCart.do?productNo=${productNo}&count=${cnt}`)
+        .then(result => result.json())
+        .then(result =>{
+            let doCArt ="";
+            location.href = 'cartForm.do';
+            if(result.retCode == 'OK'){
+                location.href = 'payForm.do';
+            }else if(result.retCode == 'OKUP'){
+                location.href = 'payForm.do';
+            }else{
+                alert("구매 실패!.") ;                
+            }
+        })
+    }else{
+        alert("로그인후 사용해 주세요")
+    }
+})
+
 // QnA답변
 document.getElementById("QAnswer").addEventListener("click",function(){
     let qnaNo = document.getElementById("QAnswer").getAttribute('qnaNo');
@@ -294,10 +316,12 @@ document.getElementById("jjim").addEventListener("click", function(){
 })
 
 // 가격변경
-document.querySelector(".pro-qty").addEventListener("click",function(){
+document.querySelector(".pro-qty").addEventListener("click",countCnt);
+document.querySelector("#cnt").addEventListener("change",countCnt);
+
+function countCnt(){
     let cnt = document.querySelector("#cnt").value
     let price = document.getElementById("price").getAttribute("price")
     document.getElementById("priceBox").innerHTML = (cnt*price).toLocaleString().split(".")[0]+" 원"
 
-})
-
+}
