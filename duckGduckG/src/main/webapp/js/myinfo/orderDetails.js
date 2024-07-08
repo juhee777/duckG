@@ -7,12 +7,11 @@ let overlap;
 fetch('AddOrder.do?orderNo=' + orderNo)//*********************가져오는 값 변경
 	.then(result => result.json())
 	.then((result => {
-		console.log(result);
 	
 		document.querySelector('#boughtDate').innerHTML = result[0].boughtDate;
 		const lmp = result[0].orderSta;
 		
-		console.log(lmp);
+
 		if(lmp == 1){
 
 			document.querySelector('#orderSta').innerHTML = "구매 확정 전";
