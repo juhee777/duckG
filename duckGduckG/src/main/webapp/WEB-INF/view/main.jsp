@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 		<!-- Row Slide ( Category) -->
 		<section class="categories">
@@ -43,7 +44,7 @@
 										</div>
 										<div class="latest-product__item__text">
 											<h6>${newProduct.productName }</h6>
-											<span>${newProduct.price }</span>
+											<span><fmt:formatNumber value="${newProduct.price }" pattern="#,###"/>원</span>
 										</div>
 									</a>
 									<c:if test="${status.index % 3 == 2 || status.last}">
@@ -70,7 +71,7 @@
 										</div>
 										<div class="latest-product__item__text">
 											<h6>${topProduct.productName }</h6>
-											<span>${topProduct.price }</span>
+											<span><fmt:formatNumber value="${topProduct.price }" pattern="#,###"/>원</span>
 										</div>
 									</a>
 									<c:if test="${status.index % 3 == 2 || status.last}">
@@ -97,7 +98,7 @@
 										</div>
 										<div class="latest-product__item__text">
 											<h6>${newReview.reviewContent }</h6>
-											<span>${newReview.reviewScore }</span>
+											<span><fmt:formatNumber value="${newReview.reviewScore }" pattern="#.#"/> 점</span>
 										</div>
 									</a>
 									<c:if test="${status.index % 3 == 2 || status.last}">

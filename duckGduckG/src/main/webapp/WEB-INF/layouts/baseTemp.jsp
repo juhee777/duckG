@@ -70,7 +70,7 @@
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
-				<li><a href="/">메인페이지</a></li>
+				<li><a href="main.do">메인페이지</a></li>
 				<li><a href="productForm.do">전체 상품</a></li>
 				<li><a href="#">고객센터</a>
 					<ul class="header__menu__dropdown">
@@ -137,7 +137,7 @@
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li><a href="/">메인페이지</a></li>
+							<li><a href="main.do">메인페이지</a></li>
 							<li><a href="productForm.do">전체 상품</a></li>
 							<li><a href="#">고객센터</a>
 								<ul class="header__menu__dropdown">
