@@ -15,7 +15,7 @@ MemberService msv = new MemberServiceImpl();
 MemberVO mvo = msv.updateMemberfind(loginId);
 
 %>
-<section class="breadcrumb-section set-bg"
+<!-- <section class="breadcrumb-section set-bg"
 	data-setbg="img/breadcrumb.jpg" style="width: 100%">
 	<div class="container">
 		<div class="row">
@@ -26,7 +26,7 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <!-- Checkout Section Begin -->
 <section class="update">
@@ -35,7 +35,8 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="blog__sidebar__item" style="padding-top: 100px;">
-						<h4>개인 정보 수정</h4>
+						<h3>내 페이지</h3>
+						<br/>
 						<ul>
 							<li><h4>나의 현황</h4></li>
 							<li><a href="MyInfo.do">주문 내역</a></li>
@@ -45,16 +46,16 @@ MemberVO mvo = msv.updateMemberfind(loginId);
 							<li><a href="ChangePw.do">비밀 번호 수정</a></li>
 							<li><a href="deleteMember.do">회원 탈퇴</a></li>
 							<li><hr></li>
-							<li><h4>고객 센터</h4></li>
-							<li><a href="Inquire.do">1:1 문의</a></li>
 						</ul>
 					</div>
 				</div>
 
 				<div class="col-md-6" id="row2">
+					
 					<div class="row" style="padding-top: 100px;">
 						<div class="col-lg-12">
 							<div class="checkout__input">
+								<h3>비밀 번호 변경</h3>
 								<p>
 									현재 비밀번호<span>*</span>
 								</p>

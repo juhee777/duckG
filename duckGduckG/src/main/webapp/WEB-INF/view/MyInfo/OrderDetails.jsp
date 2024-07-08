@@ -16,7 +16,8 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="blog__sidebar__item">
-						<h4>개인 정보 수정</h4>
+						<h3>내 페이지</h3>
+						<br/>
 						<ul>
 							<li><h4>나의 현황</h4></li>
 							<li><a href="MyInfo.do">주문 내역</a></li>
@@ -26,8 +27,6 @@
 							<li><a href="ChangePw.do">비밀 번호 수정</a></li>
 							<li><a href="deleteMember.do">회원 탈퇴</a></li>
 							<li><hr></li>
-							<li><h4>고객 센터</h4></li>
-							<li><a href="Inquire.do">1:1 문의</a></li>
 						</ul>
 					</div>
 				</div>

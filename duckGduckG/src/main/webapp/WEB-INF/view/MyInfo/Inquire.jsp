@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" readonly>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
                     </div>
                     <div class="col-lg-12 text-center">
                         <input type="text" placeholder="제목">
