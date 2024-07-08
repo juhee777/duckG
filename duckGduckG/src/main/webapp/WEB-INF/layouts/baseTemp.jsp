@@ -27,7 +27,6 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-</head>
 
 <body>
 	<!-- Page Preloder -->
@@ -76,6 +75,7 @@
 					<ul class="header__menu__dropdown">
 						<li><a href="Inquire.do">1:1 문의</a></li>
 					</ul></li>
+				<li><a href="map.do">전체 상품</a></li>	
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
@@ -142,6 +142,7 @@
 							<li><a href="#">고객센터</a>
 								<ul class="header__menu__dropdown">
 									<li><a href="Inquire.do">1:1 문의</a></li>
+									<li><a href="map.do">오시는 길</a></li>
 								</ul></li>
 						</ul>
 					</nav>
@@ -195,7 +196,7 @@
 				<div class="col-lg-4 col-md-12">
 					<div class="footer__widget">
 						<h6>구독하기</h6>
-						<p>이메일을 입력하시면 식과 특별한 혜택을 제공해드립니다.</p>
+						<p>이메일을 입력하시면 최근소식과 특별한 혜택을 제공해드립니다.</p>
 						<form action="#">
 							<input type="text" placeholder="Enter your mail">
 							<button type="submit" class="site-btn">Subscribe</button>
