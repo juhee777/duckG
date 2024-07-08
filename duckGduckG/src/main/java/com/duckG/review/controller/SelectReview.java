@@ -28,7 +28,7 @@ public class SelectReview implements Control {
 		
 
 		int productNo = Integer.parseInt(req.getParameter("productNo"));
-
+		
 		List<ReviewVO> list = svc.selectReview(productNo);
 
 		Gson gson = new GsonBuilder().create();
