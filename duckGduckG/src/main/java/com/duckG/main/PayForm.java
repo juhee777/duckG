@@ -28,9 +28,20 @@ public class PayForm implements Control {
 		MemberVO mvo = msvc.updateMemberfind(logId);
 		CartService csvc = new CartServiceImpl();
 		List<CartVO> cvo = csvc.cartList(logId);
+		int totalPrice = 0;
+		int disPrice = 0;
+		for(CartVO vo : cvo) {
+			int price = vo.getPrice();
+			double discount = (100 - vo.getDiscount()) * 0.01;
+			int resultPrice = (int)(price * discount);
+			disPrice += (int)(price * vo.getDiscount() * 0.01); 
+			totalPrice += resultPrice;
+		}
 		
 		req.setAttribute("mvo", mvo);
 		req.setAttribute("cvo", cvo);
+		req.setAttribute("totalPrice", totalPrice);
+		req.setAttribute("disPrice", disPrice);
 	
 		req.getRequestDispatcher("pay/payForm.tiles").forward(req, resp);
 
