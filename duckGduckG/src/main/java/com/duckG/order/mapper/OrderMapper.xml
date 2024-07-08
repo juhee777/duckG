@@ -55,6 +55,6 @@
 	
 	<insert id="insertOrder" parameterType="com.duckG.vo.OrderVO">
 		insert into ordered (order_no, member_id, product_no, count, how_much, order_pak) 
-		values( order_seq.nextval, #{memberId}, #{productNo}, #{count}, #{howMuch}, #{memberId} || '-' || order_seq.currval)
+		values( ordered_seq.nextval, #{memberId}, #{productNo}, #{count}, #{howMuch}, #{memberId} || '-' || ordered_seq.currval)
 	</insert>
 </mapper>

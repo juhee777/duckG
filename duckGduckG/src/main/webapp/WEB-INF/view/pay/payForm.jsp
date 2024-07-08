@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 	<section class="checkout spad">
 		<div class="container">
 			<div class="checkout__form">
 				<h4>결제 목록</h4>
-				<form id="payForm" action="pay.do" method="post" onsubmit="return false">
+				<form id="payForm" action="pay.do" method="post" onsubmit="return payForm()">
 					<input type="hidden" name="id" value="${logId}">
 					<div class="row">
 						<div class="col-lg-7 col-md-6">
@@ -79,7 +80,7 @@
 									</c:forEach>
 								</ul>
 								<div class="checkout__order__subtotal">
-									Subtotal <span>$750.99</span>
+									할인된 가격 <span><fmt:formatNumber pattern="#,###" value="${disPrice = disPrice == '' ? '0' : disPrice }"/>원</span>
 								</div>
 								<div id="totalPrice" class="checkout__order__total">
 									총합 <span></span>
