@@ -15,6 +15,9 @@ const modalOverlay = document.querySelector('.modal-overlay');
 let param = new URLSearchParams(window.location.search);
 let page = param.get('page');
 
+if(param.size == 0){
+	page = 1;
+};
 
 
 let overlap;
@@ -22,17 +25,11 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 	.then(result => result.json())
 	.then((result => {
 		
-		
-		console.log(result);
-		console.log(result.length);
-		console.log(param.toString());
-		
-		//console.log(page);
-
-
+		if(result.length == 0){
+			orderzero.style.display = ""
+		}
 		
 		if(result.length<10){  //구매가 10보다 작을때
-			console.log("작동1");
 
 			Allcountpage = result.length;
 			prooder = result.orderNo;
@@ -49,50 +46,29 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		})
 		
 		}else{ //구매가 10보다 클때
-			console.log("작동2");
 			let afterliset = page * 10;
 			let Beforeliset = afterliset - 9;
 			
 			//페이지 출력
 			for(let i = Beforeliset-1; i<=afterliset-1; i++){
 				
-				
-				console.log(Beforeliset);
-				console.log(afterliset);
-				console.log(result.length/10+1);
-				
 				Allcountpage = result.length;
 				prooder = result.orderNo;
 				let temp = "";
-				
-				
-				
-				
-				
-				
-				
+			
 				if (temp == result.orderPak) { //물건 같이 구매하면 출력
-					console.log("작동3");
 					overlap = 1;
-					cloneRow(result[i]);
-					
+					cloneRow(result[i]);		
 				} else { 
-					
+		
 					if(page == (Math.floor(result.length/10)+1)){ //마지막 페이지 출력
-						console.log("작동5");
-						console.log(i);
+							
 						afterliset = result.length;
-						
-						console.log(afterliset);
-						
 						temp = result.orderPak;
 						overlap = 0;
 						cloneRow(result[i]);
 						
-						
 					}else{ // 일반 10개 출력
-						console.log("작동4")
-						console.log(i)
 						temp = result.orderPak;
 						overlap = 0;
 						cloneRow(result[i]);
@@ -109,22 +85,43 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		//번호 출력하기
 		let pagecount = 0;
 		
-		if(result.length % 10 == 0){
-			pagecount = Math.floor(result.length/10);
+		if(Math.floor(result.length/10) > 10){
 			
-			for(let i = 1; i<=pagecount; i++){
-				clonepage(i)
+			if(result.length % 10 == 0){
+				//pagecount = Math.floor(result.length/10);
+		
+				for(let i = 1; i<=pagecount; i++){
+					clonepage(i)
+				}	
+			}else{
+				//pagecount = result.length/10+1;	
+				pagecount=Math.ceil(page/10)*10;	
+				for(let i = pagecount-9; i<=pagecount; i++){		
+					clonepage(i)
+				}	
 			}
 			
 			
 			
 		}else{
-			pagecount = result.length/10+1;		
-			for(let i = 1; i<=pagecount; i++){		
-				clonepage(i)
-			}
 			
+			if(result.length % 10 == 0){
+				pagecount = Math.floor(result.length/10);
+				
+				for(let i = 1; i<=pagecount; i++){
+					clonepage(i)
+				}	
+			}else{
+				pagecount = Math.floor(result.length/10)+1;		
+				for(let i = 1; i<=pagecount; i++){		
+					clonepage(i)
+				}	
+			}
 		}
+		
+
+		
+		
 		
 		
 		
@@ -141,12 +138,24 @@ function clonepage(i){
 	let list = document.querySelector('#clonepage').cloneNode(true);
 	
 	list.querySelector('.pagelists').innerHTML = i;
-	list.setAttribute('id', i)
-	list.querySelector('.pagelists').setAttribute('href', 'MyInfo.do?page='+i)
+	list.setAttribute('id', i);
+	
+	
+	list.querySelector('.pagelists').setAttribute('href', 'MyInfo.do?page='+i);
 	
 	list.style.display = ""
+	
+	if(page == i){
+		list.querySelector('.pagelists').setAttribute('class', 'pagelists active');
+		document.querySelector('#first').setAttribute('href', 'MyInfo.do?page='+(i-1));
+		document.querySelector('#end').setAttribute('href', 'MyInfo.do?page='+(i+1));
+	}
 	document.querySelector('#pagelist').appendChild(list);
+	
+
 }
+
+
 
 // 1. 구매 확정 , 반품하기 2. 리뷰쓰기,재 구매 
 function cloneRow(order = {}) {
@@ -433,106 +442,3 @@ const navRadioGroup = (evt) => {
     }
   }
 };
-
-
-
-
-
-/*
-
-let page = 1;
-svc.replyList(page, PagingList);
-
-// 페이징 a 태그를 클릭하면 목록 보여주기.
-document.querySelectorAll('#pagelise a').forEach(item => {
-	item.addEventListener('click', function(e) {
-		e.preventDefault(); //페이지 이동의 기능을 차단 후 실행하겠습니다.
-		
-		page = item.innerHTML; 
-	})
-});
-
-
-
-/*
-function makePagingFnc() {
-	svc.replyTotalCnt(PagingList);
-
-}
-
-////////////////////////////////////
-let pagination = document.querySelector('#pagelise');
-
-function PagingList() {
-	
-	let startPage, endPage;
-	let prev, next;
-	let realEnd = Math.ceil(Allcountpage / 10); 
-
-	endPage = Math.ceil(page / 10) * 10;
-	startPage = endPage - 9;
-	endPage = endPage > realEnd ? realEnd : endPage;
-
-	prev = startPage > 1;
-	next = endPage < realEnd;
-
-	pagination.innerHTML = '';
-
-	if (prev) {//이전페이지
-		let aTag = document.createElement('a');
-		aTag.setAttribute('data-page',startPage-1);
-		aTag.setAttribute('href', '#');
-		aTag.innerHTML = "&laquo;";
-		pagination.appendChild(aTag);
-	}
-	for (let p = startPage; p <= endPage; p++) {
-		let aTag = document.createElement('a');
-		aTag.setAttribute('data-page',p);
-		aTag.setAttribute('href', '#');
-		aTag.innerHTML = p;
-		if (page == p) {
-			aTag.className = 'active';
-		}
-		pagination.appendChild(aTag);
-	}
-
-	if (next) {//이전페이지
-		let aTag = document.createElement('a');
-		aTag.setAttribute('data-page',endPage+1);
-		aTag.setAttribute('href', '#');
-		aTag.innerHTML = "&raquo;";
-		pagination.appendChild(aTag);
-	}
-
-
-	document.querySelectorAll('#pagelise a').forEach(item => {
-		item.addEventListener('click', function(e) {
-			e.preventDefault(); //페이지 이동의 기능을 차단 후 실행하겠습니다.
-			page = item.dataset.page;
-			svc.replyList({userid}, replyFnc);
-		})
-	});
-
-}
-
-
-function replyFnc() {
-	
-	document.querySelectorAll('div.content>ul>li').forEach((item, idx) => {
-		if (idx > 2) {
-			item.remove();
-		}
-	});
-
-	let data = JSON.parse(this.responseText);
-
-	//	console.log(data);
-	data.forEach(reply => {
-		let li = cloneRow(reply);
-		document.querySelector('div.content>ul').appendChild(li);
-	})
-
-	makePagingFnc();
-}
-
-*/

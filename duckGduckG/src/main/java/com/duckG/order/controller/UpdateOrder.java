@@ -18,10 +18,7 @@ public class UpdateOrder implements Control {
 		
 		int num = Integer.parseInt(req.getParameter("num"));
 		int orderNo = Integer.parseInt(req.getParameter("orderNo"));
-		
-		System.out.println(num);
-		System.out.println(orderNo);
-		
+	
 		
 		OrderService osv = new OrderServiceImpl();
 		OrderVO ovo = new OrderVO();
