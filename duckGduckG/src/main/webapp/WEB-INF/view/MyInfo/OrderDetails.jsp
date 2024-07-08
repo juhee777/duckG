@@ -45,7 +45,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td rowspan='6' id="image"><img src="" onerror="javascript:this.src='img/zeroimage.jpg;'" style="width: 150px;"></td>						
+								<td rowspan='6' id="image"><img src="" onerror="javascript:this.src='img/productDetail/no_img.gif;'" style="width: 150px;"></td>						
 							</tr>
 							<tr>
 								<td><span class="col-sm-2">상품 이름: </span> <span class=" col-sm-2" id="orderPak"></span></td>
@@ -59,7 +59,7 @@
 								<td><span></span>					
 							</tr>
 							<tr>
-								<td><span class="col-sm-2">판매가 </span></td>
+								<td><span class="col-sm-2">갯수 및 가격 </span></td>
 								<td><span id = "count"></span></td>
 								<td><span id = "price"></span>
 							</tr>
