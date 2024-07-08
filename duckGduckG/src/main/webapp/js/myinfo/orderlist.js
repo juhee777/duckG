@@ -13,7 +13,7 @@ const modal = document.getElementById('modal');
 const modalOverlay = document.querySelector('.modal-overlay');
 
 let param = new URLSearchParams(window.location.search);
-let page = param.get('page');
+let page= param.get('page');
 
 if(param.size == 0){
 	page = 1;
@@ -25,10 +25,12 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 	.then(result => result.json())
 	.then((result => {
 		
+
 		if(result.length == 0){
 			orderzero.style.display = ""
 		}
-		
+
+
 		if(result.length<10){  //구매가 10보다 작을때
 
 			Allcountpage = result.length;
@@ -99,11 +101,13 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 				for(let i = pagecount-9; i<=pagecount; i++){		
 					clonepage(i)
 				}	
+
 			}
 			
 			
 			
 		}else{
+
 			
 			if(result.length % 10 == 0){
 				pagecount = Math.floor(result.length/10);

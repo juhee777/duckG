@@ -326,6 +326,7 @@ button#submit-review-btn {
 		</div>
 
         
+
 	
 	<div class="col-lg-12">
 		<span  id="clonepage" style="display: none;">
@@ -340,6 +341,10 @@ button#submit-review-btn {
 		</span>
 		<span><a href=""class="pagelists" id="end">&raquo;</a></span>
 	</div>
+	
+	<div id="pagelist" style="text-align: center; ">	
+	</div>
+	
 </section>
 
 
