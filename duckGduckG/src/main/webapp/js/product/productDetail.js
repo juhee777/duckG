@@ -316,10 +316,12 @@ document.getElementById("jjim").addEventListener("click", function(){
 })
 
 // 가격변경
-document.querySelector(".pro-qty").addEventListener("click",function(){
+document.querySelector(".pro-qty").addEventListener("click",countCnt);
+document.querySelector("#cnt").addEventListener("change",countCnt);
+
+function countCnt(){
     let cnt = document.querySelector("#cnt").value
     let price = document.getElementById("price").getAttribute("price")
     document.getElementById("priceBox").innerHTML = (cnt*price).toLocaleString().split(".")[0]+" 원"
 
-})
-
+}
