@@ -14,7 +14,8 @@
 		                   j.product_no product_no,
 		                   p.image image,
 		                   p.price price,
-		                   p.product_name product_name
+		                   p.product_name product_name,
+		                   p.discount discount
 		             from jjim j inner join product p
 		             on j.product_no = p.product_no
 		             where j.member_id = #{memberId}

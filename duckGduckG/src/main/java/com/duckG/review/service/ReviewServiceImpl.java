@@ -17,6 +17,12 @@ public class ReviewServiceImpl implements ReviewService{
 		// TODO Auto-generated method stub
 		return mapper.selectReview(pno);
 	}
+	
+	@Override
+	public List<ReviewVO> selectReviewPage(int pno, int page) {
+		// TODO Auto-generated method stub
+		return mapper.selectReviewPage(pno, page);
+	}
 
 	@Override
 	public boolean AddReview(ReviewVO rvo) {
@@ -29,4 +35,6 @@ public class ReviewServiceImpl implements ReviewService{
 		// TODO Auto-generated method stub
 		return mapper.lastestReview();
 	}
+	
+	
 }

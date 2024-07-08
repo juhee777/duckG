@@ -14,14 +14,24 @@ fetch(`selectProduct.do?productNo=${productNo}`)
 .then(result => {
     result.forEach(element => {   
         let products = ['productName','createDate','stock','mainInfo','semiInfo','sales','memberId'];    
+        let cPrice = element['price'] - ( element['price'] * element['discount']) / 100;
         products.forEach(ele => {
             document.getElementById(ele).innerHTML = (element[ele]);
         })
-        document.getElementById('price').innerHTML = (element['price']) + " 원";
-        document.getElementById('price').setAttribute("price", element['price'])
         document.getElementById("image").setAttribute("src", `img/productDetail/${element["image"]}`);
         document.getElementById("jjim").setAttribute("jjimId", element["productNo"]);
-        document.getElementById("priceBox").innerHTML = ( element['price']) + " 원";
+        if(element['discount'] == 0){
+            console.log(element['discount']);
+            document.getElementById("price").innerHTML = "";
+            document.getElementById("priceA").innerHTML = ( element['price']).toLocaleString().split(".")[0] + " 원";
+            document.getElementById("priceBox").innerHTML = ( element['price']).toLocaleString().split(".")[0] + " 원";
+            document.getElementById("price").setAttribute("price", element['price']);
+        }else{
+            document.getElementById('price').innerHTML = (element['price']).toLocaleString().split(".")[0] + " 원";
+            document.getElementById("priceA").innerHTML = (cPrice).toLocaleString().split(".")[0] + " 원";
+            document.getElementById("priceBox").innerHTML = (cPrice).toLocaleString().split(".")[0] + " 원";
+            document.getElementById("price").setAttribute("price", cPrice);
+        }
 
         fetch(`selectJjim.do?productNo=${element["productNo"]}`)
         .then(result => result.json())
@@ -175,11 +185,35 @@ fetch(`selectReview.do?productNo=${productNo}`)
 .then(result => result.json())
 .then(result => {
     let cnt = 0;
+    let reviewScores = 0;
+    
     result.forEach(ele =>{
         document.querySelector("tbody#reviews").appendChild(cloneRow(ele));
+        reviewScores += ele.reviewScore
         cnt++;
     })
+    
+    let star =  1.0 * reviewScores / cnt
+    for(let i = 1; i<=5; i++){
+        if(star>=1){
+            let starA = document.createElement("i");
+            starA.setAttribute("class", "fa fa-star");
+            document.getElementById("stars").appendChild(starA);
+            star -= 1;
+        }else if(star>0){
+            let starA = document.createElement("i");
+            starA.setAttribute("class", "fa fa-star-half-o");
+            document.getElementById("stars").appendChild(starA);
+            star -= 1;
+        }else{
+            let starA = document.createElement("i");
+            starA.setAttribute("class", "fa fa-star-o");
+            document.getElementById("stars").appendChild(starA);
+            star -= 1;
+        }
+    }
     document.getElementById("reviewCnt").innerHTML = "(" + cnt + ")";
+    document.getElementById("reciews").innerHTML = cnt + "개 리뷰" ;
 })
 
 function cloneRow(reply = {}){
@@ -263,7 +297,7 @@ document.getElementById("jjim").addEventListener("click", function(){
 document.querySelector(".pro-qty").addEventListener("click",function(){
     let cnt = document.querySelector("#cnt").value
     let price = document.getElementById("price").getAttribute("price")
-    document.getElementById("priceBox").innerHTML = (cnt*price)+" 원"
+    document.getElementById("priceBox").innerHTML = (cnt*price).toLocaleString().split(".")[0]+" 원"
 
 })
 
