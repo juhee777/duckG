@@ -29,7 +29,7 @@ function changVal(){
     let price = this.children[1].getAttribute("price")
     let pno = this.children[1].getAttribute("pno")
     let id = pno+"P"
-    document.getElementById(id).innerHTML = (cnt*price) + " 원"
+    document.getElementById(id).innerHTML = (cnt*price).toLocaleString().split(".")[0]  + " 원"
 }
 function changVal2(){
     let cnt = this.parentNode.children[1].value;

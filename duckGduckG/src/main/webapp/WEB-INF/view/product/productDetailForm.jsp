@@ -1,7 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<style>
+/* PC TOP 버튼 */
+#scrollTopPc {
+	display: none;
+	position: fixed;
+	bottom: 64px; /* 브라우저 아래쪽 끝에서부터의 거리 */
+	right: 15px; /* 브라우저 오른쪽 끝에서부터의 거리 */
+	cursor: pointer;
+	z-index: 99;
+}
 
+/* PC DOWN 버튼 */
+#scrollDownPc {
+	display: none;
+	position: fixed;
+	bottom: 20px; /* 브라우저 아래쪽 끝에서부터의 거리 */
+	right: 15px; /* 브라우저 오른쪽 끝에서부터의 거리 */
+	cursor: pointer;
+	z-index: 99;
+}
+
+.center {
+	text-align: center;
+}
+
+.pagination {
+	display: inline-block;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+	border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+</style>
 <!-- Hero Section End -->
 
 <!-- Product Details Section Begin -->
@@ -12,7 +60,8 @@
 				<div class="product__details__pic">
 					<div class="product__details__pic__item">
 						<img class="product__details__pic__item--large"
-							src="img/product/details/product-details-1.jpg" alt="" id="image" onerror="this.src='img/productDetail/no_img.jpg'">
+							src="img/product/details/product-details-1.jpg" alt="" id="image"
+							onerror="this.src='img/productDetail/no_img.jpg'">
 					</div>
 				</div>
 			</div>
@@ -20,27 +69,29 @@
 				<div class="product__details__text">
 					<h3 id="productName">상품명</h3>
 					<div class="product__details__rating">
-						<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-							class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-							class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
+						<span id="stars"></span> <span id="reciews">(18 reviews)</span>
 					</div>
-					<div class="product__details__price" id="price">10,000&#8361</div>
+					<div class="product__details__price" id="price"
+						style="color: black; text-decoration-line: line-through; font-weight: normal; margin: 0;">10,000&#8361</div>
+					<div class="product__details__price" id="priceA">10,000&#8361</div>
 					<p id="semiInfo">제품 설명.</p>
 					<div class="product__details__quantity">
 						<div class="quantity">
-							<div class="pro-qty"  >
-								<input type="text" id="cnt" value="1"  >
+							<div class="pro-qty">
+								<input type="text" id="cnt" value="1">
 							</div>
 						</div>
 					</div>
-						<table style=" width:300px; height: 70px">
-							<tr>
-								<td ><h3 style="margin: 0">합계</h3></td>
-								<td ><h3 id="priceBox" style="margin: 0">10,000&#8361</h3></td>
-							</tr>
-						</table>
-					<br> <a href="javascript:void(0);" class="primary-btn" id="addCart">장바구니</a> <a href="javascript:void(0);"
-						class="primary-btn">바로구매</a> <a href="javascript:void(0)" id="jjim" class="heart-icon" style="text-decoration: none;"><span
+					<table style="width: 300px; height: 70px">
+						<tr>
+							<td><h3 style="margin: 0">합계</h3></td>
+							<td><h3 id="priceBox" style="margin: 0">10,000&#8361</h3></td>
+						</tr>
+					</table>
+					<br> <a href="javascript:void(0);" class="primary-btn"
+						id="addCart">장바구니</a> <a href="javascript:void(0);"
+						class="primary-btn">바로구매</a> <a href="javascript:void(0)"
+						id="jjim" class="heart-icon" style="text-decoration: none;"><span
 						class="icon_heart_alt" id="jjimIcon" style="color: pink;"></span></a>
 					<ul style="margin: 0; padding-left: 0;">
 						<li><b>판매자</b> <span id="memberId">0.5 kg</span></li>
@@ -124,30 +175,32 @@
 													data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<div class="modal-body">
-											
-											<table style="height: 500px;">
-												<tr>
-													<th class="col-md-5">제목</th>
-													<td id="ModalqnaTitle" class="col-md-7">QnA제목</td>
-												</tr>
-												<tr>
-													<th class="col-md-5">User</th>
-													<td id="ModalmemberId" class="col-md-7">작성자</td>
-												</tr>
-												<tr>
-													<th class="col-md-5">내용</th>
-													<td id="ModalqnaContent" class="col-md-7">QnA내용</td>
-												</tr>	
-												<tr>
-													<th class="col-md-5">답변</th>
-													<td class="col-md-7"><textarea id="ModalqnaAnswer" rows="3" cols="45" style="border: none"></textarea></td>
-												</tr>	
-											</table>
+
+												<table style="height: 500px;">
+													<tr>
+														<th class="col-md-5">제목</th>
+														<td id="ModalqnaTitle" class="col-md-7">QnA제목</td>
+													</tr>
+													<tr>
+														<th class="col-md-5">User</th>
+														<td id="ModalmemberId" class="col-md-7">작성자</td>
+													</tr>
+													<tr>
+														<th class="col-md-5">내용</th>
+														<td id="ModalqnaContent" class="col-md-7">QnA내용</td>
+													</tr>
+													<tr>
+														<th class="col-md-5">답변</th>
+														<td class="col-md-7"><textarea id="ModalqnaAnswer"
+																rows="3" cols="45" style="border: none"></textarea></td>
+													</tr>
+												</table>
 											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-bs-dismiss="modal">닫기</button>
-												<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="QAnswer">답변등록</button>
+												<button type="button" class="btn btn-primary"
+													data-bs-dismiss="modal" id="QAnswer">답변등록</button>
 											</div>
 										</div>
 									</div>
@@ -182,15 +235,27 @@
 											</tr>
 										</tbody>
 									</table>
+
+									<!-- table -->
 								</div>
-								<!-- table -->
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+
+		<!-- PC TOP 버튼 HTML -->
+		<div onclick="topFunction()" id="scrollTopPc"
+			class="hidden-md hidden-sm hidden-xs">
+			<img src="img/btn/btn_top.png" width="50px" height="50px">
+		</div>
+
+		<!-- PC DOWN 버튼 HTML -->
+		<div onclick="downFunction()" id="scrollDownPc"
+			class="hidden-md hidden-sm hidden-xs">
+			<img src="img/btn/btn_bottom.png" width="50px" height="50px">
+		</div>
 </section>
 <!-- Product Details Section End -->
 
@@ -205,5 +270,39 @@
 	crossorigin="anonymous"></script>
 <script>
 	const logId = '${logId}'
+</script>
+<script>
+	window.onscroll = function() {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 100
+				|| document.documentElement.scrollTop > 100) {
+			document.getElementById("scrollTopPc").style.display = "block";
+			document.getElementById("scrollTopMob").style.display = "block";
+			document.getElementById("scrollDownPc").style.display = "block";
+			document.getElementById("scrollDownMob").style.display = "block";
+		} else {
+			document.getElementById("scrollTopPc").style.display = "none";
+			document.getElementById("scrollTopMob").style.display = "none";
+			document.getElementById("scrollDownPc").style.display = "none";
+			document.getElementById("scrollDownMob").style.display = "none";
+		}
+	}
+
+	// PC TOP 버튼 동작
+	function topFunction() {
+		$('html,body').animate({
+			scrollTop : 0
+		}, 50);
+	}
+
+	// PC DOWN 버튼 동작
+	function downFunction() {
+		$('html, body').animate({
+			scrollTop : $('#doz_footer').offset().top
+		}, 50);
+	}
 </script>
 <script defer src="js/product/productDetail.js"></script>
