@@ -194,9 +194,8 @@
 				</div>
 				<div class="col-lg-4 col-md-12">
 					<div class="footer__widget">
-						<h6>Join Our Newsletter Now</h6>
-						<p>Get E-mail updates about our latest shop and special
-							offers.</p>
+						<h6>구독하기</h6>
+						<p>이메일을 입력하시면 식과 특별한 혜택을 제공해드립니다.</p>
 						<form action="#">
 							<input type="text" placeholder="Enter your mail">
 							<button type="submit" class="site-btn">Subscribe</button>
