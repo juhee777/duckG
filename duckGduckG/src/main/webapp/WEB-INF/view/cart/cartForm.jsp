@@ -30,7 +30,7 @@
 									<c:forEach var="cart" items="${cartList}">
 										<tr data-no="${cart.cartNo}">
 											<td class="shoping__cart__item" ${cart.productNo}>
-											<img src="img/productDetail/${cart.image}" onerror="javascript:this.src='img/productDetail/no_img.jpg;'" width=100, height=100 alt="${cart.productName}">
+											<img src="img/productDetail/${cart.image}" onerror="javascript:this.src='img/productDetail/no_img.gif;'" width=100, height=100 alt="${cart.productName}">
 												<h6>${cart.productName}</h6></td>
 											<td class="shoping__cart__price" data-price="${cart.price}"><fmt:formatNumber value="${cart.price}" pattern="#,###"/></td>
 											<td class="shoping__cart__quantity">
