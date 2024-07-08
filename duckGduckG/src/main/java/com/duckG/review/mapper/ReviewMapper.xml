@@ -7,8 +7,22 @@
 
 	<select id="selectReview" resultType="com.duckG.vo.ReviewVO">
 		select *
-		from review
-		where product_no = #{productNo}
+        from review
+        where product_no = #{productNo}
+		            
+	</select>
+
+	<select id="selectReviewPage" resultType="com.duckG.vo.ReviewVO">
+		select a.*
+		from (SELECT rownum rn, b.*
+		      from (select *
+                    from review
+                    where product_no = #{productNo}
+		             ORDER BY create_date DESC) b 
+		      <![CDATA[
+		      where rownum <= (#{page}) * 5 ) a
+		      ]]>
+		where a.rn > (#{page} - 1) * 5
 	</select>
 
  	<insert id="AddReview" parameterType="com.duckG.vo.ReviewVO">

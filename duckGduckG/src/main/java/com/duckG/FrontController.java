@@ -59,6 +59,8 @@ import com.duckG.qna.controller.SelectQnA;
 import com.duckG.qna.controller.UpdateQnA;
 import com.duckG.review.controller.AddReview;
 import com.duckG.review.controller.LastestReview;
+import com.duckG.review.controller.ReviewForm;
+import com.duckG.review.controller.ReviewFormPage;
 import com.duckG.review.controller.SelectReview;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
@@ -114,6 +116,8 @@ public class FrontController extends HttpServlet {
 
 		// 리뷰
 		map.put("/selectReview.do", new SelectReview()); // 제품 선택
+		map.put("/reviewForm.do", new ReviewForm()); // 제품 선택
+		map.put("/reviewFormPage.do", new ReviewFormPage()); // 리뷰페이지
 
 		// 제품관리
 		map.put("/productForm.do", new ProductForm()); // 제품상세정보 페이지
