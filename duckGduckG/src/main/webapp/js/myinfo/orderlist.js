@@ -35,6 +35,8 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 			orderzero.style.display = ""
 		}
 		
+		
+		
 		if(result.length<10){  //구매가 10보다 작을때
 
 			Allcountpage = result.length;
@@ -95,18 +97,17 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 			
 			if(result.length % 10 == 0){
 				pagecount=Math.ceil(page/10)*10;
-				
-				for(let i = pagecount-9; i<=pagecount; i++){	
+				for(let i = pagecount-9; i<pagecount; i++){	
+	
 					clonepage(i);
 
 				}	
 				
 				
 			}else{
-				//pagecount = result.length/10+1;	
 				pagecount=Math.ceil(page/10)*10;
-
 				for(let i = pagecount-9; i<=pagecount; i++){	
+					
 					clonepage(i);
 				}
 				
@@ -121,8 +122,10 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 				}	
 			}else{
 
-				pagecount = Math.ceil(result.length/10)+1;		
+				pagecount = Math.ceil(result.length/10);		
 				for(let i = 1; i<=pagecount; i++){		
+					
+					console.log(pagecount)	
 					clonepage(i)
 				}	
 			}
