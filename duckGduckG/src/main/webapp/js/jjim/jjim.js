@@ -48,13 +48,40 @@ document.querySelectorAll(".primary-btn.cart").forEach(ele =>{
             fetch(`addCart.do?productNo=${productNo}&count=${cnt}`)
             .then(result => result.json())
             .then(result =>{
+                let doCArt ="";
                 if(result.retCode == 'OK'){
-                    alert("해당상품이"+ cnt + "개 장바구니에 추가되었습니다") ;     
-                }else if(result.retCode == 'OKUP'){
-                    alert("해당상품이"+ cnt + "개로 변경되었습니다") ; 
-                }else{
-                    alert("장바구니 담기 실패!.") ;                
+                    doCArt = confirm("해당상품이"+ cnt + "개 장바구니에 추가되었습니다.\n장바구니로 이동하시겠습니까?" )
+                    let id = this.getAttribute("jjimid");
+                    fetch(`deleteJjim.do?productNo=${id}`)
+                    .then(result => result.json())
+                    .then(result =>{
+                        if(result.retCod == 'OK'){   
+                            this.parentNode.parentNode.innerHTML = "";
+                        }else{
+                            alert("취소실패!.") ;
+                        }
+                    })
+                    if(doCArt){                        
+                        location.href = 'cartForm.do';
                 }
+                }else if(result.retCode == 'OKUP'){
+                    doCArt = confirm("해당상품이"+ cnt + "개로 변경되었습니다.\n장바구니로 이동하시겠습니까?" )
+                    let id = this.getAttribute("jjimid");
+                    fetch(`deleteJjim.do?productNo=${id}`)
+                    .then(result => result.json())
+                    .then(result =>{
+                        if(result.retCod == 'OK'){   
+                            this.parentNode.parentNode.innerHTML = "";
+                        }else{
+                            alert("취소실패!.") ;
+                        }
+                    })
+                    if(doCArt){
+                        location.href = 'cartForm.do';
+                }
+            }else{
+                alert("장바구니 담기 실패!.") ;                
+            }
             })
         }else{
             alert("로그인후 사용해 주세요")

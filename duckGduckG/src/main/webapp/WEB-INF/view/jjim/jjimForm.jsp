@@ -80,7 +80,7 @@
 										<span class="sale-price"> <fmt:formatNumber value="${item.price - item.price * item.discount / 100}" pattern="#,###" /> 원</span>										
 									</c:if>	
 									</td>
-									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn cart"  pno="${item.productNo}">장바구니</a></td>
+									<td class="shoping__cart__total"><a href="javascript:void(0);" class="primary-btn cart"  pno="${item.productNo}" jjimId=${item.productNo }>장바구니</a></td>
 									<td class="shoping__cart__total"><a href="javascript:void(0);"class="primary-btn jjim" jjimId=${item.productNo }>찜취소</a></td>
 								</tr>
 							</c:forEach>	
