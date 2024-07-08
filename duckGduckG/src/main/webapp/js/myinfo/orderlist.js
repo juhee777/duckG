@@ -25,12 +25,12 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 	.then(result => result.json())
 	.then((result => {
 		
-
+		console.log(result.length);
+			
 		if(result.length == 0){
 			orderzero.style.display = ""
 		}
-
-
+		
 		if(result.length<10){  //구매가 10보다 작을때
 
 			Allcountpage = result.length;
@@ -90,28 +90,23 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 		if(Math.floor(result.length/10) > 10){
 			
 			if(result.length % 10 == 0){
-				//pagecount = Math.floor(result.length/10);
-		
-				for(let i = 1; i<=pagecount; i++){
+				pagecount=Math.floor(result.length/10);
+				for(let i = pagecount-9; i<=pagecount; i++){		
 					clonepage(i)
+					console.log(i)
 				}	
 			}else{
 				//pagecount = result.length/10+1;	
 				pagecount=Math.ceil(page/10)*10;	
-				for(let i = pagecount-9; i<=pagecount; i++){		
+				for(let i = pagecount-9; i<=pagecount; i++){
+					console.log(i)		
 					clonepage(i)
 				}	
-
-			}
-			
-			
-			
+			}		
 		}else{
 
-			
 			if(result.length % 10 == 0){
 				pagecount = Math.floor(result.length/10);
-				
 				for(let i = 1; i<=pagecount; i++){
 					clonepage(i)
 				}	
