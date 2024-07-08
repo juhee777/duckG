@@ -243,13 +243,16 @@ button#submit-review-btn {
   align-self: flex-end;
 }	
 
-
+.active{
+	background: #7fad39;
+	border-color: #7fad39;
+}
 
 </style>
 
 
 	<!-- Blog Section Begin -->
-	<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg" style="width: 100%">
+<!-- 	<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg" style="width: 100%">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -260,7 +263,7 @@ button#submit-review-btn {
 			</div>
 		</div>
 	</section>
-
+ -->
 
 
 	<section class="blog spad">
@@ -268,7 +271,8 @@ button#submit-review-btn {
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="blog__sidebar__item">
-						<h4>개인 정보 수정</h4>
+						<h3>내 페이지</h3>
+						<br/>
 						<ul>
 							<li><h4>나의 현황</h4></li>
 							<li><a href="MyInfo.do">주문 내역</a></li>
@@ -278,14 +282,12 @@ button#submit-review-btn {
 							<li><a href="ChangePw.do">비밀 번호 수정</a></li>
 							<li><a href="deleteMember.do">회원 탈퇴</a></li>
 							<li><hr></li>
-							<li><h4>고객 센터</h4></li>
-							<li><a href="Inquire.do">1:1 문의</a></li>
 						</ul>
 					</div>
 				</div>
-				
 				<div>
 					<h3>주문 내역</h3>
+					<h2 id="orderzero" style="display: none; text-align: center; padding-top: 100px; width: 500px;">구매 내역이 없습니다.</h2>
 					<ul style="width: 800px" id="listli">
 
 						<li class="clonelist" id="listid" style="display: none; list-style-type: none;">
@@ -324,6 +326,7 @@ button#submit-review-btn {
 		</div>
 
         
+
 	
 	<div class="col-lg-12">
 		<span  id="clonepage" style="display: none;">
@@ -331,10 +334,17 @@ button#submit-review-btn {
 		</span>
 			<!-- <a href="#"><i class="fa fa-long-arrow-right"></i></a> -->
 	</div>
-	
-	<div id="pagelist" style="text-align: center; " class="product__pagination blog__pagination" >
+	<div style="text-align: center;" >
+		<span><a href="" class="pagelists" id="first">&laquo;</a></span>
+		<span id="pagelist" class="product__pagination blog__pagination" >
 		
+		</span>
+		<span><a href=""class="pagelists" id="end">&raquo;</a></span>
 	</div>
+	
+	<div id="pagelist" style="text-align: center; ">	
+	</div>
+	
 </section>
 
 
