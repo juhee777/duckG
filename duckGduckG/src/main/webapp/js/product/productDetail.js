@@ -27,7 +27,7 @@ fetch(`selectProduct.do?productNo=${productNo}`)
             document.getElementById("priceBox").innerHTML = ( element['price']).toLocaleString().split(".")[0] + " 원";
             document.getElementById("price").setAttribute("price", element['price']);
         }else{
-            document.getElementById('price').innerHTML = (element['price']).toLocaleString().split(".")[0] + " 원";
+            document.getElementById("price").innerHTML = (element['price']).toLocaleString().split(".")[0] + " 원";
             document.getElementById("priceA").innerHTML = (cPrice).toLocaleString().split(".")[0] + " 원";
             document.getElementById("priceBox").innerHTML = (cPrice).toLocaleString().split(".")[0] + " 원";
             document.getElementById("price").setAttribute("price", cPrice);
