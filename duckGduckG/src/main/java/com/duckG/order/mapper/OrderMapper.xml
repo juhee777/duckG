@@ -23,7 +23,6 @@
         ORDER BY o.order_no DESC
 
         
->>>>>>> branch 'KDH' of https://github.com/MiAnHaeRa/duckG.git
 	</select>
 	
 	<update id="UpdateOrder" parameterType ="com.duckG.vo.OrderVO">
