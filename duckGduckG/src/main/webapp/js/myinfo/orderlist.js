@@ -26,6 +26,8 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 	.then((result => {
 		
 		console.log(result.length);
+		console.log(param);
+		console.log(page);
 			
 		if(result.length == 0){
 			orderzero.style.display = ""
