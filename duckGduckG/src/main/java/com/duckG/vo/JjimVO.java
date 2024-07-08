@@ -9,4 +9,5 @@ public class JjimVO {
 	private String image;
 	private int price;
 	private String productName;
+	private double discount;
 }
