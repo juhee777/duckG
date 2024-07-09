@@ -16,6 +16,7 @@ import com.duckG.cart.controller.CheckCart;
 import com.duckG.cart.controller.DeleteCart;
 import com.duckG.cart.controller.SelectCart;
 import com.duckG.cart.controller.UpdateCart;
+import com.duckG.cart.controller.mapForm;
 import com.duckG.jjim.controller.AddJjim;
 import com.duckG.jjim.controller.DeleteJjim;
 import com.duckG.jjim.controller.JjimForm;
@@ -172,6 +173,11 @@ public class FrontController extends HttpServlet {
 		map.put("/addQnA.do", new AddQnA());			//QnA 추가
 		map.put("/deleteQnA.do", new DeleteQnA());		//QnA 제거
 		map.put("/updateQnA.do", new UpdateQnA());		//QnA 정보 업데이트
+		
+		//지도api
+		map.put("/map.do", new mapForm());
+		
+		
 	}
 
 	@Override

@@ -25,6 +25,8 @@ fetch('AddOrder.do?orderNo=' + orderNo)//*********************가져오는 값 �
 		
 		
 		//이미지 빠짐
+		console.log(result[0]);
+		document.querySelector('#image > img').src = "img/productDetail/" + result[0].image;
 		document.querySelector('#orderPak').innerHTML = result[0].orderPak;
 		document.querySelector('#count').innerHTML = result[0].count + '개';
 		document.querySelector('#price').innerHTML = result[0].price.toLocaleString() + '원';
