@@ -170,7 +170,7 @@
 													<tr>
 														<th class="col-md-5">답변</th>
 														<td class="col-md-7"><textarea id="ModalqnaAnswer"
-																rows="3" cols="45" style="border: none"></textarea></td>
+																rows="6" cols="45" style="border: none"></textarea></td>
 													</tr>
 												</table>
 											</div>
