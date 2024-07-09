@@ -43,7 +43,7 @@ public class CartForm implements Control {
 			e.printStackTrace();
 			resp.setContentType("text/html; charset=utf-8");
 			PrintWriter w = resp.getWriter();
-			w.write("<script>alert('아 똑바로좀 ㅋ');</script>");
+			w.write("<script>alert('오류가 발생하였습니다.<br> 잠시후 다시 시도해 주십시오');</script>");
 			w.flush();
 			w.close();
 			// resp.sendRedirect("main.do");
