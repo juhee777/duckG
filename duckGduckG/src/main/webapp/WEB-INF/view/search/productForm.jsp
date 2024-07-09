@@ -71,7 +71,7 @@
 				<c:forEach var="p" begin="${paging.startPage}"
 					end="${paging.endPage}">
 					<a
-						href="productForm.do?page=${p }&keyword=${search}&category=${category}"
+						href="productForm.do?category=${category}&page=${p}&keyword=${search}"
 						class=${p == paging.page ? 'active' : '' }> <c:out
 							value="${p }" />
 					</a>

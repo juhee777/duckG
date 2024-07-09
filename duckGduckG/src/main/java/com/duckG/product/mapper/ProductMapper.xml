@@ -62,7 +62,7 @@
 		from product
         <where>
           <choose>
-	        <when test="keyword != null">
+	        <when test="keyword != null and keyword != ''">
 		    product_name like '%'||#{keyword}||'%'
 		    </when>
 		    <when test="category != null">
@@ -80,7 +80,7 @@
 		           from product
 		           <where>
 			         <choose>
-				       <when test="keyword != null">
+				       <when test="keyword != null and keyword != ''">
 					   product_name like '%'||#{keyword}||'%'
 				       </when>
 				       <when test="category != null">
