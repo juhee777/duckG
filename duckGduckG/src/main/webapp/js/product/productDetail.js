@@ -219,7 +219,7 @@ fetch(`selectReview.do?productNo=${productNo}`)
 function cloneRow(reply = {}){
 	let template = document.querySelector("tbody#reviews > tr").cloneNode(true);
 	template.style.display = "table-row";
-	template.querySelector("#reviewImage").setAttribute('src', `img/productDetail/${reply.reviewImage}`);
+	template.querySelector("#reviewImage").setAttribute('src', `img/reviewimg/${reply.reviewImage}`);
     template.querySelector("#reviewImage").style = 'width: 100px;';
     template.querySelector("#reviewImage").style.display = 'inline-block';
 	template.querySelector("#reviewContent").innerHTML = reply.reviewContent;
