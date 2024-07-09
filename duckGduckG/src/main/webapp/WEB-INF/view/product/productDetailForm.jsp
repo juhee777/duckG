@@ -116,8 +116,9 @@
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="tabs-1" role="tabpanel">
-							<div class="product__details__tab__desc">
+							<div class="product__details__tab__desc" id="mainInfo">
 								
+							
 							</div>
 						</div>
 						<div class="tab-pane" id="tabs-2" role="tabpanel">
