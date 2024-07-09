@@ -58,6 +58,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<ProductVO> productListPaging(SearchVO search) {
 		// TODO Auto-generated method stub
+		System.out.println("====================="+search);
 		return mapper.productListPaging(search);
 	}
 
