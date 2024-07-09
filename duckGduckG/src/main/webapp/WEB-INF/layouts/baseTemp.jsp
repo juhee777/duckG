@@ -27,7 +27,6 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -42,12 +41,12 @@
 		</div>
 		<div class="humberger__menu__cart">
 			<c:if test="${logId != null }">
-			<ul>
-				<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
-						class="jjimCnt">1</span></a></li>
-				<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i>
-						<span class="cartCount">3</span></a></li>
-			</ul>
+				<ul>
+					<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
+							class="jjimCnt">1</span></a></li>
+					<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i>
+							<span class="cartCount">3</span></a></li>
+				</ul>
 			</c:if>
 		</div>
 		<div class="humberger__menu__widget">
@@ -74,8 +73,9 @@
 				<li><a href="#">고객센터</a>
 					<ul class="header__menu__dropdown">
 						<li><a href="Inquire.do">1:1 문의</a></li>
-					</ul></li>
-				<li><a href="map.do">전체 상품</a></li>	
+						<li><a href="map.do">오시는 길</a></li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
@@ -149,14 +149,14 @@
 				</div>
 				<div class="col-lg-3">
 					<c:if test="${logId != null }">
-					<div class="header__cart">
-						<ul>
-							<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
-									class="jjimCnt">1</span></a></li>
-							<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i>
-									<span class="cartCount">3</span></a></li>
-						</ul>
-					</div>
+						<div class="header__cart">
+							<ul>
+								<li><a href="jjimForm.do"><i class="fa fa-heart"></i> <span
+										class="jjimCnt">1</span></a></li>
+								<li><a href="cartForm.do"><i class="fa fa-shopping-bag"></i>
+										<span class="cartCount">3</span></a></li>
+							</ul>
+						</div>
 					</c:if>
 				</div>
 			</div>
@@ -221,8 +221,8 @@
 									document.write(new Date().getFullYear());
 								</script>
 								All rights reserved | This template is made with <i
-									class="fa fa-heart" aria-hidden="true"></i> by <a
-									href="#" target="_blank">Colorlib</a>
+									class="fa fa-heart" aria-hidden="true"></i> by <a href="#"
+									target="_blank">Colorlib</a>
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</p>
 						</div>

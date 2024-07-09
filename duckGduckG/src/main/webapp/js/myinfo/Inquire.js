@@ -19,7 +19,7 @@
 document.getElementById("submits").addEventListener('click',function(){
 	
 	setTimeout(function(){
-		location.href="MyInfo.do";
+		location.href="main.do";
 	},100)
 });
 

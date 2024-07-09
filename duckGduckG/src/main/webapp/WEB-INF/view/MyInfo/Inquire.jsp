@@ -22,7 +22,7 @@
              action=https://script.google.com/macros/s/AKfycbwbh1ryS1J6-mK1ugeL2LBS1BP4EUVgBpllteEwrT0fN77VotOBGhsHfw8xXbl77-b1oA/exec>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="ID" readonly>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="ID">
                     </div>
 
                     <div class="col-lg-6 col-md-6">

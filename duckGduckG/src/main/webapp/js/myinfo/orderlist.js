@@ -144,7 +144,12 @@ fetch('SelectOrder.do?userid='+id)//*********************가져오는 값 변경
 				pagecount = Math.ceil(result.length/10);		
 				for(let i = 1; i<=pagecount; i++){		
 					if(Math.ceil(result.length/10) == page){
-						document.querySelector('#end').setAttribute('style', 'display:none');
+						if(pagecount == 1){
+							document.querySelector('#end').setAttribute('style', 'display:none');
+							document.querySelector('#first').setAttribute('style', 'display:none');	
+						}else{
+						document.querySelector('#end').setAttribute('style', 'display:none');							
+						}
 					}else if(page == 1){
 						document.querySelector('#first').setAttribute('style', 'display:none');
 					}
@@ -191,7 +196,7 @@ function cloneRow(order = {}) {
 	}
 		
 		
-		li.querySelector('.clonelist>img').setAttribute('src', `img/${order.image}`);
+		li.querySelector('.clonelist>img').setAttribute('src', `img/productDetail/${order.image}`);
 		li.querySelector('#orderPak').innerHTML = order.orderPak;
 		li.querySelector('#boughtDate').innerHTML = order.boughtDate;
 		li.querySelector('#productName').innerHTML = order.productName;

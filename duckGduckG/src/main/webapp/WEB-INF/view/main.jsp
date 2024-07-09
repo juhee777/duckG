@@ -92,7 +92,7 @@
 									<a href="productDetailForm.do?productNo=${newReview.productNo }"
 										class="latest-product__item">
 										<div class="latest-product__item__pic">
-											<img src="img/productDetail/${newReview.reviewImage }"
+											<img src="img/reviewimg/${newReview.reviewImage }"
 												alt="${newReview.reviewContent }"
 												onerror="this.onerror=null; this.src='img/productDetail/no_img.gif';">
 										</div>
